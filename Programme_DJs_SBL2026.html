@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Programme DJs par Jour — SBL 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@600&display=swap');
@@ -35,7 +36,6 @@
     background: #0a0a2e;
     font-family: 'Montserrat', Arial, sans-serif;
     padding: 30px;
-    min-width: 1200px;
     position: relative;
     overflow-x: hidden;
   }
@@ -299,6 +299,32 @@
   .footer {
     text-align: center; margin-top: 40px;
     color: rgba(255,255,255,.3); font-size: .75em; letter-spacing: 1px;
+  }
+
+  /* === RESPONSIVE MOBILE === */
+  @media (max-width: 768px) {
+    body { padding: 14px; }
+    .site-nav { margin: -14px -14px 18px; gap: 5px; padding: 8px 12px; }
+    .nav-tab { font-size: .62em; padding: 5px 9px; letter-spacing: .5px; }
+    .header { padding: 16px 14px 12px; margin-bottom: 20px; }
+    .header-title { font-size: 1.75em !important; letter-spacing: 2px !important; }
+    .header-sub { font-size: .9em !important; letter-spacing: 1px !important; }
+    .header-dates { font-size: .82em !important; }
+    .header-loc { font-size: .75em !important; }
+    .legend { gap: 7px; margin-bottom: 20px; }
+    .legend-item { padding: 5px 10px; }
+    .legend-item span { font-size: .65em; }
+    .day-section { margin-bottom: 20px; }
+    .day-header { padding: 12px 14px; gap: 8px; }
+    .day-name { font-size: 1.5em; letter-spacing: 2px; }
+    .day-date { font-size: .75em; }
+    .day-badges { margin-left: 0; width: 100%; }
+    /* Grille : scroll horizontal sur mobile */
+    .schedule { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .schedule-header,
+    .slot-row,
+    .special-row { min-width: 580px; }
+    .footer { margin-top: 24px; }
   }
 
   @media print {

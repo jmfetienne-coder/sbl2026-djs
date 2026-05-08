@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DJs — Spring Break Latino 2026 · Slideshow</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@600;700&display=swap');
@@ -330,6 +331,56 @@
     margin-left: 6px;
   }
   .pause-btn:hover { color: #fff; background: rgba(255,255,255,.16); }
+
+  /* === RESPONSIVE MOBILE === */
+  @media (max-width: 768px) {
+    /* Top-bar : compacte, nav centrée en dessous */
+    .top-bar {
+      flex-wrap: wrap;
+      padding: 8px 14px;
+      gap: 4px;
+      justify-content: space-between;
+    }
+    .top-bar .event-name { font-size: .82em; letter-spacing: 1.5px; }
+    .top-bar .event-info { display: none; }
+    .top-bar-nav {
+      order: 3; width: 100%;
+      justify-content: center;
+      gap: 5px;
+      padding-bottom: 4px;
+    }
+    .top-nav-tab { font-size: .6em; padding: 4px 10px; }
+
+    /* Slide : photo en haut, info en bas */
+    .slide { flex-direction: column; }
+    .slide-photo {
+      flex: 0 0 42vh;
+      min-height: 0;
+    }
+    .slide-photo .photo-gradient {
+      background: linear-gradient(to bottom, transparent 55%, #06061e 100%),
+                  linear-gradient(to top,    #06061e 0%,  transparent 20%);
+    }
+    .accent-bar { top: 0; left: 0; right: 0; bottom: auto; width: auto; height: 4px; }
+    .slide-info {
+      flex: 1;
+      padding: 16px 20px 90px;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+    .dj-counter { margin-bottom: 8px; }
+    .dj-name-sl { font-size: 2em !important; margin-bottom: 12px; }
+    .espaces-sl { margin-bottom: 12px; gap: 6px; }
+    .styles-list-sl { margin-bottom: 14px; gap: 5px; }
+    .joker-badge-sl { margin-bottom: 10px; }
+
+    /* Barre progression + nav plus proches du bas */
+    .progress-bar-wrap { bottom: 50px; left: 16px; right: 16px; }
+    .nav-wrap { bottom: 10px; gap: 8px; }
+    .nav-btn { width: 36px; height: 36px; font-size: 1em; }
+    .dot { width: 6px; height: 6px; }
+    .dots-wrap { gap: 5px; }
+  }
 
   /* Tag colors */
   .tag-caraibes { background: #E65100; }
