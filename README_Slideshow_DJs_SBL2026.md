@@ -75,7 +75,7 @@ Intégrée dans la barre d'en-tête fixe (entre le titre et les infos lieu/date)
 | 6 | DJ Mikado San | Espace Suave · After Party Kiz | 12 → 18 mai |
 | 7 | DJ CYCY | Espace Caraïbes · Espace Bachata | 12 → 18 mai |
 | 8 | DJ Jean-Emile | Espace Bachata · Suave / Kizomba | 13 → 17 mai |
-| 9 | DJ RO | Espace Caraïbes · After Party | 13 → 18 mai |
+| 9 | DJ ROH | Espace Caraïbes · After Party | 13 → 18 mai |
 | 10 | DJ BLANQUILLO | Espace Bachata · Suave / Kizomba | 13 → 20 mai |
 | 11 | DJ FABULOUS | Espace Caraïbes · Espace Suave · After Party | 11 → 19 mai |
 | 12 | DJ JEREMY | Espace Caraïbes | 10 → 20 mai |

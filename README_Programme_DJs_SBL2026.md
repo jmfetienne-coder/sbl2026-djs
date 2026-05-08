@@ -162,7 +162,7 @@ Chaque DJ apparaît sous forme d'avatar circulaire (38px) + nom. Les fichiers ut
 | DJ CYCY | `DJ_CyCy_nobg.png` |
 | DJ BLANQUILLO | `DJ_SYLVAIN_nobg.png` |
 | DJ Mikado San | `DJ_Mikado_nobg.png` |
-| DJ RO | `DJ_RO_nobg.png` |
+| DJ ROH | `DJ_RO_nobg.png` |
 | DJ JEREMY | `DJ_JEREMY_nobg.png` |
 | DJ FABULOUS | `DJ_FABULOUS_nobg.png` |
 
@@ -226,7 +226,7 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g' \
 | 8 mai 2026 | Création v1 — 5 jours, grille créneaux × espaces, avatars DJs, événements spéciaux |
 | 8 mai 2026 | v2 — Amélioration design (animations CSS, glow, zoom photo, lumières ambiantes) |
 | 8 mai 2026 | v2 — Ajout section «Sur les pistes» sur les 3 lignes concert (Mika Mendes, Grupo Olas, Parisongo) |
-| 8 mai 2026 | v3 — Renommage affiché de tous les DJs (DJ DREAMS, DJ BLANQUILLO, DJ CYCY, DJ Jean-Mi, DJ RO, DJ PHILLIPE, DJ JEREMY, DJ TREW, DJ Mikado San, DJ Alex Salsarito, DJ FABULOUS, DJ Jean-Emile) |
+| 8 mai 2026 | v3 — Renommage affiché de tous les DJs (DJ DREAMS, DJ BLANQUILLO, DJ CYCY, DJ Jean-Mi, DJ ROH, DJ PHILLIPE, DJ JEREMY, DJ TREW, DJ Mikado San, DJ Alex Salsarito, DJ FABULOUS, DJ Jean-Emile) |
 | 8 mai 2026 | v4 — Intégration photo `DJ_Jean_Emile_nobg.png` — avatar SVG remplacé dans toutes les occurrences |
 | 8 mai 2026 | v5 — Navigation commune 3 onglets (Trombinoscope · Programme · Slideshow) en barre sticky |
 | 8 mai 2026 | v6 — Mise en ligne GitHub Pages (dépôt `jmfetienne-coder/sbl2026-djs`) |
