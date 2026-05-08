@@ -249,18 +249,20 @@
   @media (max-width: 750px) {
     body { padding: 16px; }
     .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .card { height: 400px; }
+    .card { height: 360px; }
     .header { padding: 20px 14px 14px; margin-bottom: 24px; }
     .header .h1, .header h1 { font-size: 1.9em !important; letter-spacing: 2px !important; }
     .header .subtitle { font-size: 1em !important; letter-spacing: 1.5px !important; }
     .filter-btn { font-size: .68em; padding: 7px 13px; }
+    .photo-dreams { object-position: center 30% !important; }
   }
   @media (max-width: 420px) {
     .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .card { height: 360px; }
+    .card { height: 320px; }
     .dj-name { font-size: 1.15em; }
     .espace-tag { font-size: .6em; padding: 2px 7px; }
     .style-chip { font-size: .6em; padding: 2px 7px; }
+    .photo-dreams { object-position: center 35% !important; }
   }
 
   /* === CARTE DJ === */
@@ -549,7 +551,7 @@
   <div class="card" data-espaces="caraibes bachata suave after pool beach" data-from="2026-05-11" data-to="2026-05-19">
     <div class="card-accent" style="background:linear-gradient(90deg,#4527A0,#0277BD,#FF8F00);"></div>
     <div class="photo-wrap">
-      <img src="DJ_Dreams2_nobg.png" style="object-position:center top" alt="DREAMS">
+      <img src="DJ_Dreams2_nobg.png" class="photo-dreams" style="object-position:center top" alt="DREAMS">
       <div class="joker-badge">💯 Joker</div>
     </div>
     <div class="card-body">
