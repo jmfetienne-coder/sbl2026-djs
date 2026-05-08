@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>DJs — Spring Break Latino 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+
+  /* ── Animations ─────────────────────────────── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes headerGlow {
+    0%,100% { box-shadow: 0 0 60px rgba(0,188,212,.55), 0 6px 40px rgba(0,0,0,.6); border-color: #00BCD4; }
+    50%     { box-shadow: 0 0 80px rgba(233,30,99,.45), 0 6px 40px rgba(0,0,0,.6); border-color: #E91E63; }
+  }
+  @keyframes pulseJoker {
+    0%,100% { transform: scale(1);    box-shadow: 0 0 8px rgba(255,193,7,.4); }
+    50%     { transform: scale(1.10); box-shadow: 0 0 18px rgba(255,193,7,.8); }
+  }
+  @keyframes ambientDrift {
+    0%   { transform: translate(0,0)    scale(1); }
+    50%  { transform: translate(40px,-30px) scale(1.1); }
+    100% { transform: translate(0,0)    scale(1); }
+  }
+
+  body {
+    background: #0a0a2e;
+    font-family: 'Montserrat', Arial, sans-serif;
+    padding: 30px;
+    position: relative;
+    overflow-x: hidden;
+  }
+  /* Lumières ambiantes */
+  body::before, body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(120px);
+    opacity: .18;
+    animation: ambientDrift 18s ease-in-out infinite;
+  }
+  body::before {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, #00BCD4, transparent 70%);
+    top: -200px; left: -200px;
+  }
+  body::after {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #E91E63, transparent 70%);
+    bottom: -150px; right: -150px;
+    animation-delay: -9s;
+  }
+  .header, .legend, .grid, .footer { position: relative; z-index: 1; }
+
+  /* === EN-TÊTE === */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 20px 20px;
+    background: linear-gradient(135deg, #0d47a1 0%, #1a237e 50%, #0d47a1 100%);
+    border-radius: 20px;
+    border: 3px solid #00BCD4;
+    position: relative;
+    overflow: hidden;
+    animation: headerGlow 5s ease-in-out infinite;
+  }
+  .header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,.03) 20px, rgba(255,255,255,.03) 40px);
+  }
+  .header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.2em;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 30px #00BCD4, 0 3px 6px rgba(0,0,0,.5);
+    position: relative;
+  }
+  .header h1 span { color: #E91E63; }
+  .header .subtitle {
+    font-size: 1.3em;
+    color: #00BCD4;
+    margin-top: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+  }
+  .header .dates {
+    font-size: 1em;
+    color: #FFC107;
+    margin-top: 6px;
+    letter-spacing: 2px;
+    position: relative;
+  }
+  .header .location {
+    font-size: .85em;
+    color: rgba(255,255,255,.7);
+    margin-top: 4px;
+    position: relative;
+  }
+
+  /* === LÉGENDE ESPACES === */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.07);
+    border-radius: 30px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,.15);
+  }
+  .legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-item span {
+    color: #fff;
+    font-size: .8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* === QR CODE === */
+  .qr-widget {
+    position: absolute;
+    top: 50%; right: 24px;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    z-index: 2;
+  }
+  .qr-box {
+    background: #fff;
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.5);
+    width: 90px; height: 90px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .qr-box canvas, .qr-box img { display: block; }
+  .qr-label {
+    font-size: .58em; font-weight: 700;
+    color: rgba(255,255,255,.5);
+    text-transform: uppercase; letter-spacing: .8px;
+    text-align: center; line-height: 1.3;
+  }
+  @media (max-width: 750px) { .qr-widget { display: none; } }
+
+  /* === NAV COMMUNE === */
+  .site-nav {
+    position: sticky; top: 0; z-index: 200;
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+    background: rgba(6,6,30,.92); backdrop-filter: blur(14px);
+    padding: 10px 20px;
+    margin: -30px -30px 30px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .nav-tab {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: .75em; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    padding: 7px 16px; border-radius: 30px;
+    border: 2px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.06);
+    color: rgba(255,255,255,.6); text-decoration: none;
+    transition: all .2s ease;
+    white-space: nowrap;
+  }
+  .nav-tab:hover { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.3); }
+  .nav-tab.active { background: linear-gradient(135deg,#00BCD4,#1a237e); color: #fff; border-color: transparent; box-shadow: 0 4px 16px rgba(0,188,212,.3); }
+
+  /* === FILTRES === */
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .filter-btn {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: .75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 9px 18px;
+    border-radius: 30px;
+    border: 2px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.06);
+    color: rgba(255,255,255,.7);
+    cursor: pointer;
+    transition: all .25s ease;
+  }
+  .filter-btn:hover {
+    background: rgba(255,255,255,.14);
+    border-color: rgba(255,255,255,.4);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  .filter-btn.active {
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    transform: translateY(-2px);
+  }
+  .filter-btn[data-filter="all"].active       { background: linear-gradient(135deg,#00BCD4,#1a237e); }
+  .filter-btn[data-filter="caraibes"].active  { background: #E65100; box-shadow: 0 4px 18px rgba(230,81,0,.5); }
+  .filter-btn[data-filter="bachata"].active   { background: #AD1457; box-shadow: 0 4px 18px rgba(173,20,87,.5); }
+  .filter-btn[data-filter="suave"].active     { background: #00695C; box-shadow: 0 4px 18px rgba(0,105,92,.5); }
+  .filter-btn[data-filter="after"].active     { background: #4527A0; box-shadow: 0 4px 18px rgba(69,39,160,.5); }
+  .filter-btn[data-filter="pool"].active      { background: linear-gradient(135deg,#0277BD,#FF8F00); box-shadow: 0 4px 18px rgba(2,119,189,.5); }
+
+  .card.hidden {
+    display: none;
+  }
+
+  /* === GRILLE DJs === */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 1100px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 750px) {
+    body { padding: 16px; }
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .card { height: 400px; }
+    .header { padding: 20px 14px 14px; margin-bottom: 24px; }
+    .header .h1, .header h1 { font-size: 1.9em !important; letter-spacing: 2px !important; }
+    .header .subtitle { font-size: 1em !important; letter-spacing: 1.5px !important; }
+    .filter-btn { font-size: .68em; padding: 7px 13px; }
+  }
+  @media (max-width: 420px) {
+    .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .card { height: 360px; }
+    .dj-name { font-size: 1.15em; }
+    .espace-tag { font-size: .6em; padding: 2px 7px; }
+    .style-chip { font-size: .6em; padding: 2px 7px; }
+  }
+
+  /* === CARTE DJ === */
+  .card {
+    background: linear-gradient(180deg, #14144e 0%, #0a0a2e 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,.08);
+    transition: transform .35s cubic-bezier(.23,1,.32,1),
+                box-shadow .35s ease,
+                border-color .35s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 460px;
+    animation: fadeInUp .55s ease both;
+  }
+  .card:hover {
+    transform: translateY(-10px) scale(1.015);
+    box-shadow: 0 28px 70px rgba(0,0,0,.75),
+                0 0 0 1px rgba(255,255,255,.18),
+                0 0 50px rgba(0,188,212,.12);
+    border-color: rgba(255,255,255,.22);
+  }
+  .grid > .card:nth-child(1) { animation-delay: 0.06s; }
+  .grid > .card:nth-child(2) { animation-delay: 0.12s; }
+  .grid > .card:nth-child(3) { animation-delay: 0.18s; }
+  .grid > .card:nth-child(4) { animation-delay: 0.24s; }
+  .grid > .card:nth-child(5) { animation-delay: 0.30s; }
+  .grid > .card:nth-child(6) { animation-delay: 0.36s; }
+  .grid > .card:nth-child(7) { animation-delay: 0.42s; }
+  .grid > .card:nth-child(8) { animation-delay: 0.48s; }
+  .grid > .card:nth-child(9) { animation-delay: 0.54s; }
+  .grid > .card:nth-child(10) { animation-delay: 0.60s; }
+  .grid > .card:nth-child(11) { animation-delay: 0.66s; }
+  .grid > .card:nth-child(12) { animation-delay: 0.72s; }
+
+  .card-accent {
+    height: 8px;
+    width: 100%;
+    flex-shrink: 0;
+    filter: brightness(1.1);
+  }
+
+  /* Photo */
+  .photo-wrap {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+    background: #1a1a4e;
+  }
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s cubic-bezier(.23,1,.32,1);
+  }
+  .card:hover .photo-wrap img {
+    transform: scale(1.07);
+  }
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+    font-weight: 900;
+    color: rgba(255,255,255,.15);
+    background: linear-gradient(135deg, #1a1a5e, #0d0d3e);
+    letter-spacing: 2px;
+  }
+  .joker-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: linear-gradient(135deg, #FFC107, #FF8F00);
+    color: #000;
+    font-size: .65em;
+    font-weight: 900;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulseJoker 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseCeSoir {
+    0%,100% { transform: scale(1);    box-shadow: 0 0 8px rgba(76,175,80,.5), 0 0 20px rgba(76,175,80,.25); }
+    50%     { transform: scale(1.08); box-shadow: 0 0 16px rgba(76,175,80,.9), 0 0 35px rgba(76,175,80,.4); }
+  }
+  .ce-soir-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: linear-gradient(135deg, #43A047, #1B5E20);
+    color: #fff;
+    font-size: .65em;
+    font-weight: 900;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulseCeSoir 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .ce-soir-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #A5D6A7;
+    flex-shrink: 0;
+  }
+
+  /* Infos */
+  .card-body { padding: 10px 14px 12px; flex-shrink: 0; }
+
+  .dj-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 4px;
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba(255,255,255,.25), 0 2px 4px rgba(0,0,0,.5);
+    transition: text-shadow .3s ease;
+  }
+  .card:hover .dj-name {
+    text-shadow: 0 0 30px rgba(0,188,212,.6), 0 2px 4px rgba(0,0,0,.5);
+  }
+
+  /* Espaces soirée */
+  .espaces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 12px;
+    margin-top: 6px;
+  }
+  .espace-tag {
+    font-size: .68em;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: #fff;
+  }
+  .tag-caraibes  { background: #E65100; box-shadow: 0 2px 14px rgba(230,81,0,.6); }
+  .tag-bachata   { background: #AD1457; box-shadow: 0 2px 14px rgba(173,20,87,.6); }
+  .tag-suave     { background: #00695C; }
+  .tag-after     { background: #4527A0; }
+  .tag-pool      { background: #0277BD; }
+  .tag-beach     { background: #FF8F00; }
+  .tag-joker     { background: #F57F17; }
+
+  /* Styles musicaux */
+  .styles-label {
+    font-size: .65em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .styles-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .style-chip {
+    font-size: .68em;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.07);
+    color: rgba(255,255,255,.9);
+    border: 1px solid rgba(255,255,255,.18);
+    font-weight: 600;
+    transition: background .2s, transform .2s, border-color .2s;
+    cursor: default;
+  }
+  .style-chip:hover {
+    background: rgba(255,255,255,.16);
+    border-color: rgba(255,255,255,.35);
+    transform: translateY(-1px);
+  }
+
+  /* Dates */
+  .dates-dj {
+    margin-top: 10px;
+    font-size: .65em;
+    color: rgba(255,255,255,.4);
+    letter-spacing: .5px;
+  }
+  .dates-dj span { color: #FFC107; font-weight: 700; text-shadow: 0 0 8px rgba(255,193,7,.5); }
+
+  /* Placeholder "photo à venir" */
+  .no-photo { color: rgba(255,255,255,.3); font-size: .75em; text-align: center; padding: 10px 0; }
+
+  /* === FOOTER === */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    color: rgba(255,255,255,.3);
+    font-size: .75em;
+    letter-spacing: 1px;
+  }
+
+  /* === PRINT === */
+  @media print {
+    body { padding: 10px; }
+    .card { break-inside: avoid; }
+    .styles-label, .dates-dj { color: rgba(255,255,255,.85) !important; }
+    .dj-name { color: #fff !important; }
+    .style-chip { color: #fff !important; }
+  }
+
+  /* Gradient bas pour harmoniser les fonds naturels */
+  .photo-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to top, #0a0a2e 0%, transparent 100%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- EN-TÊTE -->
+<div class="header">
+  <div class="h1" style="font-family:'Oswald',sans-serif;font-size:3.2em;color:#fff;text-transform:uppercase;letter-spacing:4px;text-shadow:0 0 30px #00BCD4;position:relative;">
+    SPRING BREAK <span style="color:#E91E63;">LATINO</span> 2026
+  </div>
+  <div class="subtitle" style="font-size:1.3em;color:#00BCD4;margin-top:8px;letter-spacing:3px;text-transform:uppercase;font-weight:700;">
+    🎧 Vos DJs — Identifiez vos ambiances 🎧
+  </div>
+  <div class="dates" style="font-size:1em;color:#FFC107;margin-top:6px;letter-spacing:2px;">
+    13 › 17 MAI 2026
+  </div>
+  <div class="location" style="font-size:.85em;color:rgba(255,255,255,.7);margin-top:4px;">
+    Camping Arinella Bianca — Ghisonnacia, Corse
+  </div>
+  <div class="qr-widget">
+    <div class="qr-box" id="qrcode"></div>
+    <div class="qr-label">Scanner<br>pour partager</div>
+  </div>
+</div>
+
+<!-- LÉGENDE -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#E65100;"></div><span>Espace Caraïbes</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#AD1457;"></div><span>Espace Bachata</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#00695C;"></div><span>Espace Suave / Kizomba</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#4527A0;"></div><span>After Party</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0277BD;"></div><span>Pool Party</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#FF8F00;"></div><span>Beach Party</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#F57F17;"></div><span>Joker universel</span></div>
+</div>
+
+<!-- NAV COMMUNE -->
+<nav class="site-nav">
+  <a href="Tombi_DJs_SBL2026.html" class="nav-tab active">🎧 Trombinoscope</a>
+  <a href="Programme_DJs_SBL2026.html" class="nav-tab">📅 Programme</a>
+  <a href="Tombi_DJs_SBL2026_SLIDESHOW.html" class="nav-tab">▶ Slideshow</a>
+</nav>
+
+<!-- FILTRES -->
+<div class="filters">
+  <button class="filter-btn active" data-filter="all">🎧 Tous</button>
+  <button class="filter-btn" data-filter="caraibes">🟠 Caraïbes</button>
+  <button class="filter-btn" data-filter="bachata">🩷 Bachata</button>
+  <button class="filter-btn" data-filter="suave">🟢 Suave / Kiz</button>
+  <button class="filter-btn" data-filter="after">🟣 After Party</button>
+  <button class="filter-btn" data-filter="pool">🔵 Pool &amp; Beach</button>
+</div>
+
+<!-- GRILLE DJs -->
+<div class="grid">
+
+  <!-- DREAMS -->
+  <div class="card" data-espaces="caraibes bachata suave after pool beach" data-from="2026-05-11" data-to="2026-05-19">
+    <div class="card-accent" style="background:linear-gradient(90deg,#4527A0,#0277BD,#FF8F00);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_Dreams2_nobg.png" style="object-position:center top" alt="DREAMS">
+      <div class="joker-badge">💯 Joker</div>
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ DREAMS</div>
+      <div class="espaces">
+        <span class="espace-tag tag-pool">Pool Party</span>
+        <span class="espace-tag tag-beach">Beach Party</span>
+        <span class="espace-tag tag-after">After Party</span>
+        <span class="espace-tag tag-joker">Toutes ambiances</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Salsa</span>
+        <span class="style-chip">Bachata Dom.</span>
+        <span class="style-chip">Zouk</span>
+        <span class="style-chip">Kompa</span>
+        <span class="style-chip">Gouyad</span>
+        <span class="style-chip">Soca</span>
+        <span class="style-chip">Dancehall</span>
+        <span class="style-chip">Shatta</span>
+        <span class="style-chip">Reggaeton</span>
+        <span class="style-chip">Dembow</span>
+        <span class="style-chip">Merengue</span>
+        <span class="style-chip">Ragga</span>
+      </div>
+      <div class="dates-dj">Présent du <span>11 mai</span> au <span>19 mai</span></div>
+    </div>
+  </div>
+
+  <!-- ALEX SALSERITO -->
+  <div class="card" data-espaces="caraibes after" data-from="2026-05-11" data-to="2026-05-18">
+    <div class="card-accent" style="background:linear-gradient(90deg,#E65100,#4527A0);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_SALSERITO_nobg.png" style="object-position:center top" alt="Alex Salserito">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ Alex Salsarito</div>
+      <div class="espaces">
+        <span class="espace-tag tag-caraibes">Espace Caraïbes</span>
+        <span class="espace-tag tag-after">After Party</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Salsa Cubaine</span>
+        <span class="style-chip">Salsa Porto</span>
+        <span class="style-chip">Rueda de Casino</span>
+        <span class="style-chip">Zouk</span>
+        <span class="style-chip">Kizomba</span>
+        <span class="style-chip">Kompa</span>
+      </div>
+      <div class="dates-dj">Présent du <span>11 mai</span> au <span>18 mai</span></div>
+    </div>
+  </div>
+
+  <!-- JEAN-MICHEL -->
+  <div class="card" data-espaces="bachata caraibes" data-from="2026-05-11" data-to="2026-05-18">
+    <div class="card-accent" style="background:linear-gradient(90deg,#E65100,#AD1457);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_JEAN-MICHELJPG_nobg.png" style="object-position:center top" alt="Jean-Michel">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ Jean-Mi</div>
+      <div class="espaces">
+        <span class="espace-tag tag-bachata">Espace Bachata</span>
+        <span class="espace-tag tag-caraibes">Espace Caraïbes</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Salsa</span>
+        <span class="style-chip">Bachata</span>
+        <span class="style-chip">Cha-cha</span>
+        <span class="style-chip">Kompa</span>
+      </div>
+      <div class="dates-dj">Présent du <span>11 mai</span> au <span>18 mai</span></div>
+    </div>
+  </div>
+
+  <!-- PHILIPPE DJ -->
+  <div class="card" data-espaces="bachata caraibes" data-from="2026-05-12" data-to="2026-05-18">
+    <div class="card-accent" style="background:linear-gradient(90deg,#AD1457,#E65100);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_PHILIPPE_nobg.png" style="object-position:center top" alt="DJ PHILLIPE">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ PHILLIPE</div>
+      <div class="espaces">
+        <span class="espace-tag tag-bachata">Espace Bachata</span>
+        <span class="espace-tag tag-caraibes">Espace Caraïbes</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Salsa</span>
+        <span class="style-chip">Bachata</span>
+        <span class="style-chip">Kompa</span>
+        <span class="style-chip">Généraliste</span>
+      </div>
+      <div class="dates-dj">Présent du <span>12 mai</span> au <span>18 mai</span></div>
+    </div>
+  </div>
+
+  <!-- THOMAS SBL -->
+  <div class="card" data-espaces="suave after" data-from="2026-05-12" data-to="2026-05-18">
+    <div class="card-accent" style="background:#00695C;"></div>
+    <div class="photo-wrap">
+      <img src="DJ_THOMAS_nobg.png" style="object-position:center 15%" alt="Thomas SBL">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ TREW</div>
+      <div class="espaces">
+        <span class="espace-tag tag-suave">Espace Suave</span>
+        <span class="espace-tag tag-suave">Kizomba</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Kizomba</span>
+        <span class="style-chip">Urban Kiz</span>
+        <span class="style-chip">Semba</span>
+        <span class="style-chip">Suave</span>
+      </div>
+      <div class="dates-dj">Présent du <span>12 mai</span> au <span>18 mai</span></div>
+    </div>
+  </div>
+
+  <!-- MIKADO SAN -->
+  <div class="card" data-espaces="suave after" data-from="2026-05-12" data-to="2026-05-18">
+    <div class="card-accent" style="background:#00695C;"></div>
+    <div class="photo-wrap">
+      <img src="DJ_Mikado_nobg.png" style="object-position:center 25%" alt="Mikado San">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ Mikado San</div>
+      <div class="espaces">
+        <span class="espace-tag tag-suave">Espace Suave</span>
+        <span class="espace-tag tag-after">After Party Kiz</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Kizomba</span>
+        <span class="style-chip">Urban Kiz</span>
+        <span class="style-chip">Trad</span>
+        <span class="style-chip">Semba</span>
+        <span class="style-chip">Suave</span>
+      </div>
+      <div class="dates-dj">Présent du <span>12 mai</span> au <span>18 mai</span></div>
+    </div>
+  </div>
+
+  <!-- JEAN-EMILE -->
+  <div class="card" data-espaces="bachata suave" data-from="2026-05-13" data-to="2026-05-17">
+    <div class="card-accent" style="background:linear-gradient(90deg,#AD1457,#00695C);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_Jean_Emile_nobg.png" style="object-position:center 25%" alt="DJ Jean-Emile">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ Jean-Emile</div>
+      <div class="espaces">
+        <span class="espace-tag tag-bachata">Espace Bachata</span>
+        <span class="espace-tag tag-suave">Suave / Kizomba</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Bachata</span>
+        <span class="style-chip">Kizomba</span>
+      </div>
+      <div class="dates-dj">Présent du <span>13 mai (15h)</span> au <span>17 mai (15h)</span></div>
+    </div>
+  </div>
+
+  <!-- CYCY -->
+  <div class="card" data-espaces="caraibes bachata" data-from="2026-05-12" data-to="2026-05-18">
+    <div class="card-accent" style="background:linear-gradient(90deg,#E65100,#AD1457);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_CyCy_nobg.png" style="object-position:center 15%;transform:scale(1.15);transform-origin:center 15%;" alt="CyCy">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ CYCY</div>
+      <div class="espaces">
+        <span class="espace-tag tag-caraibes">Espace Caraïbes</span>
+        <span class="espace-tag tag-bachata">Espace Bachata</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Salsa</span>
+        <span class="style-chip">Bachata</span>
+      </div>
+      <div class="dates-dj">Présent du <span>12 mai</span> au <span>18 mai</span></div>
+    </div>
+  </div>
+
+  <!-- ROLLAND -->
+  <div class="card" data-espaces="caraibes after" data-from="2026-05-13" data-to="2026-05-18">
+    <div class="card-accent" style="background:linear-gradient(90deg,#E65100,#4527A0);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_RO_nobg.png" style="object-position:center 15%" alt="DJ RO">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ RO</div>
+      <div class="espaces">
+        <span class="espace-tag tag-caraibes">Espace Caraïbes</span>
+        <span class="espace-tag tag-after">After Party</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Polyvalent</span>
+        <span class="style-chip">Salsa</span>
+        <span class="style-chip">Généraliste</span>
+      </div>
+      <div class="dates-dj">Présent du <span>13 mai</span> au <span>18 mai</span></div>
+    </div>
+  </div>
+
+  <!-- SYLVAIN -->
+  <div class="card" data-espaces="bachata suave" data-from="2026-05-13" data-to="2026-05-20">
+    <div class="card-accent" style="background:linear-gradient(90deg,#AD1457,#00695C);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_SYLVAIN_nobg.png" style="object-position:center 8%;transform:scale(1.3);transform-origin:center 8%;" alt="Sylvain">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ BLANQUILLO</div>
+      <div class="espaces">
+        <span class="espace-tag tag-bachata">Espace Bachata</span>
+        <span class="espace-tag tag-suave">Suave / Kizomba</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Bachata</span>
+        <span class="style-chip">Kizomba</span>
+        <span class="style-chip">Zouk</span>
+      </div>
+      <div class="dates-dj">Présent du <span>13 mai</span> au <span>20 mai</span></div>
+    </div>
+  </div>
+
+  <!-- FABULOUS DJ -->
+  <div class="card" data-espaces="caraibes suave after" data-from="2026-05-11" data-to="2026-05-19">
+    <div class="card-accent" style="background:linear-gradient(90deg,#E65100,#00695C,#4527A0);"></div>
+    <div class="photo-wrap">
+      <img src="DJ_FABULOUS_nobg.png" style="object-position:center top" alt="DJ FABULOUS">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ FABULOUS</div>
+      <div class="espaces">
+        <span class="espace-tag tag-caraibes">Espace Caraïbes</span>
+        <span class="espace-tag tag-suave">Espace Suave</span>
+        <span class="espace-tag tag-after">After Party</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Salsa</span>
+        <span class="style-chip">Bachata</span>
+        <span class="style-chip">Kizomba</span>
+        <span class="style-chip">Zouk</span>
+      </div>
+      <div class="dates-dj">Présent du <span>11 mai</span> au <span>19 mai</span></div>
+    </div>
+  </div>
+
+  <!-- JÉRÉMY -->
+  <div class="card" data-espaces="caraibes" data-from="2026-05-10" data-to="2026-05-20">
+    <div class="card-accent" style="background:#E65100;"></div>
+    <div class="photo-wrap">
+      <img src="DJ_JEREMY_nobg.png" style="object-position:center top" alt="DJ JEREMY">
+    </div>
+    <div class="card-body">
+      <div class="dj-name">DJ JEREMY</div>
+      <div class="espaces">
+        <span class="espace-tag tag-caraibes">Espace Caraïbes</span>
+      </div>
+      <div class="styles-label">Styles musicaux</div>
+      <div class="styles-list">
+        <span class="style-chip">Salsa</span>
+        <span class="style-chip">Cha-cha</span>
+        <span class="style-chip">Old school</span>
+      </div>
+      <div class="dates-dj">Présent du <span>10 mai</span> au <span>20 mai</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer" style="color:rgba(255,255,255,.3);text-align:center;margin-top:40px;font-size:.75em;letter-spacing:1px;">
+  Spring Break Latino Corsica 2026 · by Salsabor · inforesa@salsabor.fr
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // ── QR Code ──────────────────────────────────────────
+  // Dossier Google Drive partagé — remplacer par l'URL d'un fichier spécifique si hébergement web
+  const QR_URL = 'https://drive.google.com/drive/folders/1HlU-BAZyCLE_EQSx7wzmXQUhR8XnvcMn?usp=sharing';
+
+  new QRCode(document.getElementById('qrcode'), {
+    text: QR_URL,
+    width: 78, height: 78,
+    colorDark: '#000000', colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M
+  });
+
+  // ── Filtres ──────────────────────────────────────────
+  const btns  = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+
+  /* ── Filtres ── */
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(card => {
+        const espaces = card.dataset.espaces || '';
+        card.classList.toggle('hidden', f !== 'all' && !espaces.includes(f));
+      });
+    });
+  });
+
+  /* ── Badge "CE SOIR" ── */
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  cards.forEach(card => {
+    const from = card.dataset.from;
+    const to   = card.dataset.to;
+    if (!from || !to) return;
+
+    const dFrom = new Date(from);
+    const dTo   = new Date(to);
+    dFrom.setHours(0, 0, 0, 0);
+    dTo.setHours(0, 0, 0, 0);
+
+    if (today >= dFrom && today <= dTo) {
+      const wrap = card.querySelector('.photo-wrap');
+      if (!wrap) return;
+      const badge = document.createElement('div');
+      badge.className = 'ce-soir-badge';
+      badge.innerHTML = '<span class="ce-soir-dot"></span>Ce soir';
+      wrap.appendChild(badge);
+    }
+  });
+</script>
+</body>
+</html>

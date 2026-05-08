@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>DJs — Spring Break Latino 2026 · Slideshow</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #06061e;
+    font-family: 'Montserrat', Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    user-select: none;
+  }
+
+  /* ── Fond ambiant animé ── */
+  .ambient {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    overflow: hidden;
+  }
+  .ambient::before, .ambient::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: .22;
+    transition: background 1.2s ease;
+  }
+  .ambient::before {
+    width: 70vw; height: 70vw;
+    top: -20vw; left: -20vw;
+    background: radial-gradient(circle, var(--amb1, #00BCD4), transparent 70%);
+    animation: floatA 20s ease-in-out infinite;
+  }
+  .ambient::after {
+    width: 60vw; height: 60vw;
+    bottom: -15vw; right: -15vw;
+    background: radial-gradient(circle, var(--amb2, #E91E63), transparent 70%);
+    animation: floatA 24s ease-in-out infinite reverse;
+  }
+  @keyframes floatA {
+    0%,100% { transform: translate(0,0) scale(1); }
+    50%      { transform: translate(40px,-30px) scale(1.08); }
+  }
+
+  /* ── En-tête fixe ── */
+  .top-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 36px;
+    background: rgba(6,6,30,.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .top-bar .event-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .top-bar .event-name span { color: #E91E63; }
+  .top-bar .event-info {
+    font-size: .72em;
+    color: rgba(255,255,255,.45);
+    letter-spacing: 1px;
+    text-align: right;
+  }
+  .top-bar-nav { display: flex; gap: 6px; align-items: center; }
+  .top-nav-tab {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: .68em; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .8px;
+    padding: 5px 13px; border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.07);
+    color: rgba(255,255,255,.55); text-decoration: none;
+    transition: all .2s ease;
+    white-space: nowrap;
+  }
+  .top-nav-tab:hover { background: rgba(255,255,255,.16); color: #fff; border-color: rgba(255,255,255,.3); }
+  .top-nav-tab.active { background: rgba(0,188,212,.25); border-color: #00BCD4; color: #fff; pointer-events: none; }
+
+  /* ── Zone slide ── */
+  .stage {
+    position: fixed; inset: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── Slide individuel ── */
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; align-items: stretch;
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    animation: slideEnter .65s cubic-bezier(.23,1,.32,1) both;
+  }
+  .slide.exit-left {
+    animation: slideExitLeft .5s cubic-bezier(.55,0,1,.45) both;
+    pointer-events: none;
+  }
+  .slide.exit-right {
+    animation: slideExitRight .5s cubic-bezier(.55,0,1,.45) both;
+    pointer-events: none;
+  }
+  .slide.enter-right {
+    animation: slideEnterRight .65s cubic-bezier(.23,1,.32,1) both;
+  }
+
+  @keyframes slideEnter      { from { opacity:0; transform:translateX(60px) scale(.97); } to { opacity:1; transform:translateX(0) scale(1); } }
+  @keyframes slideEnterRight { from { opacity:0; transform:translateX(-60px) scale(.97); } to { opacity:1; transform:translateX(0) scale(1); } }
+  @keyframes slideExitLeft   { from { opacity:1; transform:translateX(0); } to { opacity:0; transform:translateX(-80px); } }
+  @keyframes slideExitRight  { from { opacity:1; transform:translateX(0); } to { opacity:0; transform:translateX(80px); } }
+
+  /* ── Photo (gauche) ── */
+  .slide-photo {
+    flex: 0 0 52%;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide-photo img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transform: scale(1.04);
+    animation: photoKenBurns 7s ease-in-out both;
+  }
+  @keyframes photoKenBurns {
+    from { transform: scale(1.10); }
+    to   { transform: scale(1.02); }
+  }
+  .slide-photo .photo-gradient {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 60%, #06061e 100%),
+                linear-gradient(to top, #06061e 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .slide-photo .photo-placeholder-sl {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 20px;
+    background: linear-gradient(160deg,#1a1a5e 0%,#0d0d3e 100%);
+  }
+
+  /* ── Accent bar ── */
+  .accent-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    z-index: 2;
+  }
+
+  /* ── Infos (droite) ── */
+  .slide-info {
+    flex: 1;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 60px 80px 50px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .dj-counter {
+    font-size: .72em;
+    color: rgba(255,255,255,.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    animation: fadeUp .5s .1s both;
+  }
+
+  .dj-name-sl {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.4em, 5vw, 4em);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1.05;
+    color: #fff;
+    text-shadow: 0 0 40px rgba(0,188,212,.4);
+    margin-bottom: 22px;
+    animation: fadeUp .55s .15s both;
+  }
+
+  .espaces-sl {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 28px;
+    animation: fadeUp .55s .22s both;
+  }
+  .espace-tag-sl {
+    font-size: .68em;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #fff;
+  }
+
+  .styles-label-sl {
+    font-size: .65em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,.35);
+    margin-bottom: 10px;
+    animation: fadeUp .55s .28s both;
+  }
+  .styles-list-sl {
+    display: flex; flex-wrap: wrap; gap: 7px;
+    margin-bottom: 30px;
+    animation: fadeUp .55s .34s both;
+  }
+  .chip-sl {
+    font-size: .68em;
+    padding: 5px 13px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,.2);
+    color: rgba(255,255,255,.85);
+    background: rgba(255,255,255,.07);
+    backdrop-filter: blur(4px);
+  }
+
+  .dates-sl {
+    font-size: .75em;
+    color: rgba(255,255,255,.45);
+    letter-spacing: 1px;
+    animation: fadeUp .55s .40s both;
+  }
+  .dates-sl span { color: #FFC107; font-weight: 700; }
+
+  .joker-badge-sl {
+    display: inline-flex;
+    align-items: center; gap: 6px;
+    background: linear-gradient(135deg,#FF8F00,#E65100);
+    color: #fff;
+    font-size: .72em;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    animation: fadeUp .55s .08s both, pulseJoker 2.5s 1s ease-in-out infinite;
+  }
+  @keyframes pulseJoker {
+    0%,100% { box-shadow: 0 0 10px rgba(255,143,0,.4); }
+    50%      { box-shadow: 0 0 22px rgba(255,143,0,.8); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(22px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* ── Barre de progression ── */
+  .progress-bar-wrap {
+    position: fixed; bottom: 56px; left: 36px; right: 36px;
+    z-index: 10;
+    height: 3px;
+    background: rgba(255,255,255,.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00BCD4, #E91E63);
+    border-radius: 2px;
+    transition: none;
+  }
+  .progress-bar-fill.running {
+    transition: width linear;
+  }
+
+  /* ── Navigation ── */
+  .nav-wrap {
+    position: fixed; bottom: 18px; left: 0; right: 0;
+    z-index: 10;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .nav-btn {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    color: #fff;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1em;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, transform .2s;
+    backdrop-filter: blur(8px);
+  }
+  .nav-btn:hover { background: rgba(255,255,255,.18); transform: scale(1.08); }
+
+  .dots-wrap {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.2);
+    cursor: pointer;
+    transition: all .3s;
+  }
+  .dot.active {
+    background: #00BCD4;
+    transform: scale(1.35);
+    box-shadow: 0 0 8px rgba(0,188,212,.6);
+  }
+
+  .pause-btn {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.6);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: .9em;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s;
+    backdrop-filter: blur(8px);
+    margin-left: 6px;
+  }
+  .pause-btn:hover { color: #fff; background: rgba(255,255,255,.16); }
+
+  /* Tag colors */
+  .tag-caraibes { background: #E65100; }
+  .tag-bachata  { background: #AD1457; }
+  .tag-suave    { background: #00695C; }
+  .tag-after    { background: #4527A0; }
+  .tag-pool     { background: #0277BD; }
+  .tag-beach    { background: #FF8F00; }
+  .tag-joker    { background: linear-gradient(135deg,#FF8F00,#E65100); }
+</style>
+</head>
+<body>
+
+<div class="ambient" id="ambient"></div>
+
+<!-- En-tête -->
+<div class="top-bar">
+  <div class="event-name">Spring Break <span>Latino</span> 2026 &nbsp;·&nbsp; 🎧 Vos DJs</div>
+  <nav class="top-bar-nav">
+    <a href="Tombi_DJs_SBL2026.html" class="top-nav-tab">🎧 Trombinoscope</a>
+    <a href="Programme_DJs_SBL2026.html" class="top-nav-tab">📅 Programme</a>
+    <span class="top-nav-tab active">▶ Slideshow</span>
+  </nav>
+  <div class="event-info">13 › 17 Mai 2026<br>Arinella Bianca — Corse</div>
+</div>
+
+<!-- Scène -->
+<div class="stage" id="stage"></div>
+
+<!-- Barre de progression -->
+<div class="progress-bar-wrap">
+  <div class="progress-bar-fill" id="progressFill"></div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-wrap">
+  <button class="nav-btn" id="btnPrev" title="Précédent">&#8592;</button>
+  <div class="dots-wrap" id="dots"></div>
+  <button class="nav-btn" id="btnNext" title="Suivant">&#8594;</button>
+  <button class="pause-btn" id="btnPause" title="Pause / Lecture">⏸</button>
+</div>
+
+<script>
+const DJS = [
+  {
+    name: 'DJ DREAMS',
+    photo: 'DJ_Dreams2_nobg.png',
+    photoStyle: 'object-position:center top',
+    joker: true,
+    accentGrad: 'linear-gradient(180deg,#4527A0,#0277BD,#FF8F00)',
+    amb1: '#0277BD', amb2: '#FF8F00',
+    espaces: [
+      {label:'Pool Party',    cls:'tag-pool'},
+      {label:'Beach Party',   cls:'tag-beach'},
+      {label:'After Party',   cls:'tag-after'},
+      {label:'Toutes ambiances', cls:'tag-joker'},
+    ],
+    styles: ['Salsa','Bachata Dom.','Zouk','Kompa','Gouyad','Soca','Dancehall','Shatta','Reggaeton','Dembow','Merengue','Ragga'],
+    dates: ['11 mai','19 mai'],
+  },
+  {
+    name: 'DJ Alex Salsarito',
+    photo: 'DJ_SALSERITO_nobg.png',
+    photoStyle: 'object-position:center top',
+    accentGrad: 'linear-gradient(180deg,#E65100,#4527A0)',
+    amb1: '#E65100', amb2: '#4527A0',
+    espaces: [
+      {label:'Espace Caraïbes', cls:'tag-caraibes'},
+      {label:'After Party',     cls:'tag-after'},
+    ],
+    styles: ['Salsa Cubaine','Salsa Porto','Rueda de Casino','Zouk','Kizomba','Kompa'],
+    dates: ['11 mai','18 mai'],
+  },
+  {
+    name: 'DJ Jean-Mi',
+    photo: 'DJ_JEAN-MICHELJPG_nobg.png',
+    photoStyle: 'object-position:center 38%',
+    accentGrad: 'linear-gradient(180deg,#E65100,#AD1457)',
+    amb1: '#AD1457', amb2: '#E65100',
+    espaces: [
+      {label:'Espace Bachata',  cls:'tag-bachata'},
+      {label:'Espace Caraïbes', cls:'tag-caraibes'},
+    ],
+    styles: ['Salsa','Bachata','Cha-cha','Kompa'],
+    dates: ['11 mai','18 mai'],
+  },
+  {
+    name: 'DJ PHILLIPE',
+    photo: 'DJ_PHILIPPE_nobg.png',
+    photoStyle: 'object-position:center top',
+    accentGrad: 'linear-gradient(180deg,#AD1457,#E65100)',
+    amb1: '#AD1457', amb2: '#E65100',
+    espaces: [
+      {label:'Espace Bachata',  cls:'tag-bachata'},
+      {label:'Espace Caraïbes', cls:'tag-caraibes'},
+    ],
+    styles: ['Salsa','Bachata','Kompa','Généraliste'],
+    dates: ['12 mai','18 mai'],
+  },
+  {
+    name: 'DJ Thomas',
+    photo: 'DJ_THOMAS_nobg.png',
+    photoStyle: 'object-position:center 15%',
+    accentGrad: '#00695C',
+    amb1: '#00695C', amb2: '#004D40',
+    espaces: [
+      {label:'Espace Suave', cls:'tag-suave'},
+      {label:'Kizomba',      cls:'tag-suave'},
+    ],
+    styles: ['Kizomba','Urban Kiz','Semba','Suave'],
+    dates: ['12 mai','18 mai'],
+  },
+  {
+    name: 'DJ Mikado San',
+    photo: 'DJ_Mikado_nobg.png',
+    photoStyle: 'object-position:center 25%',
+    accentGrad: '#00695C',
+    amb1: '#00695C', amb2: '#1B5E20',
+    espaces: [
+      {label:'Espace Suave',   cls:'tag-suave'},
+      {label:'After Party Kiz',cls:'tag-after'},
+    ],
+    styles: ['Kizomba','Urban Kiz','Trad','Semba','Suave'],
+    dates: ['12 mai','18 mai'],
+  },
+  {
+    name: 'DJ CYCY',
+    photo: 'DJ_CyCy_nobg.png',
+    photoStyle: 'object-position:center 15%;transform:scale(1.15);transform-origin:center 15%',
+    accentGrad: 'linear-gradient(180deg,#E65100,#AD1457)',
+    amb1: '#E91E63', amb2: '#E65100',
+    espaces: [
+      {label:'Espace Caraïbes', cls:'tag-caraibes'},
+      {label:'Espace Bachata',  cls:'tag-bachata'},
+    ],
+    styles: ['Salsa','Bachata'],
+    dates: ['12 mai','18 mai'],
+  },
+  {
+    name: 'DJ Jean-Emile',
+    photo: 'DJ_Jean_Emile_nobg.png',
+    photoStyle: 'object-position:center 25%',
+    accentGrad: 'linear-gradient(180deg,#AD1457,#00695C)',
+    amb1: '#AD1457', amb2: '#00695C',
+    espaces: [
+      {label:'Espace Bachata',  cls:'tag-bachata'},
+      {label:'Suave / Kizomba', cls:'tag-suave'},
+    ],
+    styles: ['Bachata','Kizomba'],
+    dates: ['13 mai (15h)','17 mai (15h)'],
+  },
+  {
+    name: 'DJ RO',
+    photo: 'DJ_RO_nobg.png',
+    photoStyle: 'object-position:center 15%',
+    accentGrad: 'linear-gradient(180deg,#E65100,#4527A0)',
+    amb1: '#E65100', amb2: '#4527A0',
+    espaces: [
+      {label:'Espace Caraïbes', cls:'tag-caraibes'},
+      {label:'After Party',     cls:'tag-after'},
+    ],
+    styles: ['Polyvalent','Salsa','Généraliste'],
+    dates: ['13 mai','18 mai'],
+  },
+  {
+    name: 'DJ BLANQUILLO',
+    photo: 'DJ_SYLVAIN_nobg.png',
+    photoStyle: 'object-fit:contain;object-position:center 15%',
+    accentGrad: 'linear-gradient(180deg,#AD1457,#00695C)',
+    amb1: '#AD1457', amb2: '#00695C',
+    espaces: [
+      {label:'Espace Bachata',  cls:'tag-bachata'},
+      {label:'Suave / Kizomba', cls:'tag-suave'},
+    ],
+    styles: ['Bachata','Kizomba','Zouk'],
+    dates: ['13 mai','20 mai'],
+  },
+  {
+    name: 'DJ FABULOUS',
+    photo: 'DJ_FABULOUS_nobg.png',
+    photoStyle: 'object-position:center top',
+    accentGrad: 'linear-gradient(180deg,#E65100,#00695C,#4527A0)',
+    amb1: '#E65100', amb2: '#00695C',
+    espaces: [
+      {label:'Espace Caraïbes', cls:'tag-caraibes'},
+      {label:'Espace Suave',    cls:'tag-suave'},
+      {label:'After Party',     cls:'tag-after'},
+    ],
+    styles: ['Salsa','Bachata','Kizomba','Zouk'],
+    dates: ['11 mai','19 mai'],
+  },
+  {
+    name: 'DJ JEREMY',
+    photo: 'DJ_JEREMY_nobg.png',
+    photoStyle: 'object-position:center top',
+    accentGrad: '#E65100',
+    amb1: '#E65100', amb2: '#BF360C',
+    espaces: [
+      {label:'Espace Caraïbes', cls:'tag-caraibes'},
+    ],
+    styles: ['Salsa','Cha-cha','Old school'],
+    dates: ['10 mai','20 mai'],
+  },
+];
+
+const DURATION = 6000;
+let current = 0;
+let paused = false;
+let timer = null;
+let progressAnim = null;
+let direction = 1; // 1 = forward, -1 = backward
+
+const stage = document.getElementById('stage');
+const dotsWrap = document.getElementById('dots');
+const progressFill = document.getElementById('progressFill');
+const ambient = document.getElementById('ambient');
+
+/* ── Build slides ── */
+DJS.forEach((dj, i) => {
+  const slide = document.createElement('div');
+  slide.className = 'slide';
+  slide.dataset.index = i;
+
+  const photoHTML = dj.photo
+    ? `<img src="${dj.photo}" style="${dj.photoStyle || ''}" alt="${dj.name}">`
+    : `<div class="photo-placeholder-sl">
+        <svg width="110" height="110" viewBox="0 0 90 90" fill="none">
+          <circle cx="45" cy="30" r="20" fill="rgba(255,255,255,.18)"/>
+          <path d="M10 80 Q10 55 45 55 Q80 55 80 80" fill="rgba(255,255,255,.12)"/>
+          <circle cx="45" cy="30" r="20" stroke="rgba(255,255,255,.12)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <span style="font-size:.75em;letter-spacing:3px;color:rgba(255,255,255,.25);text-transform:uppercase;">Photo à venir</span>
+      </div>`;
+
+  const espacesHTML = dj.espaces.map(e =>
+    `<span class="espace-tag-sl ${e.cls}">${e.label}</span>`
+  ).join('');
+
+  const stylesHTML = dj.styles.map(s =>
+    `<span class="chip-sl">${s}</span>`
+  ).join('');
+
+  const jokerHTML = dj.joker
+    ? `<div class="joker-badge-sl">💯 Joker universel</div>` : '';
+
+  slide.innerHTML = `
+    <div class="accent-bar" style="background:${dj.accentGrad};"></div>
+    <div class="slide-photo">
+      ${photoHTML}
+      <div class="photo-gradient"></div>
+    </div>
+    <div class="slide-info">
+      <div class="dj-counter">${i + 1} / ${DJS.length}</div>
+      ${jokerHTML}
+      <div class="dj-name-sl">${dj.name}</div>
+      <div class="espaces-sl">${espacesHTML}</div>
+      <div class="styles-label-sl">Styles musicaux</div>
+      <div class="styles-list-sl">${stylesHTML}</div>
+      <div class="dates-sl">Présent du <span>${dj.dates[0]}</span> au <span>${dj.dates[1]}</span></div>
+    </div>`;
+
+  stage.appendChild(slide);
+});
+
+/* ── Build dots ── */
+DJS.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => goTo(i));
+  dotsWrap.appendChild(dot);
+});
+
+/* ── Ambient colors ── */
+function updateAmbient(dj) {
+  document.documentElement.style.setProperty('--amb1', dj.amb1);
+  document.documentElement.style.setProperty('--amb2', dj.amb2);
+}
+
+/* ── Progress bar ── */
+function startProgress() {
+  progressFill.style.transition = 'none';
+  progressFill.style.width = '0%';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      progressFill.classList.add('running');
+      progressFill.style.transitionDuration = DURATION + 'ms';
+      progressFill.style.width = '100%';
+    });
+  });
+}
+function stopProgress() {
+  progressFill.classList.remove('running');
+  progressFill.style.transition = 'none';
+  progressFill.style.width = '0%';
+}
+
+/* ── Show slide ── */
+function showSlide(index, dir) {
+  const slides = stage.querySelectorAll('.slide');
+  const dots = dotsWrap.querySelectorAll('.dot');
+
+  const prev = stage.querySelector('.slide.active');
+  if (prev) {
+    prev.classList.remove('active');
+    prev.classList.add(dir > 0 ? 'exit-left' : 'exit-right');
+    setTimeout(() => {
+      prev.classList.remove('exit-left', 'exit-right');
+    }, 500);
+  }
+
+  slides[index].classList.add('active');
+  if (dir < 0) {
+    slides[index].classList.remove('active');
+    slides[index].classList.add('enter-right');
+    requestAnimationFrame(() => {
+      slides[index].classList.remove('enter-right');
+      slides[index].classList.add('active');
+    });
+  }
+
+  dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  updateAmbient(DJS[index]);
+  current = index;
+
+  if (!paused) startProgress();
+}
+
+function goTo(index, dir) {
+  if (index === current) return;
+  const d = dir !== undefined ? dir : (index > current ? 1 : -1);
+  stopProgress();
+  showSlide(index, d);
+  resetTimer();
+}
+
+function next() { goTo((current + 1) % DJS.length, 1); }
+function prev() { goTo((current - 1 + DJS.length) % DJS.length, -1); }
+
+function resetTimer() {
+  clearTimeout(timer);
+  if (!paused) timer = setTimeout(next, DURATION);
+}
+
+/* ── Controls ── */
+document.getElementById('btnNext').addEventListener('click', () => { next(); });
+document.getElementById('btnPrev').addEventListener('click', () => { prev(); });
+
+document.getElementById('btnPause').addEventListener('click', () => {
+  paused = !paused;
+  document.getElementById('btnPause').textContent = paused ? '▶' : '⏸';
+  if (paused) {
+    clearTimeout(timer);
+    stopProgress();
+  } else {
+    startProgress();
+    resetTimer();
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') next();
+  else if (e.key === 'ArrowLeft') prev();
+  else if (e.key === ' ') { e.preventDefault(); document.getElementById('btnPause').click(); }
+});
+
+/* ── Init ── */
+showSlide(0, 1);
+resetTimer();
+</script>
+</body>
+</html>

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Programme DJs par Jour — SBL 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Animations ─────────────────────────────── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes headerGlow {
+    0%,100% { box-shadow: 0 0 60px rgba(0,188,212,.5), 0 6px 40px rgba(0,0,0,.6); border-color: #00BCD4; }
+    50%     { box-shadow: 0 0 80px rgba(233,30,99,.4), 0 6px 40px rgba(0,0,0,.6); border-color: #E91E63; }
+  }
+  @keyframes ambientDrift {
+    0%   { transform: translate(0,0) scale(1); }
+    50%  { transform: translate(40px,-30px) scale(1.1); }
+    100% { transform: translate(0,0) scale(1); }
+  }
+  @keyframes slideInDay {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes rowFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  body {
+    background: #0a0a2e;
+    font-family: 'Montserrat', Arial, sans-serif;
+    padding: 30px;
+    min-width: 1200px;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before, body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(120px);
+    opacity: .15;
+    animation: ambientDrift 18s ease-in-out infinite;
+  }
+  body::before {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, #00BCD4, transparent 70%);
+    top: -200px; left: -200px;
+  }
+  body::after {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #E91E63, transparent 70%);
+    bottom: -150px; right: -150px;
+    animation-delay: -9s;
+  }
+  .header, .legend, .day-section, .footer { position: relative; z-index: 1; }
+
+  /* === NAV COMMUNE === */
+  .site-nav {
+    position: sticky; top: 0; z-index: 200;
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+    background: rgba(6,6,30,.92); backdrop-filter: blur(14px);
+    padding: 10px 20px;
+    margin: -30px -30px 30px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .nav-tab {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: .75em; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    padding: 7px 16px; border-radius: 30px;
+    border: 2px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.06);
+    color: rgba(255,255,255,.6); text-decoration: none;
+    transition: all .2s ease;
+    white-space: nowrap;
+  }
+  .nav-tab:hover { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.3); }
+  .nav-tab.active { background: linear-gradient(135deg,#00BCD4,#1a237e); color: #fff; border-color: transparent; box-shadow: 0 4px 16px rgba(0,188,212,.3); }
+
+  /* === EN-TÊTE === */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 20px 20px;
+    background: linear-gradient(135deg, #0d47a1 0%, #1a237e 50%, #0d47a1 100%);
+    border-radius: 20px;
+    border: 3px solid #00BCD4;
+    position: relative;
+    overflow: hidden;
+    animation: headerGlow 5s ease-in-out infinite;
+  }
+  .header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,.03) 20px, rgba(255,255,255,.03) 40px);
+  }
+  .header-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 30px #00BCD4;
+    position: relative;
+  }
+  .header-title span { color: #E91E63; }
+  .header-sub {
+    font-size: 1.2em; color: #00BCD4; margin-top: 8px;
+    letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+    position: relative;
+  }
+  .header-dates { font-size: 1em; color: #FFC107; margin-top: 6px; letter-spacing: 2px; position: relative; }
+  .header-loc { font-size: .85em; color: rgba(255,255,255,.7); margin-top: 4px; position: relative; }
+
+  /* === LÉGENDE ESPACES === */
+  .legend {
+    display: flex; justify-content: center; gap: 14px;
+    flex-wrap: wrap; margin-bottom: 40px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.07);
+    border-radius: 30px; padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,.15);
+    transition: background .2s, transform .2s;
+  }
+  .legend-item:hover {
+    background: rgba(255,255,255,.13);
+    transform: translateY(-2px);
+  }
+  .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .legend-item span { color: #fff; font-size: .75em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* === SECTION JOUR === */
+  .day-section {
+    margin-bottom: 36px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,.12);
+    animation: fadeInUp .6s ease both;
+    transition: box-shadow .3s ease, border-color .3s ease;
+  }
+  .day-section:hover {
+    border-color: rgba(255,255,255,.22);
+    box-shadow: 0 16px 50px rgba(0,0,0,.5);
+  }
+  .day-section:nth-child(1) { animation-delay: .05s; }
+  .day-section:nth-child(2) { animation-delay: .15s; }
+  .day-section:nth-child(3) { animation-delay: .25s; }
+  .day-section:nth-child(4) { animation-delay: .35s; }
+  .day-section:nth-child(5) { animation-delay: .45s; }
+
+  .day-header {
+    padding: 18px 24px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .day-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2em; color: #fff;
+    text-transform: uppercase; letter-spacing: 3px;
+    text-shadow: 0 0 30px rgba(255,255,255,.3), 0 2px 8px rgba(0,0,0,.5);
+  }
+  .day-date { font-size: .85em; color: rgba(255,255,255,.75); font-weight: 600; letter-spacing: 1px; }
+  .day-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-left: auto; align-items: center; }
+  .badge {
+    font-size: .72em; font-weight: 700; padding: 5px 14px;
+    border-radius: 20px; text-transform: uppercase; letter-spacing: .8px;
+    border: 1px solid rgba(255,255,255,.25); color: #fff;
+  }
+  .badge-dress { background: rgba(0,0,0,.35); }
+  .badge-time  { background: rgba(0,0,0,.25); color: #FFC107; border-color: #FFC107; box-shadow: 0 0 12px rgba(255,193,7,.35); text-shadow: 0 0 8px rgba(255,193,7,.5); }
+
+  /* === GRILLE PLANNING === */
+  .schedule { background: #080820; }
+
+  .schedule-header {
+    display: grid;
+    grid-template-columns: 110px 1fr 1fr 1fr 140px 140px;
+    border-bottom: 2px solid rgba(255,255,255,.08);
+  }
+  .schedule-header > div {
+    padding: 10px 12px;
+    font-size: .65em; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.2px; color: rgba(255,255,255,.5);
+    border-right: 1px solid rgba(255,255,255,.06);
+  }
+  .schedule-header > div:last-child { border-right: none; }
+  .col-caraibes  { color: #E65100 !important; }
+  .col-bachata   { color: #AD1457 !important; }
+  .col-suave     { color: #00695C !important; }
+  .col-after-kiz { color: #4527A0 !important; }
+  .col-after-playa{ color: #6A1B9A !important; }
+
+  /* Ligne de slot */
+  .slot-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 1fr 1fr 140px 140px;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    min-height: 80px;
+    transition: background .2s ease;
+  }
+  .slot-row:last-child { border-bottom: none; }
+  .slot-row:hover { background: rgba(255,255,255,.025); }
+
+  .slot-time {
+    padding: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .78em; font-weight: 700; color: #FFC107;
+    letter-spacing: .5px; text-align: center;
+    border-right: 1px solid rgba(255,255,255,.06);
+    background: rgba(255,255,255,.02);
+  }
+
+  .slot-cell {
+    padding: 10px 12px;
+    border-right: 1px solid rgba(255,255,255,.06);
+    display: flex; flex-direction: column; gap: 8px; justify-content: center;
+  }
+  .slot-cell:last-child { border-right: none; }
+  .slot-cell.empty { justify-content: center; align-items: center; }
+  .slot-cell.empty::after { content: '—'; color: rgba(255,255,255,.15); font-size: .9em; }
+
+  /* DJ mini avatar + nom */
+  .dj-mini {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .dj-mini img {
+    width: 38px; height: 38px; border-radius: 50%;
+    object-fit: cover; object-position: center top;
+    border: 2px solid rgba(255,255,255,.25);
+    flex-shrink: 0;
+    background: #1a1a4e;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,.4);
+  }
+  .dj-mini:hover img {
+    transform: scale(1.12);
+    border-color: rgba(0,188,212,.7);
+    box-shadow: 0 0 12px rgba(0,188,212,.5);
+  }
+  .dj-mini .initials {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: #1a1a5e;
+    border: 2px solid rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .6em; font-weight: 900; color: rgba(255,255,255,.3);
+    flex-shrink: 0;
+  }
+  .dj-mini span.dj-name {
+    font-size: .72em; font-weight: 700; color: rgba(255,255,255,.95);
+    line-height: 1.2;
+    text-shadow: 0 0 10px rgba(255,255,255,.2);
+  }
+  .dj-plus {
+    font-size: .65em; color: rgba(255,255,255,.3); font-weight: 700;
+    padding-left: 46px; margin-top: -4px; margin-bottom: -4px;
+  }
+
+  /* Ligne événement spécial (Pool Party, Concert…) */
+  .special-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    min-height: 60px;
+  }
+  .special-time {
+    padding: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .78em; font-weight: 700; color: #FFC107;
+    letter-spacing: .5px; text-align: center;
+    border-right: 1px solid rgba(255,255,255,.06);
+    background: rgba(255,255,255,.02);
+  }
+  .special-body {
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,.04);
+  }
+  .special-icon { font-size: 1.5em; }
+  .special-label {
+    font-size: .8em; font-weight: 700; color: #fff;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .special-sub { font-size: .68em; color: rgba(255,255,255,.5); margin-top: 2px; }
+  .special-dj {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    text-align: center; margin-top: 40px;
+    color: rgba(255,255,255,.3); font-size: .75em; letter-spacing: 1px;
+  }
+
+  @media print {
+    body { background: #fff; padding: 10px; }
+    .day-section { border: 1px solid #ddd; page-break-inside: avoid; }
+    .schedule { background: #f9f9f9; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV COMMUNE -->
+<nav class="site-nav">
+  <a href="Tombi_DJs_SBL2026.html" class="nav-tab">🎧 Trombinoscope</a>
+  <a href="Programme_DJs_SBL2026.html" class="nav-tab active">📅 Programme</a>
+  <a href="Tombi_DJs_SBL2026_SLIDESHOW.html" class="nav-tab">▶ Slideshow</a>
+</nav>
+
+<!-- EN-TÊTE -->
+<div class="header">
+  <div class="header-title">SPRING BREAK <span>LATINO</span> 2026</div>
+  <div class="header-sub">🎧 Programme DJs — Par Jour &amp; Par Espace 🎧</div>
+  <div class="header-dates">13 › 17 MAI 2026</div>
+  <div class="header-loc">Camping Arinella Bianca — Ghisonnacia, Corse</div>
+</div>
+
+<!-- LÉGENDE -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#E65100;"></div><span>Espace Caraïbes</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#AD1457;"></div><span>Espace Bachata</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#00695C;"></div><span>Espace Suave / Kizomba</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#4527A0;"></div><span>After Party — Kizomba</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#6A1B9A;"></div><span>After Party — Playa</span></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MERCREDI 13 MAI
+══════════════════════════════════════ -->
+<div class="day-section">
+  <div class="day-header" style="background:linear-gradient(135deg,#0d47a1,#1565C0);">
+    <div>
+      <div class="day-name">Mercredi 13 Mai</div>
+      <div class="day-date">Ouverture des soirées · 22h00 → 04h00</div>
+    </div>
+    <div class="day-badges">
+      <div class="badge badge-dress">🎽 Tee-shirt SBL</div>
+      <div class="badge badge-time">22h → 04h</div>
+    </div>
+  </div>
+  <div class="schedule">
+    <div class="schedule-header">
+      <div>Horaire</div>
+      <div class="col-caraibes">🟠 Espace Caraïbes</div>
+      <div class="col-bachata">🩷 Espace Bachata</div>
+      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
+      <div class="col-after-kiz">🟣 After — Kizomba</div>
+      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+    </div>
+    <!-- 22h-00h -->
+    <div class="slot-row">
+      <div class="slot-time">22h00<br>00h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- 00h-02h -->
+    <div class="slot-row">
+      <div class="slot-time">00h00<br>02h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ RO"><span class="dj-name">DJ RO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- 02h-04h -->
+    <div class="slot-row">
+      <div class="slot-time">02h00<br>04h00</div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ RO"><span class="dj-name">DJ RO</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     JEUDI 14 MAI
+══════════════════════════════════════ -->
+<div class="day-section">
+  <div class="day-header" style="background:linear-gradient(135deg,#4a148c,#6A1B9A);">
+    <div>
+      <div class="day-name">Jeudi 14 Mai</div>
+      <div class="day-date">Pool Party 14h · Showcase Mika Mendes · Soirée 21h00 → 04h00</div>
+    </div>
+    <div class="day-badges">
+      <div class="badge badge-dress">🎭 Carnaval Brésilien</div>
+      <div class="badge badge-time">21h → 04h</div>
+    </div>
+  </div>
+  <div class="schedule">
+    <div class="schedule-header">
+      <div>Horaire</div>
+      <div class="col-caraibes">🟠 Espace Caraïbes</div>
+      <div class="col-bachata">🩷 Espace Bachata</div>
+      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
+      <div class="col-after-kiz">🟣 After — Kizomba</div>
+      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+    </div>
+    <!-- Pool Party -->
+    <div class="special-row" style="background:rgba(2,119,189,.12);">
+      <div class="special-time" style="color:#0277BD;">14h00<br>17h00</div>
+      <div class="special-body">
+        <div class="special-icon">🏊</div>
+        <div>
+          <div class="special-label" style="color:#29B6F6;">Pool Party — Parade Carnaval Brésilien</div>
+          <div class="special-sub">Ambiance Caraïbes festive — Soca · Dancehall · Tropical</div>
+        </div>
+        <div class="special-dj">
+          <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name" style="color:#29B6F6;">DJ DREAMS</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- 21h-23h -->
+    <div class="slot-row">
+      <div class="slot-time">21h00<br>23h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- Showcase -->
+    <div class="special-row" style="background:rgba(255,193,7,.06); grid-template-columns: 110px 1fr;">
+      <div class="special-time" style="color:#FFC107;">21h → 23h</div>
+      <div class="special-body" style="flex-wrap:wrap; gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+          <div class="special-icon">🎤</div>
+          <div>
+            <div class="special-label" style="color:#FFC107;">Showcase — Mika Mendes</div>
+            <div class="special-sub">Sur Scène principale</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-left:1px solid rgba(255,255,255,.1);padding-left:16px;">
+          <span style="font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);">Sur les pistes :</span>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="background:#E65100;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(230,81,0,.5);">🟠 Salsa</span>
+            <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name" style="font-size:.68em;">DJ Alex Salsarito</span></div>
+            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
+            <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name" style="font-size:.68em;">DJ JEREMY</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="background:#AD1457;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(173,20,87,.5);">🩷 Bachata</span>
+            <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name" style="font-size:.68em;">DJ BLANQUILLO</span></div>
+            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
+            <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name" style="font-size:.68em;">DJ PHILLIPE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 23h-02h -->
+    <div class="slot-row">
+      <div class="slot-time">23h00<br>02h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ RO"><span class="dj-name">DJ RO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- 02h-04h -->
+    <div class="slot-row">
+      <div class="slot-time">02h00<br>04h00</div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     VENDREDI 15 MAI
+══════════════════════════════════════ -->
+<div class="day-section">
+  <div class="day-header" style="background:linear-gradient(135deg,#880E4F,#E91E63);">
+    <div>
+      <div class="day-name">Vendredi 15 Mai</div>
+      <div class="day-date">Concert Bachata Grupo Olas · Soirée 21h00 → 04h00</div>
+    </div>
+    <div class="day-badges">
+      <div class="badge badge-dress">🪩 Disco Party</div>
+      <div class="badge badge-time">21h → 04h</div>
+    </div>
+  </div>
+  <div class="schedule">
+    <div class="schedule-header">
+      <div>Horaire</div>
+      <div class="col-caraibes">🟠 Espace Caraïbes</div>
+      <div class="col-bachata">🩷 Espace Bachata</div>
+      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
+      <div class="col-after-kiz">🟣 After — Kizomba</div>
+      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+    </div>
+    <!-- 21h-23h -->
+    <div class="slot-row">
+      <div class="slot-time">21h00<br>23h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- Concert -->
+    <div class="special-row" style="background:rgba(233,30,99,.1); grid-template-columns: 110px 1fr;">
+      <div class="special-time" style="color:#E91E63;">21h → 23h</div>
+      <div class="special-body" style="flex-wrap:wrap; gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+          <div class="special-icon">🎸</div>
+          <div>
+            <div class="special-label" style="color:#F48FB1;">Concert Bachata — Grupo Olas</div>
+            <div class="special-sub">Sur Scène principale</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-left:1px solid rgba(255,255,255,.1);padding-left:16px;">
+          <span style="font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);">Sur les pistes :</span>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="background:#E65100;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(230,81,0,.5);">🟠 Salsa</span>
+            <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name" style="font-size:.68em;">DJ Alex Salsarito</span></div>
+            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
+            <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name" style="font-size:.68em;">DJ JEREMY</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="background:#00695C;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(0,105,92,.5);">🟢 Kizomba</span>
+            <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name" style="font-size:.68em;">DJ TREW</span></div>
+            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
+            <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name" style="font-size:.68em;">DJ CYCY</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 23h-02h -->
+    <div class="slot-row">
+      <div class="slot-time">23h00<br>02h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ RO"><span class="dj-name">DJ RO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- 02h-04h -->
+    <div class="slot-row">
+      <div class="slot-time">02h00<br>04h00</div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SAMEDI 16 MAI
+══════════════════════════════════════ -->
+<div class="day-section">
+  <div class="day-header" style="background:linear-gradient(135deg,#37474F,#546E7A);">
+    <div>
+      <div class="day-name">Samedi 16 Mai</div>
+      <div class="day-date">Beach Party 14h · Concert Parisongo · Soirée 21h00 → 04h+</div>
+    </div>
+    <div class="day-badges">
+      <div class="badge badge-dress">🤍 Chic &amp; Blanc</div>
+      <div class="badge badge-time">21h → 04h+</div>
+    </div>
+  </div>
+  <div class="schedule">
+    <div class="schedule-header">
+      <div>Horaire</div>
+      <div class="col-caraibes">🟠 Espace Caraïbes</div>
+      <div class="col-bachata">🩷 Espace Bachata</div>
+      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
+      <div class="col-after-kiz">🟣 After — Kizomba</div>
+      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+    </div>
+    <!-- Beach Party -->
+    <div class="special-row" style="background:rgba(255,143,0,.1);">
+      <div class="special-time" style="color:#FF8F00;">14h00<br>18h00</div>
+      <div class="special-body">
+        <div class="special-icon">🏖️</div>
+        <div>
+          <div class="special-label" style="color:#FFB74D;">Beach Party X Games</div>
+          <div class="special-sub">Soca · Dancehall · Shatta · Reggaeton · Afro</div>
+        </div>
+        <div class="special-dj">
+          <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name" style="color:#FFB74D;">DJ DREAMS</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- 21h-22h30 -->
+    <div class="slot-row">
+      <div class="slot-time">21h00<br>22h30</div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- Concert -->
+    <div class="special-row" style="background:rgba(255,193,7,.06); grid-template-columns: 110px 1fr;">
+      <div class="special-time" style="color:#FFC107;">21h → 22h30</div>
+      <div class="special-body" style="flex-wrap:wrap; gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+          <div class="special-icon">🎺</div>
+          <div>
+            <div class="special-label" style="color:#FFC107;">Concert Salsa — Parisongo</div>
+            <div class="special-sub">Sur Scène principale · Espace Caraïbes ouvre à 22h30</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-left:1px solid rgba(255,255,255,.1);padding-left:16px;">
+          <span style="font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);">Sur les pistes :</span>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="background:#00695C;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(0,105,92,.5);">🟢 Kizomba</span>
+            <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name" style="font-size:.68em;">DJ TREW</span></div>
+            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
+            <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name" style="font-size:.68em;">DJ CYCY</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="background:#AD1457;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(173,20,87,.5);">🩷 Bachata</span>
+            <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name" style="font-size:.68em;">DJ Jean-Mi</span></div>
+            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
+            <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile" style="width:28px;height:28px;"><span class="dj-name" style="font-size:.68em;">DJ Jean-Emile</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 22h30-02h -->
+    <div class="slot-row">
+      <div class="slot-time">22h30<br>02h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ RO"><span class="dj-name">DJ RO</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- 02h+ -->
+    <div class="slot-row">
+      <div class="slot-time">02h00<br>04h+</div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     DIMANCHE 17 MAI
+══════════════════════════════════════ -->
+<div class="day-section">
+  <div class="day-header" style="background:linear-gradient(135deg,#00695C,#00897B);">
+    <div>
+      <div class="day-name">Dimanche 17 Mai</div>
+      <div class="day-date">Soirée SBK — Salsa · Bachata · Kizomba · 19h00 → Nuit</div>
+    </div>
+    <div class="day-badges">
+      <div class="badge" style="background:rgba(0,0,0,.3);color:#80CBC4;border-color:#80CBC4;">🎊 Soirée SBK</div>
+      <div class="badge badge-time">19h → Nuit</div>
+    </div>
+  </div>
+  <div class="schedule">
+    <div class="schedule-header">
+      <div>Horaire</div>
+      <div class="col-caraibes">🟠 Espace Caraïbes</div>
+      <div class="col-bachata">🩷 Espace Bachata</div>
+      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
+      <div class="col-after-kiz">🟣 After — Kizomba</div>
+      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+    </div>
+    <!-- 19h+ -->
+    <div class="slot-row">
+      <div class="slot-time">19h00<br>+</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- Nuit+ -->
+    <div class="slot-row">
+      <div class="slot-time">Nuit<br>+</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ RO"><span class="dj-name">DJ RO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILLIPE"><span class="dj-name">DJ PHILLIPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+      </div>
+      <div class="slot-cell empty"></div>
+      <div class="slot-cell empty"></div>
+    </div>
+    <!-- Note DREAMS -->
+    <div class="special-row" style="background:rgba(255,193,7,.05);">
+      <div class="special-time" style="color:rgba(255,255,255,.3);">ℹ️</div>
+      <div class="special-body">
+        <div class="special-icon">💯</div>
+        <div>
+          <div class="special-label" style="color:rgba(255,255,255,.6);font-size:.7em;">DREAMS disponible en renfort si besoin · Jean-Emile reparti à 15h00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Spring Break Latino Corsica 2026 · by Salsabor · inforesa@salsabor.fr
+</div>
+
+</body>
+</html>
