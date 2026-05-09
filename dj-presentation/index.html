@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, height=1080" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 1920px; height: 1080px;
+      overflow: hidden;
+      background: #06061e;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+
+    #root { width: 1920px; height: 1080px; position: relative; overflow: hidden; background: #06061e; }
+
+    /* Ambient lights */
+    .amb { position: absolute; border-radius: 50%; filter: blur(160px); opacity: .18; pointer-events: none; }
+
+    /* SBL logo watermark */
+    .sbl-logo-wm {
+      position: absolute; bottom: 38px; right: 48px;
+      width: 110px; height: 110px; z-index: 20;
+      mix-blend-mode: screen;
+    }
+
+    /* ── INTRO ─────────────────────────────────────────── */
+    .intro-scene {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0;
+    }
+    .intro-logo-big { width: 240px; margin-bottom: 32px; mix-blend-mode: screen; }
+    .intro-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 108px; font-weight: 700;
+      color: #fff; text-transform: uppercase;
+      letter-spacing: 8px; text-align: center;
+      text-shadow: 0 0 80px rgba(0,200,215,.5);
+    }
+    .intro-title span { color: #FF2D6B; }
+    .intro-sub {
+      font-size: 34px; color: #00C8D7;
+      letter-spacing: 5px; text-transform: uppercase;
+      margin-top: 18px;
+    }
+    .intro-dates {
+      font-size: 26px; color: #FFC107;
+      letter-spacing: 3px; margin-top: 10px;
+    }
+    .intro-line {
+      width: 320px; height: 3px;
+      background: linear-gradient(90deg, transparent, #FF2D6B, #00C8D7, transparent);
+      margin-top: 28px;
+    }
+
+    /* ── DJ SLIDE ──────────────────────────────────────── */
+    .dj-slide { position: absolute; inset: 0; display: flex; }
+
+    .photo-panel { flex: 0 0 54%; position: relative; overflow: hidden; }
+    .photo-panel img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+    }
+    .photo-grad {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, rgba(6,6,30,.1) 50%, rgba(6,6,30,.85) 100%),
+        linear-gradient(to top,   rgba(6,6,30,.9) 0%, transparent 35%);
+    }
+    .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 7px; z-index: 2; }
+
+    .info-panel {
+      flex: 1; padding: 70px 65px 70px 55px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 2;
+    }
+    .dj-counter { font-size: 20px; color: rgba(255,255,255,.3); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; }
+    .joker-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg,#FF8F00,#E65100);
+      color: #fff; font-size: 19px; font-weight: 900;
+      padding: 7px 20px; border-radius: 28px;
+      margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase;
+      width: fit-content;
+      box-shadow: 0 4px 24px rgba(255,143,0,.45);
+    }
+    .dj-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 90px; font-weight: 700; color: #fff;
+      text-transform: uppercase; letter-spacing: 4px; line-height: .95;
+      margin-bottom: 28px;
+      text-shadow: 0 0 50px rgba(0,200,215,.35);
+    }
+    .espaces-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .etag {
+      font-size: 17px; font-weight: 700; padding: 5px 17px;
+      border-radius: 28px; text-transform: uppercase;
+      letter-spacing: 1.2px; color: #fff;
+    }
+    .tc  { background: #E65100; box-shadow: 0 2px 14px rgba(230,81,0,.55); }
+    .tb  { background: #AD1457; box-shadow: 0 2px 14px rgba(173,20,87,.55); }
+    .ts  { background: #00695C; }
+    .ta  { background: #4527A0; }
+    .tp  { background: #0277BD; }
+    .tbe { background: #FF8F00; }
+    .tj  { background: #F57F17; }
+
+    .styles-lbl { font-size: 13px; text-transform: uppercase; letter-spacing: 3.5px; color: rgba(255,255,255,.32); margin-bottom: 11px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+    .chip {
+      font-size: 16px; padding: 5px 15px;
+      border-radius: 20px; border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.85); background: rgba(255,255,255,.07);
+    }
+    .dj-dates { font-size: 18px; color: rgba(255,255,255,.38); }
+    .dj-dates span { color: #FFC107; font-weight: 700; }
+
+    /* Day/number badge top-left of photo */
+    .photo-num {
+      position: absolute; top: 28px; left: 28px; z-index: 5;
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px; font-weight: 700; color: rgba(255,255,255,.35);
+      letter-spacing: 3px; text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="101" data-width="1920" data-height="1080">
+
+  <!-- Ambient lights (persistent) -->
+  <div class="amb" style="width:800px;height:800px;background:#00C8D7;top:-250px;left:-250px;"></div>
+  <div class="amb" style="width:700px;height:700px;background:#FF2D6B;bottom:-200px;right:-200px;"></div>
+
+  <!-- Logo watermark (persistent) -->
+  <img class="sbl-logo-wm" src="photos/SBL_logo_10ans.png" alt="SBL 10 ans">
+
+  <!-- ══════════════════ INTRO (0-5s) ══════════════════ -->
+  <div id="intro" class="clip" data-start="0" data-duration="5" data-track-index="1"
+       style="position:absolute;inset:0;">
+    <div class="intro-scene">
+      <img id="intro-logo" class="intro-logo-big" src="photos/SBL_logo_10ans.png" alt="SBL">
+      <div id="intro-title" class="intro-title">SPRING BREAK <span>LATINO</span></div>
+      <div id="intro-sub" class="intro-sub">🎧 Vos DJs 2026 🎧</div>
+      <div id="intro-dates" class="intro-dates">13 › 17 Mai · Camping Arinella Bianca · Corse</div>
+      <div id="intro-line" class="intro-line"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 1 — DREAMS (5-13s) ══════════════════ -->
+  <div id="s1" class="clip" data-start="5" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s1-img" src="photos/DJ_Dreams2_nobg.png" style="object-position:center 20%">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#4527A0,#0277BD,#FF8F00);"></div>
+        <div class="photo-num">1 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s1-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s1-jk" class="joker-badge">💯 Joker Universel</div>
+        <div id="s1-nm" class="dj-name">DJ DREAMS</div>
+        <div id="s1-es" class="espaces-row">
+          <span class="etag tp">Pool Party</span><span class="etag tbe">Beach Party</span>
+          <span class="etag ta">After Party</span><span class="etag tj">Toutes ambiances</span>
+        </div>
+        <div id="s1-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s1-ch" class="chips">
+          <span class="chip">Salsa</span><span class="chip">Bachata Dom.</span><span class="chip">Zouk</span>
+          <span class="chip">Konpa</span><span class="chip">Dancehall</span><span class="chip">Reggaeton</span>
+          <span class="chip">Soca</span><span class="chip">Merengue</span>
+        </div>
+        <div id="s1-dt" class="dj-dates">Présent du <span>11 mai</span> au <span>19 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 2 — ALEX SALSARITO (13-21s) ══════════════════ -->
+  <div id="s2" class="clip" data-start="13" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s2-img" src="photos/DJ_SALSERITO_nobg.png" style="object-position:center top">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#E65100,#4527A0);"></div>
+        <div class="photo-num">2 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s2-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s2-nm" class="dj-name">DJ Alex<br>Salsarito</div>
+        <div id="s2-es" class="espaces-row">
+          <span class="etag tc">Espace Caraïbes</span><span class="etag ta">After Party</span>
+        </div>
+        <div id="s2-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s2-ch" class="chips">
+          <span class="chip">Salsa Cubaine</span><span class="chip">Salsa Porto</span>
+          <span class="chip">Rueda de Casino</span><span class="chip">Zouk</span>
+          <span class="chip">Kizomba</span><span class="chip">Konpa</span>
+        </div>
+        <div id="s2-dt" class="dj-dates">Présent du <span>11 mai</span> au <span>18 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 3 — JEAN-MI (21-29s) ══════════════════ -->
+  <div id="s3" class="clip" data-start="21" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s3-img" src="photos/DJ_JEAN-MICHELJPG_nobg.png" style="object-position:center top">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#E65100,#AD1457);"></div>
+        <div class="photo-num">3 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s3-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s3-nm" class="dj-name">DJ Jean-Mi</div>
+        <div id="s3-es" class="espaces-row">
+          <span class="etag tb">Espace Bachata</span><span class="etag tc">Espace Caraïbes</span>
+        </div>
+        <div id="s3-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s3-ch" class="chips">
+          <span class="chip">Salsa</span><span class="chip">Bachata</span>
+          <span class="chip">Cha-cha</span><span class="chip">Konpa</span>
+        </div>
+        <div id="s3-dt" class="dj-dates">Présent du <span>11 mai</span> au <span>18 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 4 — PHILIPPE (29-37s) ══════════════════ -->
+  <div id="s4" class="clip" data-start="29" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s4-img" src="photos/DJ_PHILIPPE_nobg.png" style="object-position:center top">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#AD1457,#E65100);"></div>
+        <div class="photo-num">4 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s4-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s4-nm" class="dj-name">DJ PHILIPPE</div>
+        <div id="s4-es" class="espaces-row">
+          <span class="etag tb">Espace Bachata</span><span class="etag tc">Espace Caraïbes</span><span class="etag tp">Pool Party</span><span class="etag tbe">Beach Party</span>
+        </div>
+        <div id="s4-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s4-ch" class="chips">
+          <span class="chip">Salsa</span><span class="chip">Bachata</span>
+          <span class="chip">Konpa</span><span class="chip">Généraliste</span>
+          <span class="chip">Zouk</span><span class="chip">Merengue</span><span class="chip">Konpa Gouyad</span>
+        </div>
+        <div id="s4-dt" class="dj-dates">Présent du <span>12 mai</span> au <span>18 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 5 — TREW (37-45s) ══════════════════ -->
+  <div id="s5" class="clip" data-start="37" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s5-img" src="photos/DJ_THOMAS_nobg.png" style="object-position:center 15%">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:#00695C;"></div>
+        <div class="photo-num">5 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s5-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s5-nm" class="dj-name">DJ TREW</div>
+        <div id="s5-es" class="espaces-row">
+          <span class="etag ts">Espace Suave</span><span class="etag ts">Kizomba</span>
+        </div>
+        <div id="s5-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s5-ch" class="chips">
+          <span class="chip">Kizomba</span><span class="chip">Urban Kiz</span>
+          <span class="chip">Semba</span><span class="chip">Suave</span>
+        </div>
+        <div id="s5-dt" class="dj-dates">Présent du <span>12 mai</span> au <span>18 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 6 — MIKADO SAN (45-53s) ══════════════════ -->
+  <div id="s6" class="clip" data-start="45" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s6-img" src="photos/DJ_Mikado_nobg.png" style="object-position:center 25%">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#00695C,#4527A0);"></div>
+        <div class="photo-num">6 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s6-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s6-nm" class="dj-name">DJ Mikado San</div>
+        <div id="s6-es" class="espaces-row">
+          <span class="etag ts">Espace Suave</span><span class="etag tb">Espace Bachata</span><span class="etag ta">After Party Kiz</span>
+        </div>
+        <div id="s6-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s6-ch" class="chips">
+          <span class="chip">Kizomba</span><span class="chip">Urban Kiz</span>
+          <span class="chip">Trad</span><span class="chip">Semba</span><span class="chip">Suave</span><span class="chip">Bachata All Style</span>
+        </div>
+        <div id="s6-dt" class="dj-dates">Présent du <span>12 mai</span> au <span>18 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 7 — JEAN-EMILE (53-61s) ══════════════════ -->
+  <div id="s7" class="clip" data-start="53" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s7-img" src="photos/DJ_Jean_Emile_nobg.png" style="object-position:center 25%">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#AD1457,#00695C);"></div>
+        <div class="photo-num">7 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s7-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s7-nm" class="dj-name">DJ Jean-Emile</div>
+        <div id="s7-es" class="espaces-row">
+          <span class="etag tb">Espace Bachata</span><span class="etag ts">Suave / Kizomba</span>
+        </div>
+        <div id="s7-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s7-ch" class="chips">
+          <span class="chip">Bachata</span><span class="chip">Kizomba</span>
+        </div>
+        <div id="s7-dt" class="dj-dates">Présent du <span>13 mai (15h)</span> au <span>17 mai (15h)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 8 — CYCY (61-69s) ══════════════════ -->
+  <div id="s8" class="clip" data-start="61" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s8-img" src="photos/DJ_CyCy_nobg.png" style="object-position:center 15%;transform:scale(1.12);transform-origin:center 15%;">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#E65100,#AD1457);"></div>
+        <div class="photo-num">8 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s8-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s8-nm" class="dj-name">DJ CYCY</div>
+        <div id="s8-es" class="espaces-row">
+          <span class="etag tc">Espace Caraïbes</span><span class="etag tb">Espace Bachata</span>
+        </div>
+        <div id="s8-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s8-ch" class="chips">
+          <span class="chip">Salsa</span><span class="chip">Bachata</span>
+        </div>
+        <div id="s8-dt" class="dj-dates">Présent du <span>12 mai</span> au <span>18 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 9 — RO (69-77s) ══════════════════ -->
+  <div id="s9" class="clip" data-start="69" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s9-img" src="photos/DJ_RO_nobg.png" style="object-position:center 15%">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#E65100,#4527A0);"></div>
+        <div class="photo-num">9 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s9-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s9-nm" class="dj-name">DJ ROH</div>
+        <div id="s9-es" class="espaces-row">
+          <span class="etag tc">Espace Caraïbes</span><span class="etag ta">After Party</span><span class="etag tp">Pool Party</span><span class="etag tbe">Beach Party</span>
+        </div>
+        <div id="s9-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s9-ch" class="chips">
+          <span class="chip">Hip-hop / RnB</span><span class="chip">Afrobeat</span><span class="chip">Amapiano</span>
+          <span class="chip">Reggae</span><span class="chip">Reggaeton</span><span class="chip">Ragga / Dancehall / Soca</span>
+          <span class="chip">Zouk / Konpa</span><span class="chip">Salsa / Bachata / Merengue</span>
+          <span class="chip">House / AfroHouse</span><span class="chip">Funk / Disco</span>
+        </div>
+        <div id="s9-dt" class="dj-dates">Présent du <span>13 mai</span> au <span>18 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 10 — BLANQUILLO (77-85s) ══════════════════ -->
+  <div id="s10" class="clip" data-start="77" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s10-img" src="photos/DJ_SYLVAIN_nobg.png" style="object-position:center 8%;transform:scale(1.25);transform-origin:center 8%;">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#AD1457,#00695C);"></div>
+        <div class="photo-num">10 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s10-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s10-nm" class="dj-name">DJ BLANQUILLO</div>
+        <div id="s10-es" class="espaces-row">
+          <span class="etag tb">Espace Bachata</span><span class="etag ts">Suave / Kizomba</span>
+        </div>
+        <div id="s10-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s10-ch" class="chips">
+          <span class="chip">Bachata</span><span class="chip">Kizomba</span><span class="chip">Zouk</span>
+        </div>
+        <div id="s10-dt" class="dj-dates">Présent du <span>13 mai</span> au <span>20 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 11 — FABULOUS (85-93s) ══════════════════ -->
+  <div id="s11" class="clip" data-start="85" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s11-img" src="photos/DJ_FABULOUS_nobg.png" style="object-position:center top">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:linear-gradient(180deg,#E65100,#00695C,#4527A0);"></div>
+        <div class="photo-num">11 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s11-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s11-nm" class="dj-name">DJ FABULOUS</div>
+        <div id="s11-es" class="espaces-row">
+          <span class="etag tc">Espace Caraïbes</span>
+          <span class="etag tb">Espace Bachata</span>
+          <span class="etag ts">Espace Suave</span>
+          <span class="etag ta">After Party</span>
+          <span class="etag tp">Pool Party</span><span class="etag tbe">Beach Party</span>
+        </div>
+        <div id="s11-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s11-ch" class="chips">
+          <span class="chip">Bachata All Style</span><span class="chip">Merengue</span>
+          <span class="chip">Dembow</span><span class="chip">Reggaeton</span>
+          <span class="chip">Salsa</span><span class="chip">Kizomba</span>
+          <span class="chip">Konpa</span><span class="chip">Hip-Hop 90's→Today</span>
+          <span class="chip">Shatta</span><span class="chip">Amapiano</span>
+        </div>
+        <div id="s11-dt" class="dj-dates">Présent du <span>11 mai</span> au <span>19 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DJ 12 — JEREMY (93-101s) ══════════════════ -->
+  <div id="s12" class="clip" data-start="93" data-duration="8" data-track-index="1"
+       style="position:absolute;inset:0;background:#06061e;">
+    <div class="dj-slide">
+      <div class="photo-panel">
+        <img data-layout-allow-overflow id="s12-img" src="photos/DJ_JEREMY_nobg.png" style="object-position:center top">
+        <div class="photo-grad"></div>
+        <div class="accent-bar" style="background:#E65100;"></div>
+        <div class="photo-num">12 / 12</div>
+      </div>
+      <div class="info-panel">
+        <div id="s12-ct" class="dj-counter">DJ · SBL 2026</div>
+        <div id="s12-nm" class="dj-name">DJ JEREMY</div>
+        <div id="s12-es" class="espaces-row">
+          <span class="etag tc">Espace Caraïbes</span><span class="etag tb">Espace Bachata</span>
+        </div>
+        <div id="s12-sl" class="styles-lbl">Styles musicaux</div>
+        <div id="s12-ch" class="chips">
+          <span class="chip">Salsa</span><span class="chip">Bachata</span><span class="chip">Cha-cha</span><span class="chip">Old school</span>
+        </div>
+        <div id="s12-dt" class="dj-dates">Présent du <span>10 mai</span> au <span>20 mai</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+
+/* ── Helper : animate one DJ scene ───────────────────── */
+function animDJ(n, t, opts = {}) {
+  const p = `#s${n}`;
+  tl.from(`${p}-img`, { scale: 1.1, duration: 8, ease: 'none' }, t)
+    .from(`${p}-ct`,  { opacity: 0, duration: 0.4 }, t + 0.1)
+    .from(`${p}-nm`,  { opacity: 0, y: 60, duration: 0.7, ease: 'power3.out' }, t + (opts.hasJoker ? 0.6 : 0.3))
+    .from(`${p}-es .etag`, { opacity: 0, y: 14, duration: 0.4, stagger: 0.09 }, t + (opts.hasJoker ? 0.9 : 0.65))
+    .from(`${p}-sl`,  { opacity: 0, duration: 0.3 }, t + 1.1)
+    .from(`${p}-ch .chip`, { opacity: 0, y: 10, duration: 0.3, stagger: 0.06 }, t + 1.2)
+    .from(`${p}-dt`,  { opacity: 0, duration: 0.4 }, t + 1.75)
+    .to(p, { opacity: 0, duration: 0.45 }, t + 7.55);
+  if (opts.hasJoker)
+    tl.from(`${p}-jk`, { opacity: 0, x: 28, duration: 0.5 }, t + 0.25);
+}
+
+/* ── INTRO ─────────────────────────────────────────── */
+tl.from('#intro-logo',  { opacity: 0, scale: 0.65, duration: 1.1, ease: 'back.out(1.4)' }, 0)
+  .from('#intro-title', { opacity: 0, y: 50, duration: 0.9, ease: 'power3.out' }, 0.5)
+  .from('#intro-sub',   { opacity: 0, y: 24, duration: 0.7 }, 0.95)
+  .from('#intro-dates', { opacity: 0, y: 16, duration: 0.6 }, 1.2)
+  .from('#intro-line',  { scaleX: 0, duration: 0.8, ease: 'power2.out' }, 1.5)
+  .to('#intro', { opacity: 0, duration: 0.5 }, 4.5);
+
+/* ── 12 DJs ─────────────────────────────────────────── */
+animDJ(1,  5,  { hasJoker: true });
+animDJ(2,  13);
+animDJ(3,  21);
+animDJ(4,  29);
+animDJ(5,  37);
+animDJ(6,  45);
+animDJ(7,  53);
+animDJ(8,  61);
+animDJ(9,  69);
+animDJ(10, 77);
+animDJ(11, 85);
+animDJ(12, 93);
+
+window.__timelines['main'] = tl;
+</script>
+</body>
+</html>
