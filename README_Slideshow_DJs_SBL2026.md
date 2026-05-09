@@ -70,7 +70,7 @@ Intégrée dans la barre d'en-tête fixe (entre le titre et les infos lieu/date)
 | 1 | DJ DREAMS | Pool Party · Beach Party · After Party · Toutes ambiances | 11 → 19 mai |
 | 2 | DJ Alex Salsarito | Espace Caraïbes · After Party | 11 → 18 mai |
 | 3 | DJ Jean-Mi | Espace Bachata · Espace Caraïbes | 11 → 18 mai |
-| 4 | DJ PHILLIPE | Espace Bachata · Espace Caraïbes | 12 → 18 mai |
+| 4 | DJ PHILIPPE | Espace Bachata · Espace Caraïbes | 12 → 18 mai |
 | 5 | DJ TREW | Espace Suave · Kizomba | 12 → 18 mai |
 | 6 | DJ Mikado San | Espace Suave · After Party Kiz | 12 → 18 mai |
 | 7 | DJ CYCY | Espace Caraïbes · Espace Bachata | 12 → 18 mai |
