@@ -156,7 +156,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 8 mai 2026 | Ajout `DJ_THOMAS.jpg` (DJ TREW) |
 | 8 mai 2026 | Cadrage individuel appliqué sur chaque photo (`object-position` par DJ) |
 | 8 mai 2026 | Ajout `DJ_CyCY1.png` (CyCy) — fond supprimé → `DJ_CyCy_nobg.png`, intégrée dans le tombi (portrait 1086×1448, cadrage `center 8%`) |
-| 8 mai 2026 | Alex Salserito — ajout After Party (Zouk / Kizomba / Kompa) dans le tombi |
+| 8 mai 2026 | Alex Salserito — ajout After Party (Zouk / Kizomba / Konpa) dans le tombi |
 | 8 mai 2026 | Refonte layout tombi — cartes en flex colonne hauteur fixe 460px, photo flex:1 pour maximiser l'espace |
 | 8 mai 2026 | Cadrage unifié `center top` sur toutes les photos (DREAMS, Salserito, Jean-Michel, Philippe, Fabulous, Jérémy + harmonisation des autres) |
 | 8 mai 2026 | Création `Programme_DJs_SBL2026.html` — programme par jour (Mer→Dim), créneaux × espaces, avatars DJs |
