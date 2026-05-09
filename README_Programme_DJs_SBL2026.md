@@ -233,6 +233,7 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g' \
 | 9 mai 2026 | v7 — DJ RO renommé **DJ ROH** (avec H) |
 | 9 mai 2026 | v8 — DJ FABULOUS : styles musicaux mis à jour (10 genres) |
 | 9 mai 2026 | v9 — DJ JEREMY : Bachata ajouté · DJ FABULOUS / DJ ROH / DJ PHILIPPE : Pool Party + Beach Party ajoutés |
+| 9 mai 2026 | v10 — Corrections structurelles planning : soirées 22h-02h · after 02h-04h · Suave fermé pendant showcase jeudi · Bachata fermé pendant concert vendredi · Caraïbes fermé pendant concert samedi · Pratiques sociales 17h30-19h (Jeu/Ven/Sam) · Dimanche : Apéro géant + Soirée SBK DOME · Pas d'after dimanche |
 
 ---
 
