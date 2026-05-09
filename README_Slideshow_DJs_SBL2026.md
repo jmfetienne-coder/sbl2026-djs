@@ -148,6 +148,8 @@ Chaque DJ dans le tableau `DJS` possède deux propriétés de couleur ambiante :
 | 8 mai 2026 | v2 — Intégration photo `DJ_Jean_Emile_nobg.png` — tous les 12 DJs avec photo réelle |
 | 8 mai 2026 | v3 — Navigation commune intégrée dans le top-bar (Trombinoscope · Programme · Slideshow) |
 | 8 mai 2026 | v4 — Mise en ligne GitHub Pages (dépôt `jmfetienne-coder/sbl2026-djs`) |
+| 9 mai 2026 | v5 — DJ RO renommé **DJ ROH** (avec H) |
+| 9 mai 2026 | v6 — DJ FABULOUS : styles musicaux mis à jour (10 genres) |
 
 ---
 

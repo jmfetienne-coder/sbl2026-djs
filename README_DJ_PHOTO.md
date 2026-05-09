@@ -65,10 +65,13 @@ Aucune photo manquante — tous les 12 DJs sont couverts.
 
 ### Publier une mise à jour
 
+**Option 1 — script `deploy.sh`** (depuis le Terminal) :
 ```bash
 cd "/Users/Jean-MichelEtienne_1/Desktop/SBL 2026/DJ_PHOTO"
-git add -A && git commit -m "description de la modification" && git push
+./deploy.sh "description de la modification"
 ```
+
+**Option 2 — via Claude Code** : demander directement «publie les modifications sur GitHub».
 
 GitHub Pages se met à jour automatiquement dans la minute qui suit.
 
@@ -168,6 +171,8 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 8 mai 2026 | v5 — Ajout photo `DJ_Jean_Emile.jpg` + `DJ_Jean_Emile_nobg.png` — plus aucune photo manquante ; inventaire complété avec toutes les versions `_nobg.png` |
 | 8 mai 2026 | v6 — Tombi : responsive mobile (4→3→2 cols), filtres par espace (6 boutons), badge «CE SOIR» automatique (JS), navigation commune 3 onglets, QR code de partage (qrcode.js) |
 | 8 mai 2026 | v7 — Mise en ligne GitHub Pages (dépôt `jmfetienne-coder/sbl2026-djs`) — QR code pointe sur l'URL définitive |
+| 9 mai 2026 | v8 — DJ RO renommé **DJ ROH** (avec H) · styles musicaux mis à jour (10 genres détaillés) · script `deploy.sh` ajouté |
+| 9 mai 2026 | v9 — DJ FABULOUS : styles mis à jour (Bachata All Style, Merengue, Dembow, Reggaeton, Salsa, Kizomba, Konpa, Hip-Hop 90's→Today, Shatta, Amapiano) |
 
 ---
 

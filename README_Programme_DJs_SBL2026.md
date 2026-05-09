@@ -230,6 +230,8 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g' \
 | 8 mai 2026 | v4 — Intégration photo `DJ_Jean_Emile_nobg.png` — avatar SVG remplacé dans toutes les occurrences |
 | 8 mai 2026 | v5 — Navigation commune 3 onglets (Trombinoscope · Programme · Slideshow) en barre sticky |
 | 8 mai 2026 | v6 — Mise en ligne GitHub Pages (dépôt `jmfetienne-coder/sbl2026-djs`) |
+| 9 mai 2026 | v7 — DJ RO renommé **DJ ROH** (avec H) |
+| 9 mai 2026 | v8 — DJ FABULOUS : styles musicaux mis à jour (10 genres) |
 
 ---
 
