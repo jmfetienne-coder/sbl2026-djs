@@ -2,7 +2,7 @@
 **Fichier :** `Programme_DJs_SBL2026.html`  
 **Événement :** Spring Break Latino — 13 au 17 mai 2026  
 **Lieu :** Camping Arinella Bianca, 20240 Ghisonnacia (Corse)  
-**Dernière mise à jour :** 8 mai 2026 (v6)
+**Dernière mise à jour :** 9 mai 2026 (v12)
 
 ---
 
@@ -73,77 +73,93 @@ Chaque section comprend :
 
 | Créneau | Caraïbes | Bachata | Suave / Kiz | After Kiz | After Playa |
 |---------|----------|---------|-------------|-----------|-------------|
-| 22h-00h | Alex Salderito + Philippe DJ | Jean-Michel + Jean-Emile | DJ TREW + CyCy | — | — |
-| 00h-02h | Rolland + Jérémy | Sylvain + Philippe DJ | Mikado San + Jean-Emile | — | — |
-| 02h-04h | — | — | — | DREAMS + Fabulous DJ | DREAMS + Rolland |
+| 22h-00h | DJ Alex Salsarito + DJ PHILIPPE | DJ Jean-Mi + DJ Jean-Emile | DJ TREW + DJ BLANQUILLO | — | — |
+| 00h-02h | DJ ROH + DJ JEREMY | DJ BLANQUILLO + DJ PHILIPPE | DJ Mikado San + DJ Jean-Emile | — | — |
+| 02h-04h | — | — | — | DJ TREW + DJ FABULOUS | DJ DREAMS + DJ ROH |
 
 ---
 
 ### Jeudi 14 Mai
 - Dress-code : 🎭 Carnaval Brésilien
-- Journée : 🏊 Pool Party 14h-17h (DREAMS)
+- Journée : 🏊 Pool Party 14h-17h (DJ DREAMS)
+- Pratiques Sociales : 17h30-19h00
 - Showcase : 🎤 Mika Mendes (sur Scène, 21h-23h)
 - Soirée : 21h00 → 04h00
 
+**Pratiques Sociales 17h30-19h :**
+- 🟢 **Kizomba** — Park Place : DJ Mikado San
+- 🟠 **Salsa · Bachata** — Playa : DJ CYCY
+
 | Créneau | Caraïbes | Bachata | Suave / Kiz | After Kiz | After Playa |
 |---------|----------|---------|-------------|-----------|-------------|
-| 21h-23h | Alex Salderito + Jérémy | Sylvain + Philippe DJ | DJ TREW + Jean-Emile | — | — |
-| 23h-02h | Rolland + Philippe DJ | Jean-Michel + Jean-Emile | Mikado San + DJ TREW | — | — |
-| 02h-04h | — | — | — | CyCy + DJ TREW | DREAMS + Fabulous DJ |
+| 21h-23h | DJ Alex Salsarito + DJ JEREMY | DJ BLANQUILLO + DJ PHILIPPE | — *(Suave fermé, showcase)* | — | — |
+| 23h-02h | DJ ROH + DJ PHILIPPE | DJ Jean-Mi + DJ Jean-Emile | DJ Mikado San + DJ TREW | — | — |
+| 02h-04h | — | — | — | DJ FABULOUS + DJ TREW | DJ DREAMS + DJ ROH |
 
 **Pendant le showcase Mika Mendes (21h-23h) — Sur les pistes :**
-- 🟠 **Salsa** : Alex Salderito + Jérémy (Espace Caraïbes)
-- 🩷 **Bachata** : Sylvain + Philippe DJ (Espace Bachata)
+- 🟠 **Salsa** : DJ Alex Salsarito + DJ JEREMY (Espace Caraïbes — Playa)
+- 🩷 **Bachata** : DJ BLANQUILLO + DJ PHILIPPE (Espace Bachata — Park Place)
 
 ---
 
 ### Vendredi 15 Mai
 - Dress-code : 🪩 Disco Party
+- Pratiques Sociales : 17h30-19h00
 - Concert : 🎸 Bachata — Grupo Olas (sur Scène, 21h-23h)
 - Soirée : 21h00 → 04h00
 
+**Pratiques Sociales 17h30-19h :**
+- 🟢 **Kizomba** — Park Place : DJ BLANQUILLO
+- 🟠 **Salsa · Bachata** — Playa : DJ Jean-Mi
+
 | Créneau | Caraïbes | Bachata | Suave / Kiz | After Kiz | After Playa |
 |---------|----------|---------|-------------|-----------|-------------|
-| 21h-23h | Alex Salderito + Jérémy | Jean-Michel + Philippe DJ | DJ TREW + CyCy | — | — |
-| 23h-02h | Rolland + Philippe DJ | Sylvain + Jean-Emile | Mikado San + DJ TREW | — | — |
-| 02h-04h | — | — | — | CyCy + Jean-Emile | DREAMS + Fabulous DJ |
+| 21h-23h | DJ Alex Salsarito + DJ JEREMY | — *(Bachata fermé, concert)* | DJ TREW + DJ Jean-Emile | — | — |
+| 23h-02h | DJ ROH + DJ PHILIPPE | DJ BLANQUILLO + DJ Jean-Emile | DJ Mikado San + DJ TREW | — | — |
+| 02h-04h | — | — | — | DJ TREW + DJ Jean-Emile | DJ DREAMS + DJ FABULOUS |
 
 **Pendant le concert Grupo Olas / Bachata (21h-23h) — Sur les pistes :**
-- 🟠 **Salsa** : Alex Salderito + Jérémy (Espace Caraïbes)
-- 🟢 **Kizomba** : DJ TREW + CyCy (Espace Suave)
+- 🟠 **Salsa** : DJ Alex Salsarito + DJ JEREMY (Espace Caraïbes — Playa)
+- 🟢 **Kizomba** : DJ TREW + DJ Jean-Emile (Espace Suave — Park Place)
 
 ---
 
 ### Samedi 16 Mai
 - Dress-code : 🤍 Chic & Blanc
-- Journée : 🏖️ Beach Party X Games 14h-18h (DREAMS)
+- Journée : 🏖️ Beach Party X Games 14h-18h (DJ DREAMS)
+- Pratiques Sociales : 17h30-19h00
 - Concert : 🎺 Salsa — Parisongo (sur Scène, 21h-22h30)
-- Espace Caraïbes ouvre à 22h30
+- Espace Caraïbes (DOME) ouvre à 22h30
 - Soirée : 21h00 → 04h+
+
+**Pratiques Sociales 17h30-19h :**
+- 🟢 **Kizomba** — Park Place : DJ TREW
+- 🟠 **Salsa · Bachata** — Playa : DJ JEREMY
 
 | Créneau | Caraïbes | Bachata | Suave / Kiz | After Kiz | After Playa |
 |---------|----------|---------|-------------|-----------|-------------|
-| 21h-22h30 | — (concert) | Jean-Michel + Jean-Emile | DJ TREW + CyCy | — | — |
-| 22h30-02h | Alex Salderito + Rolland | Sylvain + Philippe DJ | Mikado San + Jean-Emile | — | — |
-| 02h+ | — | — | — | DJ TREW + Mikado San | DREAMS + Fabulous DJ |
+| 21h-22h30 | — *(Caraïbes fermé, concert)* | DJ Jean-Mi + DJ Jean-Emile | DJ TREW + DJ BLANQUILLO | — | — |
+| 22h30-02h | DJ Alex Salsarito + DJ ROH | DJ CYCY + DJ PHILIPPE | DJ Mikado San + DJ Jean-Emile | — | — |
+| 02h+ | — | — | — | DJ TREW + DJ Mikado San | DJ DREAMS + DJ FABULOUS |
 
 **Pendant le concert Parisongo / Salsa (21h-22h30) — Sur les pistes :**
-- 🟢 **Kizomba** : DJ TREW + CyCy (Espace Suave)
-- 🩷 **Bachata** : Jean-Michel + Jean-Emile (Espace Bachata)
+- 🟢 **Kizomba** : DJ TREW + DJ BLANQUILLO (Espace Suave — Playa)
+- 🩷 **Bachata** : DJ Jean-Mi + DJ Jean-Emile (Espace Bachata — Park Place)
 
 ---
 
 ### Dimanche 17 Mai
 - Soirée SBK — Salsa · Bachata · Kizomba
-- Début : 19h00 → Nuit
+- Apéro géant → Soirée dansante · DOME · à partir de 19h00
+- Pas d'After Party
 - ⚠️ Jean-Emile reparti à 15h00 — non disponible
 
 | Créneau | Caraïbes | Bachata | Suave / Kiz |
 |---------|----------|---------|-------------|
-| 19h+ | Alex Salderito + Jérémy | Jean-Michel + Philippe DJ | DJ TREW + Mikado San |
-| Nuit+ | Rolland + Alex Salderito | Sylvain + Philippe DJ | CyCy + DJ TREW |
+| 19h+ | DJ Alex Salsarito + DJ JEREMY | DJ Jean-Mi + DJ PHILIPPE | DJ TREW + DJ Mikado San |
+| Nuit+ | DJ ROH + DJ CYCY | DJ BLANQUILLO + DJ PHILIPPE | DJ FABULOUS + DJ TREW |
 
-> DREAMS disponible en renfort si besoin.
+> DJ DREAMS disponible en renfort si besoin.
 
 ---
 
@@ -234,6 +250,8 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g' \
 | 9 mai 2026 | v8 — DJ FABULOUS : styles musicaux mis à jour (10 genres) |
 | 9 mai 2026 | v9 — DJ JEREMY : Bachata ajouté · DJ FABULOUS / DJ ROH / DJ PHILIPPE : Pool Party + Beach Party ajoutés |
 | 9 mai 2026 | v10 — Corrections structurelles planning : soirées 22h-02h · after 02h-04h · Suave fermé pendant showcase jeudi · Bachata fermé pendant concert vendredi · Caraïbes fermé pendant concert samedi · Pratiques sociales 17h30-19h (Jeu/Ven/Sam) · Dimanche : Apéro géant + Soirée SBK DOME · Pas d'after dimanche |
+| 9 mai 2026 | v11 — Audit complet cohérence musicale : 13 corrections · DJ CYCY repositionné exclusivement Caraïbes/Bachata · Suave/Kizomba couverts par TREW, BLANQUILLO, Jean-Emile, Mikado San, FABULOUS · DREAMS supprimé du conflit double-espace (Mercredi After) |
+| 9 mai 2026 | v12 — Ajout créneaux Pratiques Sociales 17h30-19h (Jeu/Ven/Sam) avec avatars DJs : Kizomba Park Place + Salsa·Bachata Playa · DJs assignés selon style musical |
 
 ---
 

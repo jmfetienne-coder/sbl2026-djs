@@ -2,7 +2,7 @@
 **Fichier :** `Tombi_DJs_SBL2026_SLIDESHOW.html`  
 **Événement :** Spring Break Latino — 13 au 17 mai 2026  
 **Lieu :** Camping Arinella Bianca, 20240 Ghisonnacia (Corse)  
-**Dernière mise à jour :** 8 mai 2026 (v4)
+**Dernière mise à jour :** 9 mai 2026 (v8)
 
 ---
 
@@ -151,6 +151,7 @@ Chaque DJ dans le tableau `DJS` possède deux propriétés de couleur ambiante :
 | 9 mai 2026 | v5 — DJ RO renommé **DJ ROH** (avec H) |
 | 9 mai 2026 | v6 — DJ FABULOUS : styles musicaux mis à jour (10 genres) |
 | 9 mai 2026 | v7 — DJ JEREMY : Bachata ajouté aux styles · Espace Bachata ajouté |
+| 9 mai 2026 | v8 — Mise à jour cohérence : DJ CYCY = Caraïbes + Bachata uniquement · DJ BLANQUILLO / DJ FABULOUS : Suave/Kizomba confirmé |
 
 ---
 

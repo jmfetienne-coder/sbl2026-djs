@@ -1,7 +1,7 @@
 # Photos DJs — Spring Break Latino Corsica 2026
 **Répertoire :** `/SBL 2026/DJ_PHOTO/`  
 **Utilisation :** Photos des DJs pour le tombi festivaliers (`PLANNING/Tombi_DJs_SBL2026.html`)  
-**Dernière mise à jour :** 8 mai 2026 (v7)
+**Dernière mise à jour :** 9 mai 2026 (v11)
 
 ---
 
@@ -174,6 +174,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 9 mai 2026 | v8 — DJ RO renommé **DJ ROH** (avec H) · styles musicaux mis à jour (10 genres détaillés) · script `deploy.sh` ajouté |
 | 9 mai 2026 | v9 — DJ FABULOUS : styles mis à jour (Bachata All Style, Merengue, Dembow, Reggaeton, Salsa, Kizomba, Konpa, Hip-Hop 90's→Today, Shatta, Amapiano) |
 | 9 mai 2026 | v10 — DJ JEREMY : Bachata ajouté aux styles · Espace Bachata ajouté · DJ FABULOUS / DJ ROH / DJ PHILIPPE : Pool Party + Beach Party ajoutés |
+| 9 mai 2026 | v11 — Audit planning : 13 corrections de cohérence musicale · Créneaux Pratiques Sociales 17h30-19h ajoutés (Jeu/Ven/Sam) |
 
 ---
 
