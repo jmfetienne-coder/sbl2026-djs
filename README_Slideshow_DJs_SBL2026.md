@@ -78,7 +78,7 @@ Intégrée dans la barre d'en-tête fixe (entre le titre et les infos lieu/date)
 | 9 | DJ ROH | Espace Caraïbes · After Party | 13 → 18 mai |
 | 10 | DJ BLANQUILLO | Espace Bachata · Suave / Kizomba | 13 → 20 mai |
 | 11 | DJ FABULOUS | Espace Caraïbes · Espace Suave · After Party | 11 → 19 mai |
-| 12 | DJ JEREMY | Espace Caraïbes | 10 → 20 mai |
+| 12 | DJ JEREMY | Espace Caraïbes · Espace Bachata | 10 → 20 mai |
 
 > Tous les 12 DJs ont leur photo (`_nobg.png`).
 
@@ -150,6 +150,7 @@ Chaque DJ dans le tableau `DJS` possède deux propriétés de couleur ambiante :
 | 8 mai 2026 | v4 — Mise en ligne GitHub Pages (dépôt `jmfetienne-coder/sbl2026-djs`) |
 | 9 mai 2026 | v5 — DJ RO renommé **DJ ROH** (avec H) |
 | 9 mai 2026 | v6 — DJ FABULOUS : styles musicaux mis à jour (10 genres) |
+| 9 mai 2026 | v7 — DJ JEREMY : Bachata ajouté aux styles · Espace Bachata ajouté |
 
 ---
 

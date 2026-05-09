@@ -232,6 +232,7 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g' \
 | 8 mai 2026 | v6 — Mise en ligne GitHub Pages (dépôt `jmfetienne-coder/sbl2026-djs`) |
 | 9 mai 2026 | v7 — DJ RO renommé **DJ ROH** (avec H) |
 | 9 mai 2026 | v8 — DJ FABULOUS : styles musicaux mis à jour (10 genres) |
+| 9 mai 2026 | v9 — DJ JEREMY : Bachata ajouté · DJ FABULOUS / DJ ROH / DJ PHILIPPE : Pool Party + Beach Party ajoutés |
 
 ---
 

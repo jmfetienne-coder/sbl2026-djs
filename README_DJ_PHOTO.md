@@ -173,6 +173,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 8 mai 2026 | v7 — Mise en ligne GitHub Pages (dépôt `jmfetienne-coder/sbl2026-djs`) — QR code pointe sur l'URL définitive |
 | 9 mai 2026 | v8 — DJ RO renommé **DJ ROH** (avec H) · styles musicaux mis à jour (10 genres détaillés) · script `deploy.sh` ajouté |
 | 9 mai 2026 | v9 — DJ FABULOUS : styles mis à jour (Bachata All Style, Merengue, Dembow, Reggaeton, Salsa, Kizomba, Konpa, Hip-Hop 90's→Today, Shatta, Amapiano) |
+| 9 mai 2026 | v10 — DJ JEREMY : Bachata ajouté aux styles · Espace Bachata ajouté · DJ FABULOUS / DJ ROH / DJ PHILIPPE : Pool Party + Beach Party ajoutés |
 
 ---
 
