@@ -152,6 +152,7 @@ Chaque DJ dans le tableau `DJS` possède deux propriétés de couleur ambiante :
 | 9 mai 2026 | v6 — DJ FABULOUS : styles musicaux mis à jour (10 genres) |
 | 9 mai 2026 | v7 — DJ JEREMY : Bachata ajouté aux styles · Espace Bachata ajouté |
 | 9 mai 2026 | v8 — Mise à jour cohérence : DJ CYCY = Caraïbes + Bachata uniquement · DJ BLANQUILLO / DJ FABULOUS : Suave/Kizomba confirmé |
+| 10 mai 2026 | v9 — After Party restaurés dans le Programme (02h-04h Mer/Jeu/Ven · 02h-04h+ Sam) · Playa + Kizomba Park Place |
 
 ---
 

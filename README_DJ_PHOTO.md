@@ -175,6 +175,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 9 mai 2026 | v9 — DJ FABULOUS : styles mis à jour (Bachata All Style, Merengue, Dembow, Reggaeton, Salsa, Kizomba, Konpa, Hip-Hop 90's→Today, Shatta, Amapiano) |
 | 9 mai 2026 | v10 — DJ JEREMY : Bachata ajouté aux styles · Espace Bachata ajouté · DJ FABULOUS / DJ ROH / DJ PHILIPPE : Pool Party + Beach Party ajoutés |
 | 9 mai 2026 | v11 — Audit planning : 13 corrections de cohérence musicale · Créneaux Pratiques Sociales 17h30-19h ajoutés (Jeu/Ven/Sam) |
+| 10 mai 2026 | v12 — Programme refonte complète : créneaux **1 heure** (au lieu de 2h) · **3 colonnes** (DOME / Kizomba Suave / Bachata Kizomba) · After Party 02h-04h restaurés (Playa + Park Place Kizomba) pour Mer/Jeu/Ven ; Samedi 02h-04h+ |
 
 ---
 
