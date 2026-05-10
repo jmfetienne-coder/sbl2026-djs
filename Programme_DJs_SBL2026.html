@@ -183,7 +183,7 @@
 
   .schedule-header {
     display: grid;
-    grid-template-columns: 110px 1fr 1fr 1fr 140px 140px;
+    grid-template-columns: 110px 1fr 1fr 1fr;
     border-bottom: 2px solid rgba(255,255,255,.08);
   }
   .schedule-header > div {
@@ -202,7 +202,7 @@
   /* Ligne de slot */
   .slot-row {
     display: grid;
-    grid-template-columns: 110px 1fr 1fr 1fr 140px 140px;
+    grid-template-columns: 110px 1fr 1fr 1fr;
     border-bottom: 1px solid rgba(255,255,255,.05);
     min-height: 80px;
     transition: background .2s ease;
@@ -356,8 +356,9 @@
   <div class="legend-item"><div class="legend-dot" style="background:#E65100;"></div><span>Espace Caraïbes</span></div>
   <div class="legend-item"><div class="legend-dot" style="background:#AD1457;"></div><span>Espace Bachata</span></div>
   <div class="legend-item"><div class="legend-dot" style="background:#00695C;"></div><span>Espace Suave / Kizomba</span></div>
-  <div class="legend-item"><div class="legend-dot" style="background:#4527A0;"></div><span>After Party — Kizomba</span></div>
-  <div class="legend-item"><div class="legend-dot" style="background:#6A1B9A;"></div><span>After Party — Playa</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#E65100;"></div><span>DOME</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#00695C;"></div><span>Kizomba / Suave</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:#AD1457;"></div><span>Bachata / Kizomba</span></div>
 </div>
 
 <!-- ══════════════════════════════════════
@@ -377,69 +378,68 @@
   <div class="schedule">
     <div class="schedule-header">
       <div>Horaire</div>
-      <div class="col-caraibes">🟠 Espace Caraïbes</div>
-      <div class="col-bachata">🩷 Espace Bachata</div>
-      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
-      <div class="col-after-kiz">🟣 After — Kizomba</div>
-      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+      <div class="col-caraibes">🟠 DOME</div>
+      <div class="col-suave">🟢 Kizomba / Suave</div>
+      <div class="col-bachata">🩷 Bachata / Kizomba</div>
     </div>
-    <!-- 22h-00h -->
+    <!-- 22h-23h -->
     <div class="slot-row">
-      <div class="slot-time">22h00<br>00h00</div>
+      <div class="slot-time">22h00<br>23h00</div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
-      </div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
-      </div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
-      </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
-    </div>
-    <!-- 00h-02h -->
-    <div class="slot-row">
-      <div class="slot-time">00h00<br>02h00</div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ ROH"><span class="dj-name">DJ ROH</span></div>
-        <div class="dj-plus">+</div>
         <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
-      </div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
       </div>
       <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
       </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+      </div>
     </div>
-    <!-- 02h-04h -->
+    <!-- 23h-00h -->
     <div class="slot-row">
-      <div class="slot-time">02h00<br>04h00</div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
+      <div class="slot-time">23h00<br>00h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+      </div>
+    </div>
+    <!-- 00h-01h -->
+    <div class="slot-row">
+      <div class="slot-time">00h00<br>01h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+      </div>
       <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
       </div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ ROH"><span class="dj-name">DJ ROH</span></div>
+        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
+      </div>
+    </div>
+    <!-- 01h-02h -->
+    <div class="slot-row">
+      <div class="slot-time">01h00<br>02h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
       </div>
     </div>
   </div>
@@ -462,11 +462,9 @@
   <div class="schedule">
     <div class="schedule-header">
       <div>Horaire</div>
-      <div class="col-caraibes">🟠 Espace Caraïbes</div>
-      <div class="col-bachata">🩷 Espace Bachata</div>
-      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
-      <div class="col-after-kiz">🟣 After — Kizomba</div>
-      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+      <div class="col-caraibes">🟠 DOME</div>
+      <div class="col-suave">🟢 Kizomba / Suave</div>
+      <div class="col-bachata">🩷 Bachata / Kizomba</div>
     </div>
     <!-- Pool Party -->
     <div class="special-row" style="background:rgba(2,119,189,.12);">
@@ -499,22 +497,18 @@
         </div>
       </div>
     </div>
-    <!-- 21h-23h -->
+    <!-- 21h-23h (DOME fermé — showcase) -->
     <div class="slot-row">
       <div class="slot-time">21h00<br>23h00</div>
-      <div class="slot-cell">
+      <div class="slot-cell empty" title="DOME fermé — showcase sur scène principale"></div>
+      <div class="slot-cell" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div style="font-size:.55em;color:#AD1457;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Espace Bachata — Park Place</div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+      <div class="slot-cell" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div style="font-size:.55em;color:#E65100;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Espace Caraïbes — Playa</div>
         <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
       </div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
-      </div>
-      <div class="slot-cell empty" title="Espace Suave fermé pendant le showcase"></div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
     </div>
     <!-- Showcase -->
     <div class="special-row" style="background:rgba(255,193,7,.06); grid-template-columns: 110px 1fr;">
@@ -524,62 +518,63 @@
           <div class="special-icon">🎤</div>
           <div>
             <div class="special-label" style="color:#FFC107;">Showcase — Mika Mendes</div>
-            <div class="special-sub">Sur Scène principale · Caraïbes à la Playa · Bachata à Park Place · Espace Suave fermé</div>
+            <div class="special-sub">Sur Scène principale · DOME fermé · Caraïbes à la Playa · Bachata à Park Place</div>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-left:1px solid rgba(255,255,255,.1);padding-left:16px;">
           <span style="font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);">Sur les pistes :</span>
           <div style="display:flex;align-items:center;gap:6px;">
-            <span style="background:#E65100;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(230,81,0,.5);">🟠 Salsa</span>
+            <span style="background:#E65100;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(230,81,0,.5);">🟠 Caraïbes (Playa)</span>
             <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name" style="font-size:.68em;">DJ Alex Salsarito</span></div>
-            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
-            <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name" style="font-size:.68em;">DJ JEREMY</span></div>
           </div>
           <div style="display:flex;align-items:center;gap:6px;">
-            <span style="background:#AD1457;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(173,20,87,.5);">🩷 Bachata</span>
-            <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name" style="font-size:.68em;">DJ BLANQUILLO</span></div>
-            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
-            <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name" style="font-size:.68em;">DJ PHILIPPE</span></div>
+            <span style="background:#AD1457;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(173,20,87,.5);">🩷 Bachata (Park Place)</span>
+            <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name" style="font-size:.68em;">DJ Jean-Emile</span></div>
           </div>
         </div>
       </div>
     </div>
-    <!-- 23h-02h -->
+    <!-- 23h-00h -->
     <div class="slot-row">
-      <div class="slot-time">23h00<br>02h00</div>
+      <div class="slot-time">23h00<br>00h00</div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ ROH"><span class="dj-name">DJ ROH</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
-      </div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
       </div>
       <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
       </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+      </div>
     </div>
-    <!-- 02h-04h -->
+    <!-- 00h-01h -->
     <div class="slot-row">
-      <div class="slot-time">02h00<br>04h00</div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
+      <div class="slot-time">00h00<br>01h00</div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
-        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+      </div>
+    </div>
+    <!-- 01h-02h -->
+    <div class="slot-row">
+      <div class="slot-time">01h00<br>02h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
+      </div>
+      <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
       </div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ ROH"><span class="dj-name">DJ ROH</span></div>
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
       </div>
     </div>
   </div>
@@ -602,11 +597,9 @@
   <div class="schedule">
     <div class="schedule-header">
       <div>Horaire</div>
-      <div class="col-caraibes">🟠 Espace Caraïbes</div>
-      <div class="col-bachata">🩷 Espace Bachata</div>
-      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
-      <div class="col-after-kiz">🟣 After — Kizomba</div>
-      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+      <div class="col-caraibes">🟠 DOME</div>
+      <div class="col-suave">🟢 Kizomba / Suave</div>
+      <div class="col-bachata">🩷 Bachata / Kizomba</div>
     </div>
     <!-- Pratiques Sociales 17h30-19h -->
     <div class="special-row" style="background:rgba(255,255,255,.06);border-left:3px solid rgba(0,188,212,.35);">
@@ -625,22 +618,22 @@
         </div>
       </div>
     </div>
-    <!-- 21h-23h -->
+    <!-- 21h-23h (concert Grupo Olas — 3 espaces actifs) -->
     <div class="slot-row">
       <div class="slot-time">21h00<br>23h00</div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
-        <div class="dj-plus">+</div>
         <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
       </div>
-      <div class="slot-cell empty" title="Espace Bachata fermé pendant le concert"></div>
-      <div class="slot-cell">
+      <div class="slot-cell" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div style="font-size:.55em;color:#E65100;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Espace Caraïbes — Playa</div>
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+      </div>
+      <div class="slot-cell" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div style="font-size:.55em;color:#00695C;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Espace Suave — Park Place</div>
         <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
       </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
     </div>
     <!-- Concert -->
     <div class="special-row" style="background:rgba(233,30,99,.1); grid-template-columns: 110px 1fr;">
@@ -650,62 +643,63 @@
           <div class="special-icon">🎸</div>
           <div>
             <div class="special-label" style="color:#F48FB1;">Concert Bachata — Grupo Olas</div>
-            <div class="special-sub">Sur Scène principale · Caraïbes à la Playa · Suave à Park Place · Espace Bachata fermé</div>
+            <div class="special-sub">Sur Scène principale · DOME : Jeremy / Philippe · Caraïbes à la Playa · Suave à Park Place</div>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-left:1px solid rgba(255,255,255,.1);padding-left:16px;">
           <span style="font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);">Sur les pistes :</span>
           <div style="display:flex;align-items:center;gap:6px;">
-            <span style="background:#E65100;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(230,81,0,.5);">🟠 Salsa</span>
+            <span style="background:#E65100;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(230,81,0,.5);">🟠 Caraïbes (Playa)</span>
             <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name" style="font-size:.68em;">DJ Alex Salsarito</span></div>
-            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
-            <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name" style="font-size:.68em;">DJ JEREMY</span></div>
           </div>
           <div style="display:flex;align-items:center;gap:6px;">
-            <span style="background:#00695C;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(0,105,92,.5);">🟢 Kizomba</span>
+            <span style="background:#00695C;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(0,105,92,.5);">🟢 Suave (Park Place)</span>
             <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name" style="font-size:.68em;">DJ TREW</span></div>
-            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
-            <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name" style="font-size:.68em;">DJ Jean-Emile</span></div>
           </div>
         </div>
       </div>
     </div>
-    <!-- 23h-02h -->
+    <!-- 23h-00h -->
     <div class="slot-row">
-      <div class="slot-time">23h00<br>02h00</div>
+      <div class="slot-time">23h00<br>00h00</div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ ROH"><span class="dj-name">DJ ROH</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
-      </div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
       </div>
       <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
       </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
-    </div>
-    <!-- 02h-04h -->
-    <div class="slot-row">
-      <div class="slot-time">02h00<br>04h00</div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
-        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+      </div>
+    </div>
+    <!-- 00h-01h -->
+    <div class="slot-row">
+      <div class="slot-time">00h00<br>01h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+      </div>
+      <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
       </div>
+    </div>
+    <!-- 01h-02h -->
+    <div class="slot-row">
+      <div class="slot-time">01h00<br>02h00</div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
       </div>
     </div>
   </div>
@@ -728,11 +722,9 @@
   <div class="schedule">
     <div class="schedule-header">
       <div>Horaire</div>
-      <div class="col-caraibes">🟠 Espace Caraïbes</div>
-      <div class="col-bachata">🩷 Espace Bachata</div>
-      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
-      <div class="col-after-kiz">🟣 After — Kizomba</div>
-      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+      <div class="col-caraibes">🟠 DOME</div>
+      <div class="col-suave">🟢 Kizomba / Suave</div>
+      <div class="col-bachata">🩷 Bachata / Kizomba</div>
     </div>
     <!-- Beach Party -->
     <div class="special-row" style="background:rgba(255,143,0,.1);">
@@ -765,86 +757,87 @@
         </div>
       </div>
     </div>
-    <!-- 21h-22h30 -->
+    <!-- 21h30-22h30 -->
     <div class="slot-row">
-      <div class="slot-time">21h00<br>22h30</div>
-      <div class="slot-cell empty"></div>
+      <div class="slot-time">21h30<br>22h30</div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
-        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+      </div>
+      <div class="slot-cell" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div style="font-size:.55em;color:#00695C;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Espace Suave — Playa</div>
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+      </div>
+      <div class="slot-cell" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div style="font-size:.55em;color:#AD1457;font-weight:700;text-transform:uppercase;letter-spacing:.8px;">Espace Bachata — Park Place</div>
         <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
       </div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
-      </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
     </div>
     <!-- Concert -->
     <div class="special-row" style="background:rgba(255,193,7,.06); grid-template-columns: 110px 1fr;">
-      <div class="special-time" style="color:#FFC107;">21h → 22h30</div>
+      <div class="special-time" style="color:#FFC107;">21h30 → 22h30</div>
       <div class="special-body" style="flex-wrap:wrap; gap:12px;">
         <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
           <div class="special-icon">🎺</div>
           <div>
             <div class="special-label" style="color:#FFC107;">Concert Salsa — Parisongo</div>
-            <div class="special-sub">Sur Scène principale · Bachata à Park Place · Suave à Playa · Espace Caraïbes (DOME) ouvre à 22h30</div>
+            <div class="special-sub">Sur Scène principale · Suave à Playa · Bachata à Park Place · Espace Caraïbes (DOME) ouvre à 22h30</div>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-left:1px solid rgba(255,255,255,.1);padding-left:16px;">
           <span style="font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);">Sur les pistes :</span>
           <div style="display:flex;align-items:center;gap:6px;">
-            <span style="background:#00695C;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(0,105,92,.5);">🟢 Kizomba</span>
+            <span style="background:#00695C;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(0,105,92,.5);">🟢 Suave — Playa</span>
             <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name" style="font-size:.68em;">DJ TREW</span></div>
-            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
-            <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name" style="font-size:.68em;">DJ BLANQUILLO</span></div>
           </div>
           <div style="display:flex;align-items:center;gap:6px;">
-            <span style="background:#AD1457;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(173,20,87,.5);">🩷 Bachata</span>
-            <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name" style="font-size:.68em;">DJ Jean-Mi</span></div>
-            <span style="color:rgba(255,255,255,.3);font-size:.7em;">+</span>
-            <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile" style="width:28px;height:28px;"><span class="dj-name" style="font-size:.68em;">DJ Jean-Emile</span></div>
+            <span style="background:#AD1457;font-size:.65em;font-weight:700;padding:2px 8px;border-radius:10px;box-shadow:0 2px 10px rgba(173,20,87,.5);">🩷 Bachata — Park Place</span>
+            <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name" style="font-size:.68em;">DJ Jean-Emile</span></div>
           </div>
         </div>
       </div>
     </div>
-    <!-- 22h30-02h -->
+    <!-- 22h30-00h -->
     <div class="slot-row">
-      <div class="slot-time">22h30<br>02h00</div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_RO_nobg.png" alt="DJ ROH"><span class="dj-name">DJ ROH</span></div>
-      </div>
+      <div class="slot-time">22h30<br>00h00</div>
       <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
-        <div class="dj-plus">+</div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+      </div>
+    </div>
+    <!-- 00h-01h -->
+    <div class="slot-row">
+      <div class="slot-time">00h00<br>01h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SALSERITO_nobg.png" alt="DJ Alex Salsarito"><span class="dj-name">DJ Alex Salsarito</span></div>
+        <div class="dj-plus">/</div>
+        <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
+      </div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
+      </div>
+    </div>
+    <!-- 01h-02h -->
+    <div class="slot-row">
+      <div class="slot-time">01h00<br>02h00</div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
+        <div class="dj-plus">/</div>
         <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
       </div>
       <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_Jean_Emile_nobg.png" alt="DJ Jean-Emile"><span class="dj-name">DJ Jean-Emile</span></div>
-      </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
-    </div>
-    <!-- 02h+ -->
-    <div class="slot-row">
-      <div class="slot-time">02h00<br>04h+</div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
       </div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"><span class="dj-name">DJ DREAMS</span></div>
-        <div class="dj-plus">+</div>
         <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
       </div>
     </div>
@@ -868,11 +861,9 @@
   <div class="schedule">
     <div class="schedule-header">
       <div>Horaire</div>
-      <div class="col-caraibes">🟠 Espace Caraïbes</div>
-      <div class="col-bachata">🩷 Espace Bachata</div>
-      <div class="col-suave">🟢 Espace Suave / Kizomba</div>
-      <div class="col-after-kiz">🟣 After — Kizomba</div>
-      <div style="color:#6A1B9A!important;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:10px 12px;">🎵 After — Playa</div>
+      <div class="col-caraibes">🟠 DOME</div>
+      <div class="col-suave">🟢 Kizomba / Suave</div>
+      <div class="col-bachata">🩷 Bachata / Kizomba</div>
     </div>
     <!-- Apéro géant -->
     <div class="special-row" style="background:rgba(0,137,123,.15);">
@@ -894,17 +885,15 @@
         <div class="dj-mini"><img src="DJ_JEREMY_nobg.png" alt="DJ JEREMY"><span class="dj-name">DJ JEREMY</span></div>
       </div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
-      </div>
-      <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
         <div class="dj-plus">+</div>
         <div class="dj-mini"><img src="DJ_Mikado_nobg.png" alt="DJ Mikado San"><span class="dj-name">DJ Mikado San</span></div>
       </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="DJ Jean-Mi"><span class="dj-name">DJ Jean-Mi</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
+      </div>
     </div>
     <!-- Nuit+ -->
     <div class="slot-row">
@@ -915,17 +904,15 @@
         <div class="dj-mini"><img src="DJ_CyCy_nobg.png" alt="DJ CYCY"><span class="dj-name">DJ CYCY</span></div>
       </div>
       <div class="slot-cell">
-        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
-        <div class="dj-plus">+</div>
-        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
-      </div>
-      <div class="slot-cell">
         <div class="dj-mini"><img src="DJ_FABULOUS_nobg.png" alt="DJ FABULOUS"><span class="dj-name">DJ FABULOUS</span></div>
         <div class="dj-plus">+</div>
         <div class="dj-mini"><img src="DJ_THOMAS_nobg.png" alt="DJ TREW"><span class="dj-name">DJ TREW</span></div>
       </div>
-      <div class="slot-cell empty"></div>
-      <div class="slot-cell empty"></div>
+      <div class="slot-cell">
+        <div class="dj-mini"><img src="DJ_SYLVAIN_nobg.png" alt="DJ BLANQUILLO"><span class="dj-name">DJ BLANQUILLO</span></div>
+        <div class="dj-plus">+</div>
+        <div class="dj-mini"><img src="DJ_PHILIPPE_nobg.png" alt="DJ PHILIPPE"><span class="dj-name">DJ PHILIPPE</span></div>
+      </div>
     </div>
     <!-- Note DREAMS -->
     <div class="special-row" style="background:rgba(255,193,7,.05);">
