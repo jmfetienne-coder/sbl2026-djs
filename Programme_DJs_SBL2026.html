@@ -97,6 +97,17 @@
     overflow: hidden;
     animation: headerGlow 5s ease-in-out infinite;
   }
+  /* SBL Logo — watermark header */
+  .sbl-header-logo {
+    position: absolute;
+    bottom: 14px; right: 18px;
+    width: 80px;
+    opacity: .7;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
   .header::before {
     content: '';
     position: absolute; inset: 0;
@@ -349,6 +360,7 @@
   <div class="header-sub">🎧 Programme DJs — Par Jour &amp; Par Espace 🎧</div>
   <div class="header-dates">13 › 17 MAI 2026</div>
   <div class="header-loc">Camping Arinella Bianca — Ghisonnacia, Corse</div>
+  <img class="sbl-header-logo" src="Logo_SBL.jpg" alt="Spring Break Latino">
 </div>
 
 <!-- LÉGENDE -->

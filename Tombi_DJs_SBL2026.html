@@ -379,6 +379,27 @@
     flex-shrink: 0;
   }
 
+  /* SBL Logo — watermark header + cartes */
+  .sbl-header-logo {
+    position: absolute;
+    bottom: 14px; right: 18px;
+    width: 80px;
+    opacity: .7;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+  .card-body::after {
+    content: '';
+    display: block;
+    width: 64px; height: 48px;
+    background: url('Logo_SBL.jpg') center/contain no-repeat;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    opacity: .45;
+    margin: 8px auto 0;
+  }
+
   /* Infos */
   .card-body { padding: 10px 14px 12px; flex-shrink: 0; }
 
@@ -514,6 +535,7 @@
     <div class="qr-box" id="qrcode"></div>
     <div class="qr-label">Scanner<br>pour partager</div>
   </div>
+  <img class="sbl-header-logo" src="Logo_SBL.jpg" alt="Spring Break Latino">
 </div>
 
 <!-- LÉGENDE -->

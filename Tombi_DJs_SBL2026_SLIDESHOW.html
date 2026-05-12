@@ -71,6 +71,18 @@
     letter-spacing: 1px;
     text-align: right;
   }
+  /* SBL Logo — watermark top-bar */
+  .sbl-top-logo {
+    width: 48px;
+    opacity: .65;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    margin-left: 10px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 600px) { .sbl-top-logo { display: none; } }
+
   .top-bar-nav { display: flex; gap: 6px; align-items: center; }
   .top-nav-tab {
     font-family: 'Montserrat', Arial, sans-serif;
@@ -405,6 +417,7 @@
     <span class="top-nav-tab active">▶ Slideshow</span>
   </nav>
   <div class="event-info">13 › 17 Mai 2026<br>Arinella Bianca — Corse</div>
+  <img class="sbl-top-logo" src="Logo_SBL.jpg" alt="Spring Break Latino">
 </div>
 
 <!-- Scène -->
