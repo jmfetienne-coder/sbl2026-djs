@@ -1,7 +1,7 @@
 # Photos DJs — Spring Break Latino Corsica 2026
 **Répertoire :** `/SBL 2026/DJ_PHOTO/`  
 **Utilisation :** Photos des DJs pour le tombi festivaliers (`PLANNING/Tombi_DJs_SBL2026.html`)  
-**Dernière mise à jour :** 9 mai 2026 (v11)
+**Dernière mise à jour :** 13 mai 2026 (v12)
 
 ---
 
@@ -17,13 +17,13 @@
 | `DJ_Mikado.png` | DJ Mikado San | Carré 1024×1024 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_PHILIPPE.png` | DJ PHILIPPE | Carré 1254×1254 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_RO.jpg` | DJ ROH | Portrait 1024×1280 | `center top` | ✅ Utilisée dans le tombi |
-| `DJ_SALSERITO.jpeg` | DJ Alex Salsarito | Paysage 1496×1199 | `center top` | ✅ Utilisée dans le tombi |
+| `DJ_SALSERITO.jpeg` | DJ Alex Salserito | Paysage 1496×1199 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_SYLVAIN.jpg` | DJ BLANQUILLO | Carré 3690×3690 | `center 8%` + `scale(1.3)` | ✅ Utilisée dans le tombi |
 | `DJ_THOMAS.jpg` | DJ TREW | Portrait | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_CyCY1.png` | DJ CYCY | Portrait 1086×1448 | `center 15%` + `scale(1.15)` | ✅ Utilisée dans le tombi |
 | `DJ_CyCy_nobg.png` | DJ CYCY | Portrait 1086×1448 (fond supprimé) | `center 15%` + `scale(1.15)` | ✅ Version sans fond |
-| `DJ_Jean_Emile.jpg` | DJ Jean-Emile | Portrait | `center 25%` | ✅ Utilisée dans le tombi |
-| `DJ_Jean_Emile_nobg.png` | DJ Jean-Emile | Portrait (fond supprimé) | `center 25%` | ✅ Version sans fond |
+| `DJ_Jean_Emile.jpg` | DJ MOJO | Portrait | `center 25%` | ✅ Utilisée dans le tombi |
+| `DJ_Jean_Emile_nobg.png` | DJ MOJO | Portrait (fond supprimé) | `center 25%` | ✅ Version sans fond |
 | `DJ_Dreams2_nobg.png` | DJ DREAMS | Portrait 1086×1448 (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_FABULOUS_nobg.png` | DJ FABULOUS | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_JEAN-MICHELJPG_nobg.png` | DJ Jean-Mi | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
@@ -31,7 +31,7 @@
 | `DJ_Mikado_nobg.png` | DJ Mikado San | Carré (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_PHILIPPE_nobg.png` | DJ PHILIPPE | Carré (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_RO_nobg.png` | DJ ROH | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
-| `DJ_SALSERITO_nobg.png` | DJ Alex Salsarito | Paysage (fond supprimé) | `center top` | ✅ Version sans fond |
+| `DJ_SALSERITO_nobg.png` | DJ Alex Salserito | Paysage (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_SYLVAIN_nobg.png` | DJ BLANQUILLO | Carré (fond supprimé) | `center 8%` + `scale(1.3)` | ✅ Version sans fond |
 | `DJ_THOMAS_nobg.png` | DJ TREW | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
 
@@ -165,7 +165,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 8 mai 2026 | Jean-Emile — placeholder remplacé par avatar SVG silhouette + «PHOTO À VENIR» |
 | 8 mai 2026 | DJ BLANQUILLO (Sylvain) — zoom `scale(1.3)`, cadrage `center 8%` |
 | 8 mai 2026 | DJ CYCY — zoom `scale(1.15)`, cadrage `center 15%` (recadrage au niveau du buste) |
-| 8 mai 2026 | Renommage DJ affichés : DREAMS→DJ DREAMS, DJ TREW→DJ TREW, Mikado San→DJ Mikado San, Alex Salserito→DJ Alex Salsarito, Sylvain→DJ BLANQUILLO, CyCy→DJ CYCY, Jean-Michel→DJ Jean-Mi, Rolland→DJ ROH, Philippe DJ→DJ PHILIPPE, Jérémy→DJ JEREMY, Jean-Emile→DJ Jean-Emile, Fabulous DJ→DJ FABULOUS |
+| 8 mai 2026 | Renommage DJ affichés : DREAMS→DJ DREAMS, DJ TREW→DJ TREW, Mikado San→DJ Mikado San, Alex Salserito→DJ Alex Salsarito, Sylvain→DJ BLANQUILLO, CyCy→DJ CYCY, Jean-Michel→DJ Jean-Mi, Rolland→DJ ROH, Philippe DJ→DJ PHILIPPE, Jérémy→DJ JEREMY, Jean-Emile→DJ MOJO, Fabulous DJ→DJ FABULOUS |
 | 8 mai 2026 | Correction CSS `@media print` — suppression fond blanc, textes forcés en blanc opaque pour export PDF |
 | 8 mai 2026 | Export PDF `Tombi_DJs_SBL2026_VERIFICATION.pdf` — version vérification DJs |
 | 8 mai 2026 | v5 — Ajout photo `DJ_Jean_Emile.jpg` + `DJ_Jean_Emile_nobg.png` — plus aucune photo manquante ; inventaire complété avec toutes les versions `_nobg.png` |
@@ -176,6 +176,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 9 mai 2026 | v10 — DJ JEREMY : Bachata ajouté aux styles · Espace Bachata ajouté · DJ FABULOUS / DJ ROH / DJ PHILIPPE : Pool Party + Beach Party ajoutés |
 | 9 mai 2026 | v11 — Audit planning : 13 corrections de cohérence musicale · Créneaux Pratiques Sociales 17h30-19h ajoutés (Jeu/Ven/Sam) |
 | 10 mai 2026 | v12 — Programme refonte complète : créneaux **1 heure** (au lieu de 2h) · **3 colonnes** (DOME / Kizomba Suave / Bachata Kizomba) · After Party 02h-04h restaurés (Playa + Park Place Kizomba) pour Mer/Jeu/Ven ; Samedi 02h-04h+ |
+| 13 mai 2026 | v13 — **DJ Jean-Emile renommé DJ MOJO** (tous fichiers) · **Salsarito → Salserito** (correction orthographe) · Styles DJ Alex Salserito reordonnés (Zouk/Konpa/Konpa Gouyad/Bachata) · **Logo SBL** (`Logo_SBL.jpg`) ajouté : watermark header 3 pages + bas de chaque carte DJ Tombi · Multiples corrections planning (voir README_Programme v14) |
 
 ---
 
