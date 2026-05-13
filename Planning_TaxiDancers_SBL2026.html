@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxi Dancers — Soirées Salsa · SBL 2026</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── BASE ─── */
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #08080f;
+      color: #f0f0f8;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    .page-header {
+      background: linear-gradient(155deg, #1c0900 0%, #100820 50%, #001510 100%);
+      border-bottom: 2px solid #FF6B2B30;
+      padding: 20px 28px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, #FF6B2B18 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; right: 120px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, #FFD60015 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .header-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .header-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #FF6B2B;
+      text-shadow: 0 0 28px #FF6B2B55;
+    }
+    .header-subtitle {
+      font-size: .88rem;
+      color: #ffcba4;
+      margin-top: 4px;
+      opacity: .9;
+    }
+    .header-meta {
+      font-size: .74rem;
+      color: #777;
+      margin-top: 3px;
+    }
+    .header-logo {
+      height: auto;
+      width: auto;
+      max-height: 110px;
+      min-height: 70px;
+      opacity: .85;
+      filter: invert(1);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      flex-shrink: 0;
+      margin-right: 105px; /* laisse place au QR */
+    }
+
+    /* ─── QR CODE WIDGET ─── */
+    .qr-widget {
+      position: absolute;
+      top: 12px; right: 12px;
+      z-index: 20;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 10px;
+      padding: 8px 8px 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .qr-widget canvas,
+    .qr-widget img {
+      width: 82px !important;
+      height: 82px !important;
+      border-radius: 4px;
+      display: block;
+    }
+    .qr-label {
+      font-size: .56rem;
+      color: #ccc;
+      text-align: center;
+      white-space: nowrap;
+      letter-spacing: .3px;
+    }
+    @media (max-width: 640px) {
+      .qr-widget { display: none; }
+      .header-logo { margin-right: 0; }
+    }
+
+    /* ─── NAV ─── */
+    .nav-bar {
+      background: #0e0e1c;
+      border-bottom: 1px solid #ffffff12;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 2px;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-bar a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 11px 15px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: #999;
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: color .2s, border-color .2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-bar a:hover { color: #fff; border-color: #ffffff20; }
+    .nav-bar a.active { color: #FF6B2B; border-color: #FF6B2B; }
+
+    /* ─── MAIN ─── */
+    .main {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    /* ─── LÉGENDE ─── */
+    .legend-card {
+      background: #0e0e1c;
+      border: 1px solid #ffffff0e;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+    .legend-section-title {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #484855;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border-radius: 10px;
+      background: #18182c;
+      border: 1px solid #ffffff0c;
+    }
+    .leg-av {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .leg-av img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .leg-av.m { border: 2px solid #E040FB65; }
+    .leg-av.c { border: 2px solid #FFD60065; }
+    .leg-txt strong { font-size: .82rem; display: block; }
+    .leg-txt span   { font-size: .7rem; color: #777; }
+
+    /* Bracelet fluo */
+    .leg-bracelet {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: #07120a;
+      border: 1px solid #CCFF0030;
+    }
+    .bracelet-pill {
+      width: 36px; height: 14px;
+      border-radius: 7px;
+      background: linear-gradient(90deg, #aaff00, #CCFF00, #76FF03, #CCFF00);
+      box-shadow: 0 0 10px #CCFF0075, 0 0 22px #76FF0330;
+      flex-shrink: 0;
+    }
+
+    /* Venue legend */
+    .leg-venue {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border-radius: 10px;
+      background: #18182c;
+      border: 1px solid #ffffff0c;
+    }
+    .leg-venue .ico { font-size: 1.25rem; }
+    .leg-venue .leg-txt strong { font-size: .82rem; }
+
+    /* ─── GRILLE 4 JOURS ─── */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+    @media (max-width: 940px)  { .schedule-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px)  { .schedule-grid { grid-template-columns: 1fr; } }
+
+    /* ─── COLONNE JOUR ─── */
+    .day-col { display: flex; flex-direction: column; gap: 8px; }
+
+    .day-head {
+      background: linear-gradient(150deg, #200900 0%, #0f0920 100%);
+      border: 1px solid #FF6B2B40;
+      border-radius: 13px;
+      padding: 13px 14px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .day-head::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% -10%, #FF6B2B16 0%, transparent 68%);
+    }
+    .day-head-name {
+      font-size: .96rem;
+      font-weight: 800;
+      color: #FF6B2B;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      position: relative; z-index: 1;
+    }
+    .day-head-date {
+      font-size: .78rem;
+      color: #ffcba4;
+      margin-top: 2px;
+      position: relative; z-index: 1;
+    }
+    .venue-chips {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .vchip {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .vchip-scene { background: #FF6B2B18; color: #FF6B2B; border: 1px solid #FF6B2B38; }
+    .vchip-playa { background: #00C8FF13; color: #00C8FF; border: 1px solid #00C8FF32; }
+    .vchip-arrow { font-size: .6rem; color: #555; display: flex; align-items: center; }
+
+    /* ─── CRÉNEAU ─── */
+    .slot {
+      background: #0d0d1c;
+      border: 1px solid #ffffff0c;
+      border-radius: 11px;
+      overflow: hidden;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .slot:hover {
+      border-color: #FF6B2B38;
+      box-shadow: 0 4px 18px #FF6B2B0a;
+    }
+    .slot.is-empty {
+      opacity: .42;
+      background: #09091a;
+    }
+    .slot-time {
+      background: #16162a;
+      padding: 5px 11px;
+      font-size: .72rem;
+      font-weight: 700;
+      color: #FF6B2B;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ffffff08;
+      gap: 6px;
+    }
+    .vmini {
+      margin-left: auto;
+      font-size: .58rem;
+      padding: 1px 6px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+    .vmini-scene { background: #FF6B2B16; color: #FF6B2B70; }
+    .vmini-playa { background: #00C8FF11; color: #00C8FF70; }
+
+    .slot-body {
+      padding: 9px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Animation */
+    .anim-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: .68rem;
+      font-weight: 700;
+      width: fit-content;
+    }
+    .ab-salsa   { background: #FF6B2B18; color: #FF6B2B; border: 1px solid #FF6B2B30; }
+    .ab-concert { background: #FFD60018; color: #FFD600; border: 1px solid #FFD60030; }
+    .ab-allstaff { background: #ffffff0c; color: #ddd; border: 1px solid #ffffff15; font-style: italic; font-size: .64rem; }
+
+    /* Section label */
+    .sec { font-size: .6rem; font-weight: 700; letter-spacing: 1.5px; color: #3e3e55; text-transform: uppercase; margin-bottom: 4px; }
+
+    /* DJ chips */
+    .dj-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .dj-chip { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+    .dj-av {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #181830;
+      border: 2px solid #FF6B2B50;
+      box-shadow: 0 0 8px #FF6B2B22;
+    }
+    .dj-av img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .dj-name {
+      font-size: .57rem;
+      font-weight: 600;
+      color: #ccc;
+      text-align: center;
+      line-height: 1.15;
+      max-width: 48px;
+    }
+
+    /* Taxi section */
+    .taxi-groups { display: flex; flex-direction: column; gap: 5px; }
+    .tgroup {
+      border-radius: 8px;
+      padding: 7px 8px 6px;
+    }
+    .tgroup.mg { background: #0e001e; border: 1px solid #E040FB20; }
+    .tgroup.cg { background: #130f00; border: 1px solid #FFD60020; }
+    .tg-head {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
+    .tg-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .tg-dot.m { background: #E040FB; box-shadow: 0 0 5px #E040FB80; }
+    .tg-dot.c { background: #FFD600; box-shadow: 0 0 5px #FFD60080; }
+    .tg-label { font-size: .62rem; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; flex: 1; }
+    .tg-label.m { color: #E040FB; }
+    .tg-label.c { color: #FFD600; }
+    .tg-dur { font-size: .57rem; color: #505050; }
+
+    /* Bracelet inline tag */
+    .brtag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 1px 5px;
+      border-radius: 6px;
+      background: #061200;
+      border: 1px solid #CCFF0025;
+    }
+    .brmini {
+      width: 16px; height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #CCFF00, #76FF03);
+      box-shadow: 0 0 6px #CCFF0060;
+      flex-shrink: 0;
+    }
+    .brtxt { font-size: .55rem; font-weight: 700; color: #CCFF00; letter-spacing: .5px; }
+
+    /* Taxi avatars */
+    .taxi-avs { display: flex; flex-wrap: wrap; gap: 4px; }
+    .taxi-chip { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .taxi-av {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #1a1a30;
+    }
+    .taxi-av.m { border: 2px solid #E040FB50; box-shadow: 0 0 4px #E040FB18; }
+    .taxi-av.c { border: 2px solid #FFD60050; box-shadow: 0 0 4px #FFD60018; }
+    .taxi-av img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .taxi-n { font-size: .48rem; color: #777; text-align: center; max-width: 34px; line-height: 1.1; overflow: hidden; }
+
+    /* Staff only */
+    .staff-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #131326;
+      border: 1px solid #ffffff0e;
+      font-size: .67rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: .72rem;
+      color: #3e3e55;
+      border-top: 1px solid #ffffff07;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="page-header">
+  <div class="header-inner">
+    <div>
+      <div class="header-title">🎺 Soirées Salsa · Espace Caraïbes</div>
+      <div class="header-subtitle">Planning Taxi Dancers — Spring Break Latino Corsica 2026</div>
+      <div class="header-meta">Camping Arinella Bianca · Ghisonaccia (Corse) · 13 – 16 mai 2026</div>
+    </div>
+    <img class="header-logo" src="Logo_SBL.jpg" alt="Spring Break Latino">
+  </div>
+  <!-- QR code -->
+  <div class="qr-widget">
+    <div id="qrcode"></div>
+    <div class="qr-label">📱 Accéder au planning</div>
+  </div>
+</header>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="nav-bar">
+  <a href="Tombi_DJs_SBL2026.html">🎧 Trombinoscope</a>
+  <a href="Programme_DJs_SBL2026.html">📅 Programme</a>
+  <a href="Tombi_DJs_SBL2026_SLIDESHOW.html">▶ Slideshow</a>
+  <a href="Planning_TaxiDancers_SBL2026.html" class="active">💃 Taxi Dancers</a>
+</nav>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<main class="main">
+
+  <!-- ── LÉGENDE ── -->
+  <div class="legend-card">
+    <div class="legend-section-title">🗺️ Légende</div>
+    <div class="legend-row">
+
+      <div class="leg-item" style="border-color:#E040FB18">
+        <div class="leg-av m"><img src="TAXI MAMBOS/ALEXIS.jpg" alt="Mambo"></div>
+        <div class="leg-txt">
+          <strong style="color:#E040FB">TAXI MAMBOS</strong>
+          <span>Style : Mambo On2 / New-York</span>
+        </div>
+      </div>
+
+      <div class="leg-item" style="border-color:#FFD60018">
+        <div class="leg-av c"><img src="TAXI CUBANOS/FERNANDO.jpg" alt="Cubano"></div>
+        <div class="leg-txt">
+          <strong style="color:#FFD600">TAXI CUBANOS</strong>
+          <span>Style : Salsa Cubaine / Timba</span>
+        </div>
+      </div>
+
+      <div class="leg-bracelet">
+        <div class="bracelet-pill"></div>
+        <div class="leg-txt">
+          <strong style="color:#CCFF00">BRACELET FLUO</strong>
+          <span>Signe de reconnaissance des festivaliers</span>
+        </div>
+      </div>
+
+      <div class="leg-venue" style="border-color:#FF6B2B18">
+        <div class="ico">🎙️</div>
+        <div class="leg-txt">
+          <strong style="color:#FF6B2B">SCÈNE</strong>
+          <span>Mercredi soir · Samedi soir</span>
+        </div>
+      </div>
+
+      <div class="leg-venue" style="border-color:#00C8FF18">
+        <div class="ico">🏖️</div>
+        <div class="leg-txt">
+          <strong style="color:#00C8FF">PLAYA</strong>
+          <span>Jeudi & Vendredi — 21h→23h</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── GRILLE 4 NUITS ── -->
+  <div class="schedule-grid">
+
+    <!-- ═══════════════ MERCREDI 13/05 ═══════════════ -->
+    <div class="day-col">
+      <div class="day-head">
+        <div class="day-head-name">Mercredi</div>
+        <div class="day-head-date">13 mai 2026</div>
+        <div class="venue-chips">
+          <span class="vchip vchip-scene">🎙️ Scène</span>
+        </div>
+      </div>
+
+      <!-- 21h : vide -->
+      <div class="slot is-empty">
+        <div class="slot-time">21H00 – 22H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="staff-tag">⏳ Début de soirée</span>
+        </div>
+      </div>
+
+      <!-- 22h : CHACHA / CYCY + JEREMY / CUBANOS -->
+      <div class="slot">
+        <div class="slot-time">22H00 – 23H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="anim-badge ab-salsa">💃 CHA-CHA</span>
+          <div>
+            <div class="sec">DJs</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_CyCy_nobg.png" alt="CYCY"></div>
+                <div class="dj-name">DJ CYCY</div>
+              </div>
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_JEREMY_nobg.png" alt="JEREMY"></div>
+                <div class="dj-name">DJ JEREMY</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="sec">Taxis en piste · 30 min</div>
+            <div class="taxi-groups">
+              <div class="tgroup cg">
+                <div class="tg-head">
+                  <div class="tg-dot c"></div>
+                  <div class="tg-label c">Taxi Cubanos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/ANDRE.jpg" alt="André"></div><div class="taxi-n">André</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/BENJAMIN.jpg" alt="Benjamin"></div><div class="taxi-n">Benjamin</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/CLARA.jpg" alt="Clara"></div><div class="taxi-n">Clara</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FERNANDO.jpg" alt="Fernando"></div><div class="taxi-n">Fernando</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FOUAD.jpg" alt="Fouad"></div><div class="taxi-n">Fouad</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/GHITA.jpg" alt="Ghita"></div><div class="taxi-n">Ghita</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/LYDIA.jpg" alt="Lydia"></div><div class="taxi-n">Lydia</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/MIYA.jpg" alt="Miya"></div><div class="taxi-n">Miya</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/NICOLAS.jpg" alt="Nicolas"></div><div class="taxi-n">Nicolas</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/SOLEDAD.jpg" alt="Soledad"></div><div class="taxi-n">Soledad</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 23h : rotation MAMBOS -->
+      <div class="slot">
+        <div class="slot-time">23H00 – 00H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <div>
+            <div class="sec">Taxis en piste · 30 min</div>
+            <div class="taxi-groups">
+              <div class="tgroup mg">
+                <div class="tg-head">
+                  <div class="tg-dot m"></div>
+                  <div class="tg-label m">Taxi Mambos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ALEXIS.jpg" alt="Alexis"></div><div class="taxi-n">Alexis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ANTOINE.jpg" alt="Antoine"></div><div class="taxi-n">Antoine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA C.jpg" alt="Clara C"></div><div class="taxi-n">Clara C</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA S.jpg" alt="Clara S"></div><div class="taxi-n">Clara S</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/HOUSSEM.jpg" alt="Houssem"></div><div class="taxi-n">Houssem</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MARGARETH.jpg" alt="Margareth"></div><div class="taxi-n">Margareth</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MAYLIS.jpg" alt="Maylis"></div><div class="taxi-n">Maylis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/PERRINE.jpg" alt="Perrine"></div><div class="taxi-n">Perrine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ROMAIN.jpg" alt="Romain"></div><div class="taxi-n">Romain</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/THIBAULT.jpg" alt="Thibault"></div><div class="taxi-n">Thibault</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 00h : RUEDA / PHILIPPE + JEAN-MI / CUBANOS -->
+      <div class="slot">
+        <div class="slot-time">00H00 – 01H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="anim-badge ab-salsa">🔄 RUEDA — Micro HF</span>
+          <div>
+            <div class="sec">DJs</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_PHILIPPE_nobg.png" alt="PHILIPPE"></div>
+                <div class="dj-name">DJ PHILIPPE</div>
+              </div>
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="JEAN-MI"></div>
+                <div class="dj-name">DJ JEAN-MI</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="sec">Taxis en piste · 30 min</div>
+            <div class="taxi-groups">
+              <div class="tgroup cg">
+                <div class="tg-head">
+                  <div class="tg-dot c"></div>
+                  <div class="tg-label c">Taxi Cubanos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/ANDRE.jpg" alt="André"></div><div class="taxi-n">André</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/BENJAMIN.jpg" alt="Benjamin"></div><div class="taxi-n">Benjamin</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/CLARA.jpg" alt="Clara"></div><div class="taxi-n">Clara</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FERNANDO.jpg" alt="Fernando"></div><div class="taxi-n">Fernando</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FOUAD.jpg" alt="Fouad"></div><div class="taxi-n">Fouad</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/GHITA.jpg" alt="Ghita"></div><div class="taxi-n">Ghita</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/LYDIA.jpg" alt="Lydia"></div><div class="taxi-n">Lydia</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/MIYA.jpg" alt="Miya"></div><div class="taxi-n">Miya</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/NICOLAS.jpg" alt="Nicolas"></div><div class="taxi-n">Nicolas</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/SOLEDAD.jpg" alt="Soledad"></div><div class="taxi-n">Soledad</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 01h : rotation MAMBOS -->
+      <div class="slot">
+        <div class="slot-time">01H00 – 02H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <div>
+            <div class="sec">Taxis en piste · 30 min</div>
+            <div class="taxi-groups">
+              <div class="tgroup mg">
+                <div class="tg-head">
+                  <div class="tg-dot m"></div>
+                  <div class="tg-label m">Taxi Mambos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ALEXIS.jpg" alt="Alexis"></div><div class="taxi-n">Alexis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ANTOINE.jpg" alt="Antoine"></div><div class="taxi-n">Antoine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA C.jpg" alt="Clara C"></div><div class="taxi-n">Clara C</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA S.jpg" alt="Clara S"></div><div class="taxi-n">Clara S</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/HOUSSEM.jpg" alt="Houssem"></div><div class="taxi-n">Houssem</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MARGARETH.jpg" alt="Margareth"></div><div class="taxi-n">Margareth</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MAYLIS.jpg" alt="Maylis"></div><div class="taxi-n">Maylis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/PERRINE.jpg" alt="Perrine"></div><div class="taxi-n">Perrine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ROMAIN.jpg" alt="Romain"></div><div class="taxi-n">Romain</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/THIBAULT.jpg" alt="Thibault"></div><div class="taxi-n">Thibault</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /mercredi -->
+
+
+    <!-- ═══════════════ JEUDI 14/05 ═══════════════ -->
+    <div class="day-col">
+      <div class="day-head">
+        <div class="day-head-name">Jeudi</div>
+        <div class="day-head-date">14 mai 2026</div>
+        <div class="venue-chips">
+          <span class="vchip vchip-playa">🏖️ Playa</span>
+          <span class="vchip-arrow">→</span>
+          <span class="vchip vchip-scene">🎙️ Scène</span>
+        </div>
+      </div>
+
+      <!-- 21h : RUEDA / ALEX SALSERITO / MAMBOS — PLAYA -->
+      <div class="slot">
+        <div class="slot-time">21H00 – 22H00 <span class="vmini vmini-playa">Playa</span></div>
+        <div class="slot-body">
+          <span class="anim-badge ab-salsa">🔄 RUEDA — Micro HF</span>
+          <div>
+            <div class="sec">DJ</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_SALSERITO_nobg.png" alt="SALSERITO"></div>
+                <div class="dj-name">DJ Alex Salserito</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="sec">Taxis en piste · 30 min</div>
+            <div class="taxi-groups">
+              <div class="tgroup mg">
+                <div class="tg-head">
+                  <div class="tg-dot m"></div>
+                  <div class="tg-label m">Taxi Mambos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ALEXIS.jpg" alt="Alexis"></div><div class="taxi-n">Alexis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ANTOINE.jpg" alt="Antoine"></div><div class="taxi-n">Antoine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA C.jpg" alt="Clara C"></div><div class="taxi-n">Clara C</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA S.jpg" alt="Clara S"></div><div class="taxi-n">Clara S</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/HOUSSEM.jpg" alt="Houssem"></div><div class="taxi-n">Houssem</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MARGARETH.jpg" alt="Margareth"></div><div class="taxi-n">Margareth</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MAYLIS.jpg" alt="Maylis"></div><div class="taxi-n">Maylis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/PERRINE.jpg" alt="Perrine"></div><div class="taxi-n">Perrine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ROMAIN.jpg" alt="Romain"></div><div class="taxi-n">Romain</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/THIBAULT.jpg" alt="Thibault"></div><div class="taxi-n">Thibault</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 22h : rotation CUBANOS — PLAYA -->
+      <div class="slot">
+        <div class="slot-time">22H00 – 23H00 <span class="vmini vmini-playa">Playa</span></div>
+        <div class="slot-body">
+          <div>
+            <div class="sec">Taxis en piste · 30 min</div>
+            <div class="taxi-groups">
+              <div class="tgroup cg">
+                <div class="tg-head">
+                  <div class="tg-dot c"></div>
+                  <div class="tg-label c">Taxi Cubanos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/ANDRE.jpg" alt="André"></div><div class="taxi-n">André</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/BENJAMIN.jpg" alt="Benjamin"></div><div class="taxi-n">Benjamin</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/CLARA.jpg" alt="Clara"></div><div class="taxi-n">Clara</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FERNANDO.jpg" alt="Fernando"></div><div class="taxi-n">Fernando</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FOUAD.jpg" alt="Fouad"></div><div class="taxi-n">Fouad</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/GHITA.jpg" alt="Ghita"></div><div class="taxi-n">Ghita</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/LYDIA.jpg" alt="Lydia"></div><div class="taxi-n">Lydia</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/MIYA.jpg" alt="Miya"></div><div class="taxi-n">Miya</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/NICOLAS.jpg" alt="Nicolas"></div><div class="taxi-n">Nicolas</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/SOLEDAD.jpg" alt="Soledad"></div><div class="taxi-n">Soledad</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 23h : BAN BIYO / DREAMS + CYCY / MAMBOS — SCÈNE -->
+      <div class="slot">
+        <div class="slot-time">23H00 – 00H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="anim-badge ab-salsa">🎵 BAN BIYO</span>
+          <div>
+            <div class="sec">DJs</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"></div>
+                <div class="dj-name">DJ DREAMS</div>
+              </div>
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_CyCy_nobg.png" alt="CYCY"></div>
+                <div class="dj-name">DJ CYCY</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="sec">Taxis en piste · 30 min</div>
+            <div class="taxi-groups">
+              <div class="tgroup mg">
+                <div class="tg-head">
+                  <div class="tg-dot m"></div>
+                  <div class="tg-label m">Taxi Mambos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ALEXIS.jpg" alt="Alexis"></div><div class="taxi-n">Alexis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ANTOINE.jpg" alt="Antoine"></div><div class="taxi-n">Antoine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA C.jpg" alt="Clara C"></div><div class="taxi-n">Clara C</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA S.jpg" alt="Clara S"></div><div class="taxi-n">Clara S</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/HOUSSEM.jpg" alt="Houssem"></div><div class="taxi-n">Houssem</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MARGARETH.jpg" alt="Margareth"></div><div class="taxi-n">Margareth</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MAYLIS.jpg" alt="Maylis"></div><div class="taxi-n">Maylis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/PERRINE.jpg" alt="Perrine"></div><div class="taxi-n">Perrine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ROMAIN.jpg" alt="Romain"></div><div class="taxi-n">Romain</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/THIBAULT.jpg" alt="Thibault"></div><div class="taxi-n">Thibault</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 00h : rotation CUBANOS — SCÈNE -->
+      <div class="slot">
+        <div class="slot-time">00H00 – 01H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <div>
+            <div class="sec">Taxis en piste · 30 min</div>
+            <div class="taxi-groups">
+              <div class="tgroup cg">
+                <div class="tg-head">
+                  <div class="tg-dot c"></div>
+                  <div class="tg-label c">Taxi Cubanos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/ANDRE.jpg" alt="André"></div><div class="taxi-n">André</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/BENJAMIN.jpg" alt="Benjamin"></div><div class="taxi-n">Benjamin</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/CLARA.jpg" alt="Clara"></div><div class="taxi-n">Clara</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FERNANDO.jpg" alt="Fernando"></div><div class="taxi-n">Fernando</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FOUAD.jpg" alt="Fouad"></div><div class="taxi-n">Fouad</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/GHITA.jpg" alt="Ghita"></div><div class="taxi-n">Ghita</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/LYDIA.jpg" alt="Lydia"></div><div class="taxi-n">Lydia</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/MIYA.jpg" alt="Miya"></div><div class="taxi-n">Miya</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/NICOLAS.jpg" alt="Nicolas"></div><div class="taxi-n">Nicolas</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/SOLEDAD.jpg" alt="Soledad"></div><div class="taxi-n">Soledad</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 01h : PHILIPPE / MAX STAFF — SCÈNE -->
+      <div class="slot">
+        <div class="slot-time">01H00 – 02H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <div>
+            <div class="sec">DJ</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_PHILIPPE_nobg.png" alt="PHILIPPE"></div>
+                <div class="dj-name">DJ PHILIPPE</div>
+              </div>
+            </div>
+          </div>
+          <span class="staff-tag">✨ Tout le staff présent</span>
+        </div>
+      </div>
+
+    </div><!-- /jeudi -->
+
+
+    <!-- ═══════════════ VENDREDI 15/05 ═══════════════ -->
+    <div class="day-col">
+      <div class="day-head">
+        <div class="day-head-name">Vendredi</div>
+        <div class="day-head-date">15 mai 2026</div>
+        <div class="venue-chips">
+          <span class="vchip vchip-playa">🏖️ Playa</span>
+          <span class="vchip-arrow">→</span>
+          <span class="vchip vchip-scene">🎙️ Scène</span>
+        </div>
+      </div>
+
+      <!-- 21h : ANIM' LIGNE / PHILIPPE + JEREMY / CUBANOS + MAMBOS — PLAYA -->
+      <div class="slot">
+        <div class="slot-time">21H00 – 22H00 <span class="vmini vmini-playa">Playa</span></div>
+        <div class="slot-body">
+          <span class="anim-badge ab-salsa">💃 ANIM' LIGNE · Farès (lead)</span>
+          <div>
+            <div class="sec">DJs</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_PHILIPPE_nobg.png" alt="PHILIPPE"></div>
+                <div class="dj-name">DJ PHILIPPE</div>
+              </div>
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_JEREMY_nobg.png" alt="JEREMY"></div>
+                <div class="dj-name">DJ JEREMY</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="sec">Taxis en piste · 30 min chacun</div>
+            <div class="taxi-groups">
+              <div class="tgroup cg">
+                <div class="tg-head">
+                  <div class="tg-dot c"></div>
+                  <div class="tg-label c">Taxi Cubanos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/ANDRE.jpg" alt="André"></div><div class="taxi-n">André</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/BENJAMIN.jpg" alt="Benjamin"></div><div class="taxi-n">Benjamin</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/CLARA.jpg" alt="Clara"></div><div class="taxi-n">Clara</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FERNANDO.jpg" alt="Fernando"></div><div class="taxi-n">Fernando</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FOUAD.jpg" alt="Fouad"></div><div class="taxi-n">Fouad</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/GHITA.jpg" alt="Ghita"></div><div class="taxi-n">Ghita</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/LYDIA.jpg" alt="Lydia"></div><div class="taxi-n">Lydia</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/MIYA.jpg" alt="Miya"></div><div class="taxi-n">Miya</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/NICOLAS.jpg" alt="Nicolas"></div><div class="taxi-n">Nicolas</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/SOLEDAD.jpg" alt="Soledad"></div><div class="taxi-n">Soledad</div></div>
+                </div>
+              </div>
+              <div class="tgroup mg">
+                <div class="tg-head">
+                  <div class="tg-dot m"></div>
+                  <div class="tg-label m">Taxi Mambos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ALEXIS.jpg" alt="Alexis"></div><div class="taxi-n">Alexis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ANTOINE.jpg" alt="Antoine"></div><div class="taxi-n">Antoine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA C.jpg" alt="Clara C"></div><div class="taxi-n">Clara C</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA S.jpg" alt="Clara S"></div><div class="taxi-n">Clara S</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/HOUSSEM.jpg" alt="Houssem"></div><div class="taxi-n">Houssem</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MARGARETH.jpg" alt="Margareth"></div><div class="taxi-n">Margareth</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MAYLIS.jpg" alt="Maylis"></div><div class="taxi-n">Maylis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/PERRINE.jpg" alt="Perrine"></div><div class="taxi-n">Perrine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ROMAIN.jpg" alt="Romain"></div><div class="taxi-n">Romain</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/THIBAULT.jpg" alt="Thibault"></div><div class="taxi-n">Thibault</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 22h : MAX STAFF — PLAYA -->
+      <div class="slot">
+        <div class="slot-time">22H00 – 23H00 <span class="vmini vmini-playa">Playa</span></div>
+        <div class="slot-body">
+          <span class="staff-tag">✨ Tout le staff en piste</span>
+        </div>
+      </div>
+
+      <!-- 23h : CHACHA / FABULOUS + JEAN-MI / CUBANOS + MAMBOS — SCÈNE -->
+      <div class="slot">
+        <div class="slot-time">23H00 – 00H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="anim-badge ab-salsa">💃 CHA-CHA</span>
+          <div>
+            <div class="sec">DJs</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_FABULOUS_nobg.png" alt="FABULOUS"></div>
+                <div class="dj-name">DJ FABULOUS</div>
+              </div>
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="JEAN-MI"></div>
+                <div class="dj-name">DJ JEAN-MI</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="sec">Taxis en piste · 30 min chacun</div>
+            <div class="taxi-groups">
+              <div class="tgroup cg">
+                <div class="tg-head">
+                  <div class="tg-dot c"></div>
+                  <div class="tg-label c">Taxi Cubanos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/ANDRE.jpg" alt="André"></div><div class="taxi-n">André</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/BENJAMIN.jpg" alt="Benjamin"></div><div class="taxi-n">Benjamin</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/CLARA.jpg" alt="Clara"></div><div class="taxi-n">Clara</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FERNANDO.jpg" alt="Fernando"></div><div class="taxi-n">Fernando</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FOUAD.jpg" alt="Fouad"></div><div class="taxi-n">Fouad</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/GHITA.jpg" alt="Ghita"></div><div class="taxi-n">Ghita</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/LYDIA.jpg" alt="Lydia"></div><div class="taxi-n">Lydia</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/MIYA.jpg" alt="Miya"></div><div class="taxi-n">Miya</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/NICOLAS.jpg" alt="Nicolas"></div><div class="taxi-n">Nicolas</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/SOLEDAD.jpg" alt="Soledad"></div><div class="taxi-n">Soledad</div></div>
+                </div>
+              </div>
+              <div class="tgroup mg">
+                <div class="tg-head">
+                  <div class="tg-dot m"></div>
+                  <div class="tg-label m">Taxi Mambos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ALEXIS.jpg" alt="Alexis"></div><div class="taxi-n">Alexis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ANTOINE.jpg" alt="Antoine"></div><div class="taxi-n">Antoine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA C.jpg" alt="Clara C"></div><div class="taxi-n">Clara C</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA S.jpg" alt="Clara S"></div><div class="taxi-n">Clara S</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/HOUSSEM.jpg" alt="Houssem"></div><div class="taxi-n">Houssem</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MARGARETH.jpg" alt="Margareth"></div><div class="taxi-n">Margareth</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MAYLIS.jpg" alt="Maylis"></div><div class="taxi-n">Maylis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/PERRINE.jpg" alt="Perrine"></div><div class="taxi-n">Perrine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ROMAIN.jpg" alt="Romain"></div><div class="taxi-n">Romain</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/THIBAULT.jpg" alt="Thibault"></div><div class="taxi-n">Thibault</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 00h : JEAN-MI + PHILIPPE / MAX STAFF — SCÈNE -->
+      <div class="slot">
+        <div class="slot-time">00H00 – 01H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <div>
+            <div class="sec">DJs</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_JEAN-MICHELJPG_nobg.png" alt="JEAN-MI"></div>
+                <div class="dj-name">DJ JEAN-MI</div>
+              </div>
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_PHILIPPE_nobg.png" alt="PHILIPPE"></div>
+                <div class="dj-name">DJ PHILIPPE</div>
+              </div>
+            </div>
+          </div>
+          <span class="staff-tag">✨ Tout le staff en piste</span>
+        </div>
+      </div>
+
+      <!-- 01h : PHILIPPE / MAX STAFF — SCÈNE -->
+      <div class="slot">
+        <div class="slot-time">01H00 – 02H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <div>
+            <div class="sec">DJ</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_PHILIPPE_nobg.png" alt="PHILIPPE"></div>
+                <div class="dj-name">DJ PHILIPPE</div>
+              </div>
+            </div>
+          </div>
+          <span class="staff-tag">✨ Tout le staff en piste</span>
+        </div>
+      </div>
+
+    </div><!-- /vendredi -->
+
+
+    <!-- ═══════════════ SAMEDI 16/05 ═══════════════ -->
+    <div class="day-col">
+      <div class="day-head">
+        <div class="day-head-name">Samedi</div>
+        <div class="day-head-date">16 mai 2026</div>
+        <div class="venue-chips">
+          <span class="vchip vchip-scene">🎙️ Scène</span>
+        </div>
+      </div>
+
+      <!-- 21h : CONCERT PARISONGO / CYCY -->
+      <div class="slot">
+        <div class="slot-time">21H00 – 22H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="anim-badge ab-concert">🎺 CONCERT SALSA — PARISONGO</span>
+          <div>
+            <div class="sec">DJ</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_CyCy_nobg.png" alt="CYCY"></div>
+                <div class="dj-name">DJ CYCY</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 22h : vide -->
+      <div class="slot is-empty">
+        <div class="slot-time">22H00 – 23H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="staff-tag">⏳ Pause / Transition</span>
+        </div>
+      </div>
+
+      <!-- 23h : CHACHA + BAN BIYO (ALL STAFF) / ALEX + CYCY / CUBANOS + MAMBOS -->
+      <div class="slot">
+        <div class="slot-time">23H00 – 00H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="anim-badge ab-salsa">💃 CHACHA + BAN BIYO</span>
+          <span class="anim-badge ab-allstaff" style="margin-top:-2px">⭐ All Staff — Grande soirée</span>
+          <div>
+            <div class="sec">DJs</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_SALSERITO_nobg.png" alt="SALSERITO"></div>
+                <div class="dj-name">DJ Alex Salserito</div>
+              </div>
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_CyCy_nobg.png" alt="CYCY"></div>
+                <div class="dj-name">DJ CYCY</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="sec">Taxis en piste · 30 min chacun</div>
+            <div class="taxi-groups">
+              <div class="tgroup cg">
+                <div class="tg-head">
+                  <div class="tg-dot c"></div>
+                  <div class="tg-label c">Taxi Cubanos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/ANDRE.jpg" alt="André"></div><div class="taxi-n">André</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/BENJAMIN.jpg" alt="Benjamin"></div><div class="taxi-n">Benjamin</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/CLARA.jpg" alt="Clara"></div><div class="taxi-n">Clara</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FERNANDO.jpg" alt="Fernando"></div><div class="taxi-n">Fernando</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/FOUAD.jpg" alt="Fouad"></div><div class="taxi-n">Fouad</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/GHITA.jpg" alt="Ghita"></div><div class="taxi-n">Ghita</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/LYDIA.jpg" alt="Lydia"></div><div class="taxi-n">Lydia</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/MIYA.jpg" alt="Miya"></div><div class="taxi-n">Miya</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/NICOLAS.jpg" alt="Nicolas"></div><div class="taxi-n">Nicolas</div></div>
+                  <div class="taxi-chip"><div class="taxi-av c"><img src="TAXI CUBANOS/SOLEDAD.jpg" alt="Soledad"></div><div class="taxi-n">Soledad</div></div>
+                </div>
+              </div>
+              <div class="tgroup mg">
+                <div class="tg-head">
+                  <div class="tg-dot m"></div>
+                  <div class="tg-label m">Taxi Mambos</div>
+                  <div class="tg-dur">30 min</div>
+                  <div class="brtag"><div class="brmini"></div><span class="brtxt">Fluo</span></div>
+                </div>
+                <div class="taxi-avs">
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ALEXIS.jpg" alt="Alexis"></div><div class="taxi-n">Alexis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ANTOINE.jpg" alt="Antoine"></div><div class="taxi-n">Antoine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA C.jpg" alt="Clara C"></div><div class="taxi-n">Clara C</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/CLARA S.jpg" alt="Clara S"></div><div class="taxi-n">Clara S</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/HOUSSEM.jpg" alt="Houssem"></div><div class="taxi-n">Houssem</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MARGARETH.jpg" alt="Margareth"></div><div class="taxi-n">Margareth</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/MAYLIS.jpg" alt="Maylis"></div><div class="taxi-n">Maylis</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/PERRINE.jpg" alt="Perrine"></div><div class="taxi-n">Perrine</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/ROMAIN.jpg" alt="Romain"></div><div class="taxi-n">Romain</div></div>
+                  <div class="taxi-chip"><div class="taxi-av m"><img src="TAXI MAMBOS/THIBAULT.jpg" alt="Thibault"></div><div class="taxi-n">Thibault</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 00h : vide -->
+      <div class="slot is-empty">
+        <div class="slot-time">00H00 – 01H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <span class="staff-tag">⏳ Libre</span>
+        </div>
+      </div>
+
+      <!-- 01h : PHILIPPE + DREAMS -->
+      <div class="slot">
+        <div class="slot-time">01H00 – 02H00 <span class="vmini vmini-scene">Scène</span></div>
+        <div class="slot-body">
+          <div>
+            <div class="sec">DJs</div>
+            <div class="dj-row">
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_PHILIPPE_nobg.png" alt="PHILIPPE"></div>
+                <div class="dj-name">DJ PHILIPPE</div>
+              </div>
+              <div class="dj-chip">
+                <div class="dj-av"><img src="DJ_Dreams2_nobg.png" alt="DREAMS"></div>
+                <div class="dj-name">DJ DREAMS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /samedi -->
+
+  </div><!-- /schedule-grid -->
+
+</main>
+
+<footer>
+  Spring Break Latino Corsica 2026 · by Salsabor · inforesa@salsabor.fr
+</footer>
+
+<script>
+  // ── QR CODE ──
+  // Si la page est mise en ligne, pointer vers l'URL fixe ci-dessous.
+  // En local (file://), window.location.href est utilisé automatiquement.
+  const QR_URL = (function() {
+    const loc = window.location.href;
+    return 'https://jmfetienne-coder.github.io/sbl2026-djs/Planning_TaxiDancers_SBL2026.html';
+  })();
+
+  if (typeof QRCode !== 'undefined') {
+    new QRCode(document.getElementById('qrcode'), {
+      text: QR_URL,
+      width: 82,
+      height: 82,
+      colorDark: '#000000',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  }
+</script>
+</body>
+</html>
