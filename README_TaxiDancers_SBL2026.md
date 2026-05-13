@@ -4,7 +4,7 @@
 **URL en ligne :** https://jmfetienne-coder.github.io/sbl2026-djs/Planning_TaxiDancers_SBL2026.html  
 **Événement :** Spring Break Latino — 13 au 17 mai 2026  
 **Lieu :** Camping Arinella Bianca, 20240 Ghisonaccia (Corse)  
-**Créé le :** 13 mai 2026 (v2)
+**Créé le :** 13 mai 2026 (v3)
 
 ---
 
@@ -12,7 +12,7 @@
 
 Page web de planning des **Taxi Dancers** pour les soirées Salsa de l'**Espace Caraïbes** (4 soirées : Mercredi 13 → Samedi 16 mai). Elle présente, pour chaque créneau horaire de chaque soirée :
 
-- Le **lieu** (Scène ou Playa) et la **transition** Playa → Scène (Jeudi / Vendredi à 23h)
+- Le **lieu** (Dôme ou Playa) et la **transition** Playa → Dôme (Jeudi / Vendredi à 23h)
 - L'**animation** du moment (Cha-Cha, Rueda Micro HF, Anim' Ligne, Ban Biyo, Concert…)
 - Les **DJs** en poste (avatar rond avec photo)
 - Les **Taxi Mambos** et **Taxi Cubanos** de la rotation 30 minutes (avatars ronds)
@@ -81,7 +81,7 @@ Le **logo SBL** est référencé depuis `../DJ_PHOTO/Logo_SBL.jpg`.
 
 ## Planning des soirées
 
-### Mercredi 13 mai — 🎙️ SCÈNE
+### Mercredi 13 mai — 🏟️ DÔME
 | Heure | Animation | DJs | Taxis |
 |-------|-----------|-----|-------|
 | 21h–22h | Début de soirée | — | — |
@@ -90,25 +90,25 @@ Le **logo SBL** est référencé depuis `../DJ_PHOTO/Logo_SBL.jpg`.
 | 00h–01h | 🔄 RUEDA Micro HF | DJ PHILIPPE · DJ JEAN-MI | 🟡 CUBANOS 30' |
 | 01h–02h | — | — | 🟣 MAMBOS 30' |
 
-### Jeudi 14 mai — 🏖️ PLAYA (21h→23h) puis 🎙️ SCÈNE (23h→02h)
+### Jeudi 14 mai — 🏖️ PLAYA (21h→23h) puis 🏟️ DÔME (23h→02h)
 | Heure | Lieu | Animation | DJs | Taxis |
 |-------|------|-----------|-----|-------|
 | 21h–22h | Playa | 🔄 RUEDA Micro HF | DJ Alex Salserito | 🟣 MAMBOS 30' |
 | 22h–23h | Playa | — | — | 🟡 CUBANOS 30' |
-| 23h–00h | Scène | 🎵 BAN BIYO | DJ DREAMS · DJ CYCY | 🟣 MAMBOS 30' |
-| 00h–01h | Scène | — | — | 🟡 CUBANOS 30' |
-| 01h–02h | Scène | — | DJ PHILIPPE | ✨ Staff présent |
+| 23h–00h | Dôme | 🎵 BAN BIYO | DJ DREAMS · DJ CYCY | 🟣 MAMBOS 30' |
+| 00h–01h | Dôme | — | — | 🟡 CUBANOS 30' |
+| 01h–02h | Dôme | — | DJ PHILIPPE | ✨ Staff présent |
 
-### Vendredi 15 mai — 🏖️ PLAYA (21h→23h) puis 🎙️ SCÈNE (23h→02h)
+### Vendredi 15 mai — 🏖️ PLAYA (21h→23h) puis 🏟️ DÔME (23h→02h)
 | Heure | Lieu | Animation | DJs | Taxis |
 |-------|------|-----------|-----|-------|
 | 21h–22h | Playa | 💃 ANIM' LIGNE (Farès lead) | DJ PHILIPPE · DJ JEREMY | 🟡 CUBANOS + 🟣 MAMBOS 30' |
 | 22h–23h | Playa | — | — | ✨ Staff présent |
-| 23h–00h | Scène | 💃 CHA-CHA | DJ FABULOUS · DJ JEAN-MI | 🟡 CUBANOS + 🟣 MAMBOS 30' |
-| 00h–01h | Scène | — | DJ JEAN-MI · DJ PHILIPPE | ✨ Staff présent |
-| 01h–02h | Scène | — | DJ PHILIPPE | ✨ Staff présent |
+| 23h–00h | Dôme | 💃 CHA-CHA | DJ FABULOUS · DJ JEAN-MI | 🟡 CUBANOS + 🟣 MAMBOS 30' |
+| 00h–01h | Dôme | — | DJ JEAN-MI · DJ PHILIPPE | ✨ Staff présent |
+| 01h–02h | Dôme | — | DJ PHILIPPE | ✨ Staff présent |
 
-### Samedi 16 mai — 🎙️ SCÈNE
+### Samedi 16 mai — 🏟️ DÔME
 | Heure | Animation | DJs | Taxis |
 |-------|-----------|-----|-------|
 | 21h–22h | 🎺 CONCERT PARISONGO | DJ CYCY | — |
@@ -173,6 +173,7 @@ La page est liée aux autres pages SBL 2026 via la barre de navigation :
 |------|---------|-------------|
 | 13 mai 2026 | v1 | Création — 4 soirées × 5 créneaux, 10 Cubanos + 10 Mambos, bracelet fluo, DJs SBL 2026, navigation commune |
 | 13 mai 2026 | v2 | QR code (qrcode.js) pointant sur l'URL GitHub Pages · Logo SBL agrandi (110 px, opacité 85 %) · Intégration dans le dépôt `sbl2026-djs` · Mise en ligne GitHub Pages |
+| 13 mai 2026 | v3 | SCÈNE → DÔME (27 occurrences) · Liens nav activés (GitHub Pages absolus en local, relatifs en ligne) |
 
 ---
 
