@@ -9,10 +9,14 @@ cd "$(dirname "$0")"
 git add Tombi_DJs_SBL2026.html \
         Programme_DJs_SBL2026.html \
         Tombi_DJs_SBL2026_SLIDESHOW.html \
+        Planning_TaxiDancers_SBL2026.html \
+        TaxiDancers_SBL2026_SLIDESHOW.html \
         README_DJ_PHOTO.md \
         README_Programme_DJs_SBL2026.md \
         README_Slideshow_DJs_SBL2026.md \
+        README_TaxiDancers_SBL2026.md \
         *.png *.jpg *.jpeg 2>/dev/null
+git add "TAXI CUBANOS" "TAXI MAMBOS" 2>/dev/null
 
 git commit -m "$MSG"
 git push origin main
