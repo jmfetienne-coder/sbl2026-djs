@@ -2,7 +2,7 @@
 **Fichier :** `Programme_DJs_SBL2026.html`  
 **Événement :** Spring Break Latino — 13 au 17 mai 2026  
 **Lieu :** Camping Arinella Bianca, 20240 Ghisonnacia (Corse)  
-**Dernière mise à jour :** 16 mai 2026 (v16)
+**Dernière mise à jour :** 16 mai 2026 (v17)
 
 ---
 
@@ -144,7 +144,7 @@ Chaque section comprend :
 |---------|------|-----------------|-------------------|
 | 21h30-22h30 | 🎺 *Fermé — Concert Salsa* | **Suave — Playa** : DJ TREW | **Bachata — Park Place** : **DJ MOJO** |
 | 22h30-00h | DJ CYCY / DJ Alex Salserito | DJ TREW | DJ BLANQUILLO |
-| 00h-01h | DJ Alex Salserito / DJ CYCY | DJ MIKADO SAN | DJ FABULOUS |
+| 00h-01h | DJ Alex Salserito / DJ CYCY | DJ DREAMS + DJ MIKADO SAN | DJ FABULOUS |
 | 01h-02h | DJ CYCY / DJ PHILIPPE | DJ DREAMS + DJ MIKADO SAN | DJ FABULOUS |
 | **After Party 02h-04h+** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ PHILIPPE | **Kizomba — Park Place** : DJ TREW + DJ MIKADO SAN + DJ Alex Salserito |
 
@@ -282,6 +282,7 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g; s|src="SBL_|src="../DJ_PHOTO/SBL_|g' \
 | 13 mai 2026 | v14 | **DJ Jean-Emile renommé DJ MOJO** partout · **Salsarito → Salserito** (correction orthographe) · Styles Salserito reordonnés (Zouk/Konpa/Konpa Gouyad en tête + Bachata) · **Pool Party Jeudi** : +DJ FABULOUS · **Beach Party Samedi** : +DJ ROH · **Ouverture Mercredi** : DJ DREAMS ajouté · **Logo SBL** ajouté en watermark (header 3 pages + cartes Tombi) · Mercredi 23h-00h Kiz : MIKADO SAN→MOJO · Mercredi 01h-02h Kiz : TREW→MOJO · Jeudi 21h-23h Bachata Park Place : MOJO→FABULOUS · Jeudi 00h-01h Kiz : MIKADO SAN→MOJO · Jeudi 01h-02h Bachata : MOJO→FABULOUS · Vendredi 23h-00h Kiz : MIKADO SAN→MOJO · Vendredi 00h-01h Bachata : MOJO→BLANQUILLO · Vendredi 01h-02h Bachata : MOJO→FABULOUS · Samedi 21h30-22h30 : DOME fermé (Concert Salsa) + MOJO à Bachata Park Place · Samedi 01h-02h Kiz : MIKADO SAN→MOJO · Samedi After Party Park Place : BLANQUILLO→Alex Salserito · Dimanche : CYCY ↔ JEREMY inversés |
 | 16 mai 2026 | v15 | **Vendredi 21h-23h DOME fermé** (Concert Bachata Grupo Olas — DJ JEREMY / DJ PHILIPPE supprimés) · **Samedi 01h-02h DOME** : DJ DREAMS → DJ CYCY |
 | 16 mai 2026 | v16 | **DJ Mikado San → DJ MIKADO SAN** (majuscules, 16 occurrences) · **Samedi 01h-02h Kizomba/Suave** : DJ MOJO → DJ DREAMS + DJ MIKADO SAN |
+| 16 mai 2026 | v17 | **Samedi 00h-01h Kizomba/Suave** : DJ MIKADO SAN seul → DJ DREAMS + DJ MIKADO SAN |
 
 ---
 
