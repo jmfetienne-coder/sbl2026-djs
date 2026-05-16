@@ -14,7 +14,7 @@
 | `DJ_FABULOUS.png` | DJ FABULOUS | Portrait 1080×1440 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_JEAN-MICHELJPG.JPG` | DJ Jean-Mi | Portrait 682×1024 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_JEREMY.jpg` | DJ JEREMY | Portrait 865×1280 | `center top` | ✅ Utilisée dans le tombi |
-| `DJ_Mikado.png` | DJ Mikado San | Carré 1024×1024 | `center top` | ✅ Utilisée dans le tombi |
+| `DJ_Mikado.png` | DJ MIKADO SAN | Carré 1024×1024 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_PHILIPPE.png` | DJ PHILIPPE | Carré 1254×1254 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_RO.jpg` | DJ ROH | Portrait 1024×1280 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_SALSERITO.jpeg` | DJ Alex Salserito | Paysage 1496×1199 | `center top` | ✅ Utilisée dans le tombi |
@@ -28,7 +28,7 @@
 | `DJ_FABULOUS_nobg.png` | DJ FABULOUS | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_JEAN-MICHELJPG_nobg.png` | DJ Jean-Mi | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_JEREMY_nobg.png` | DJ JEREMY | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
-| `DJ_Mikado_nobg.png` | DJ Mikado San | Carré (fond supprimé) | `center top` | ✅ Version sans fond |
+| `DJ_Mikado_nobg.png` | DJ MIKADO SAN | Carré (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_PHILIPPE_nobg.png` | DJ PHILIPPE | Carré (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_RO_nobg.png` | DJ ROH | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_SALSERITO_nobg.png` | DJ Alex Salserito | Paysage (fond supprimé) | `center top` | ✅ Version sans fond |
@@ -167,7 +167,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 8 mai 2026 | Jean-Emile — placeholder remplacé par avatar SVG silhouette + «PHOTO À VENIR» |
 | 8 mai 2026 | DJ BLANQUILLO (Sylvain) — zoom `scale(1.3)`, cadrage `center 8%` |
 | 8 mai 2026 | DJ CYCY — zoom `scale(1.15)`, cadrage `center 15%` (recadrage au niveau du buste) |
-| 8 mai 2026 | Renommage DJ affichés : DREAMS→DJ DREAMS, DJ TREW→DJ TREW, Mikado San→DJ Mikado San, Alex Salserito→DJ Alex Salsarito, Sylvain→DJ BLANQUILLO, CyCy→DJ CYCY, Jean-Michel→DJ Jean-Mi, Rolland→DJ ROH, Philippe DJ→DJ PHILIPPE, Jérémy→DJ JEREMY, Jean-Emile→DJ MOJO, Fabulous DJ→DJ FABULOUS |
+| 8 mai 2026 | Renommage DJ affichés : DREAMS→DJ DREAMS, DJ TREW→DJ TREW, MIKADO SAN→DJ MIKADO SAN, Alex Salserito→DJ Alex Salsarito, Sylvain→DJ BLANQUILLO, CyCy→DJ CYCY, Jean-Michel→DJ Jean-Mi, Rolland→DJ ROH, Philippe DJ→DJ PHILIPPE, Jérémy→DJ JEREMY, Jean-Emile→DJ MOJO, Fabulous DJ→DJ FABULOUS |
 | 8 mai 2026 | Correction CSS `@media print` — suppression fond blanc, textes forcés en blanc opaque pour export PDF |
 | 8 mai 2026 | Export PDF `Tombi_DJs_SBL2026_VERIFICATION.pdf` — version vérification DJs |
 | 8 mai 2026 | v5 — Ajout photo `DJ_Jean_Emile.jpg` + `DJ_Jean_Emile_nobg.png` — plus aucune photo manquante ; inventaire complété avec toutes les versions `_nobg.png` |
@@ -182,6 +182,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 13 mai 2026 | v13b — **Planning Taxi Dancers** (`Planning_TaxiDancers_SBL2026.html`) + **Slideshow Taxi Dancers** (`TaxiDancers_SBL2026_SLIDESHOW.html`) créés · 20 Taxi Dancers (10 Cubanos + 10 Mambos) · QR code · deploy.sh mis à jour |
 | 13 mai 2026 | v14 — **Photos Taxi Dancers harmonisées** : 20 portraits recadrés à 600×800 px (resize cover + crop centré haut, UnsharpMask léger) · Backup originaux conservé localement · Placeholder silhouette pour FERNANDO |
 | 16 mai 2026 | v15 — Corrections Programme DJs v15 (Vendredi DOME 21h-23h fermé · Samedi 01h-02h DOME : DREAMS→CYCY) |
+| 16 mai 2026 | v16 — **DJ Mikado San → DJ MIKADO SAN** partout (HTML + READMEs) · Samedi 01h-02h Kizomba : MOJO → DREAMS + MIKADO SAN |
 
 ---
 

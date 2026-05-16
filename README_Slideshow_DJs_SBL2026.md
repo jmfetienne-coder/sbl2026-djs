@@ -74,7 +74,7 @@ Barre sticky 5 onglets :
 | 3 | DJ Jean-Mi | Espace Bachata · Espace Caraïbes | 11 → 18 mai |
 | 4 | DJ PHILIPPE | Espace Bachata · Espace Caraïbes | 12 → 18 mai |
 | 5 | DJ TREW | Espace Suave · Kizomba | 12 → 18 mai |
-| 6 | DJ Mikado San | Espace Suave · After Party Kiz | 12 → 18 mai |
+| 6 | DJ MIKADO SAN | Espace Suave · After Party Kiz | 12 → 18 mai |
 | 7 | DJ CYCY | Espace Caraïbes · Espace Bachata | 12 → 18 mai |
 | 8 | DJ MOJO | Espace Bachata · Suave / Kizomba | 13 → 17 mai |
 | 9 | DJ ROH | Espace Caraïbes · After Party | 13 → 18 mai |

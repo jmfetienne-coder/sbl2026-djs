@@ -2,7 +2,7 @@
 **Fichier :** `Programme_DJs_SBL2026.html`  
 **Événement :** Spring Break Latino — 13 au 17 mai 2026  
 **Lieu :** Camping Arinella Bianca, 20240 Ghisonnacia (Corse)  
-**Dernière mise à jour :** 16 mai 2026 (v15)
+**Dernière mise à jour :** 16 mai 2026 (v16)
 
 ---
 
@@ -71,7 +71,7 @@ Chaque section comprend :
 
 | Créneau | DOME | Kizomba / Suave | Bachata / Kizomba |
 |---------|------|-----------------|-------------------|
-| 22h-23h | DJ JEREMY / DJ CYCY | DJ Mikado San | DJ BLANQUILLO |
+| 22h-23h | DJ JEREMY / DJ CYCY | DJ MIKADO SAN | DJ BLANQUILLO |
 | 23h-00h | DJ CYCY / DJ JEREMY | **DJ MOJO** | DJ BLANQUILLO |
 | 00h-01h | DJ PHILIPPE / DJ Jean-Mi | DJ TREW | DJ FABULOUS |
 | 01h-02h | DJ Jean-Mi / DJ PHILIPPE | **DJ MOJO** | DJ FABULOUS |
@@ -93,10 +93,10 @@ Chaque section comprend :
 | Créneau | DOME | Kizomba / Suave | Bachata / Kizomba |
 |---------|------|-----------------|-------------------|
 | 21h-23h | *(DOME fermé — Showcase)* | **Bachata — Park Place** : **DJ FABULOUS** | **Caraïbes — Playa** : DJ Alex Salserito |
-| 23h-00h | DJ DREAMS / DJ CYCY | DJ Mikado San | DJ BLANQUILLO |
+| 23h-00h | DJ DREAMS / DJ CYCY | DJ MIKADO SAN | DJ BLANQUILLO |
 | 00h-01h | DJ CYCY / DJ DREAMS | **DJ MOJO** | DJ BLANQUILLO |
 | 01h-02h | DJ PHILIPPE | DJ TREW | DJ FABULOUS |
-| **After Party 02h-04h** | — | **Playa** : DJ DREAMS + DJ FABULOUS | **Kizomba — Park Place** : DJ Mikado San + DJ TREW |
+| **After Party 02h-04h** | — | **Playa** : DJ DREAMS + DJ FABULOUS | **Kizomba — Park Place** : DJ MIKADO SAN + DJ TREW |
 
 **Pendant le showcase Mika Mendes (21h-23h) — Sur les pistes :**
 - 🟠 **Caraïbes** : DJ Alex Salserito (Playa)
@@ -111,14 +111,14 @@ Chaque section comprend :
 - Soirée : 21h00 → 04h00
 
 **Pratiques Sociales 17h30-19h :**
-- 🟢 **Kizomba** — Park Place : DJ Mikado San
+- 🟢 **Kizomba** — Park Place : DJ MIKADO SAN
 - 🟠 **Salsa · Bachata** — Playa : DJ Alex Salserito
 
 | Créneau | DOME | Kizomba / Suave | Bachata / Kizomba |
 |---------|------|-----------------|-------------------|
 | 21h-23h | *(DOME fermé — Concert Bachata)* | **Caraïbes — Playa** : DJ Alex Salserito | **Suave — Park Place** : DJ TREW |
 | 23h-00h | DJ Jean-Mi / DJ FABULOUS | **DJ MOJO** | DJ BLANQUILLO |
-| 00h-01h | DJ PHILIPPE / DJ Jean-Mi | DJ Mikado San | DJ BLANQUILLO |
+| 00h-01h | DJ PHILIPPE / DJ Jean-Mi | DJ MIKADO SAN | DJ BLANQUILLO |
 | 01h-02h | DJ PHILIPPE | DJ TREW | DJ FABULOUS |
 | **After Party 02h-04h** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ ROH | **Kizomba — Park Place** : DJ TREW + DJ Alex Salserito |
 
@@ -144,9 +144,9 @@ Chaque section comprend :
 |---------|------|-----------------|-------------------|
 | 21h30-22h30 | 🎺 *Fermé — Concert Salsa* | **Suave — Playa** : DJ TREW | **Bachata — Park Place** : **DJ MOJO** |
 | 22h30-00h | DJ CYCY / DJ Alex Salserito | DJ TREW | DJ BLANQUILLO |
-| 00h-01h | DJ Alex Salserito / DJ CYCY | DJ Mikado San | DJ FABULOUS |
-| 01h-02h | DJ CYCY / DJ PHILIPPE | **DJ MOJO** | DJ FABULOUS |
-| **After Party 02h-04h+** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ PHILIPPE | **Kizomba — Park Place** : DJ TREW + DJ Mikado San + DJ Alex Salserito |
+| 00h-01h | DJ Alex Salserito / DJ CYCY | DJ MIKADO SAN | DJ FABULOUS |
+| 01h-02h | DJ CYCY / DJ PHILIPPE | DJ DREAMS + DJ MIKADO SAN | DJ FABULOUS |
+| **After Party 02h-04h+** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ PHILIPPE | **Kizomba — Park Place** : DJ TREW + DJ MIKADO SAN + DJ Alex Salserito |
 
 **Pendant le concert Parisongo / Salsa (21h30-22h30) — Sur les pistes :**
 - 🟢 **Suave** : DJ TREW (Playa)
@@ -162,7 +162,7 @@ Chaque section comprend :
 
 | Créneau | DOME | Kizomba / Suave | Bachata / Kizomba |
 |---------|------|-----------------|-------------------|
-| 19h+ | DJ Alex Salserito + DJ CYCY | DJ Jean-Mi + DJ PHILIPPE | DJ TREW + DJ Mikado San |
+| 19h+ | DJ Alex Salserito + DJ CYCY | DJ Jean-Mi + DJ PHILIPPE | DJ TREW + DJ MIKADO SAN |
 | Nuit+ | DJ ROH + DJ JEREMY | DJ BLANQUILLO + DJ PHILIPPE | DJ FABULOUS + DJ TREW |
 
 > DJ DREAMS disponible en renfort si besoin.
@@ -184,7 +184,7 @@ Chaque DJ apparaît sous forme d'avatar circulaire (38px) + nom. Fichiers utilis
 | DJ TREW | `DJ_THOMAS_nobg.png` |
 | DJ CYCY | `DJ_CyCy_nobg.png` |
 | DJ BLANQUILLO | `DJ_SYLVAIN_nobg.png` |
-| DJ Mikado San | `DJ_Mikado_nobg.png` |
+| DJ MIKADO SAN | `DJ_Mikado_nobg.png` |
 | DJ ROH | `DJ_RO_nobg.png` |
 | DJ JEREMY | `DJ_JEREMY_nobg.png` |
 | DJ FABULOUS | `DJ_FABULOUS_nobg.png` |
@@ -279,8 +279,9 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g; s|src="SBL_|src="../DJ_PHOTO/SBL_|g' \
 | 9 mai 2026 | v11 | Audit cohérence musicale — 13 corrections · DJ CYCY exclusivement Caraïbes/Bachata |
 | 9 mai 2026 | v12 | Pratiques Sociales 17h30-19h ajoutées (Jeu/Ven/Sam) |
 | 10 mai 2026 | v13 | **Refonte complète** : créneaux **1h** · **3 colonnes** (DOME / Kizomba Suave / Bachata Kizomba) · After Party 02h-04h restaurés (Playa + Kizomba Park Place) pour Mer/Jeu/Ven · Samedi 02h-04h+ |
-| 13 mai 2026 | v14 | **DJ Jean-Emile renommé DJ MOJO** partout · **Salsarito → Salserito** (correction orthographe) · Styles Salserito reordonnés (Zouk/Konpa/Konpa Gouyad en tête + Bachata) · **Pool Party Jeudi** : +DJ FABULOUS · **Beach Party Samedi** : +DJ ROH · **Ouverture Mercredi** : DJ DREAMS ajouté · **Logo SBL** ajouté en watermark (header 3 pages + cartes Tombi) · Mercredi 23h-00h Kiz : Mikado San→MOJO · Mercredi 01h-02h Kiz : TREW→MOJO · Jeudi 21h-23h Bachata Park Place : MOJO→FABULOUS · Jeudi 00h-01h Kiz : Mikado San→MOJO · Jeudi 01h-02h Bachata : MOJO→FABULOUS · Vendredi 23h-00h Kiz : Mikado San→MOJO · Vendredi 00h-01h Bachata : MOJO→BLANQUILLO · Vendredi 01h-02h Bachata : MOJO→FABULOUS · Samedi 21h30-22h30 : DOME fermé (Concert Salsa) + MOJO à Bachata Park Place · Samedi 01h-02h Kiz : Mikado San→MOJO · Samedi After Party Park Place : BLANQUILLO→Alex Salserito · Dimanche : CYCY ↔ JEREMY inversés |
+| 13 mai 2026 | v14 | **DJ Jean-Emile renommé DJ MOJO** partout · **Salsarito → Salserito** (correction orthographe) · Styles Salserito reordonnés (Zouk/Konpa/Konpa Gouyad en tête + Bachata) · **Pool Party Jeudi** : +DJ FABULOUS · **Beach Party Samedi** : +DJ ROH · **Ouverture Mercredi** : DJ DREAMS ajouté · **Logo SBL** ajouté en watermark (header 3 pages + cartes Tombi) · Mercredi 23h-00h Kiz : MIKADO SAN→MOJO · Mercredi 01h-02h Kiz : TREW→MOJO · Jeudi 21h-23h Bachata Park Place : MOJO→FABULOUS · Jeudi 00h-01h Kiz : MIKADO SAN→MOJO · Jeudi 01h-02h Bachata : MOJO→FABULOUS · Vendredi 23h-00h Kiz : MIKADO SAN→MOJO · Vendredi 00h-01h Bachata : MOJO→BLANQUILLO · Vendredi 01h-02h Bachata : MOJO→FABULOUS · Samedi 21h30-22h30 : DOME fermé (Concert Salsa) + MOJO à Bachata Park Place · Samedi 01h-02h Kiz : MIKADO SAN→MOJO · Samedi After Party Park Place : BLANQUILLO→Alex Salserito · Dimanche : CYCY ↔ JEREMY inversés |
 | 16 mai 2026 | v15 | **Vendredi 21h-23h DOME fermé** (Concert Bachata Grupo Olas — DJ JEREMY / DJ PHILIPPE supprimés) · **Samedi 01h-02h DOME** : DJ DREAMS → DJ CYCY |
+| 16 mai 2026 | v16 | **DJ Mikado San → DJ MIKADO SAN** (majuscules, 16 occurrences) · **Samedi 01h-02h Kizomba/Suave** : DJ MOJO → DJ DREAMS + DJ MIKADO SAN |
 
 ---
 
