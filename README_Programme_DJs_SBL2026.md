@@ -2,7 +2,7 @@
 **Fichier :** `Programme_DJs_SBL2026.html`  
 **Événement :** Spring Break Latino — 13 au 17 mai 2026  
 **Lieu :** Camping Arinella Bianca, 20240 Ghisonnacia (Corse)  
-**Dernière mise à jour :** 16 mai 2026 (v17)
+**Dernière mise à jour :** 16 mai 2026 (v19)
 
 ---
 
@@ -145,7 +145,7 @@ Chaque section comprend :
 | 21h30-22h30 | 🎺 *Fermé — Concert Salsa* | **Suave — Playa** : DJ TREW | **Bachata — Park Place** : **DJ MOJO** |
 | 22h30-00h | DJ CYCY / DJ ALEX SALSERITO | DJ TREW | DJ BLANQUILLO |
 | 00h-01h | DJ ALEX SALSERITO / DJ CYCY | DJ DREAMS + DJ MIKADO SAN | DJ FABULOUS |
-| 01h-02h | DJ CYCY / DJ PHILIPPE | DJ DREAMS + DJ MIKADO SAN | DJ FABULOUS |
+| 01h-02h | DJ CYCY / DJ PHILIPPE | DJ MIKADO SAN | DJ FABULOUS |
 | **After Party 02h-04h+** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ PHILIPPE | **Kizomba — Park Place** : DJ TREW + DJ MIKADO SAN + DJ ALEX SALSERITO |
 
 **Pendant le concert Parisongo / Salsa (21h30-22h30) — Sur les pistes :**
@@ -283,6 +283,7 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g; s|src="SBL_|src="../DJ_PHOTO/SBL_|g' \
 | 16 mai 2026 | v15 | **Vendredi 21h-23h DOME fermé** (Concert Bachata Grupo Olas — DJ JEREMY / DJ PHILIPPE supprimés) · **Samedi 01h-02h DOME** : DJ DREAMS → DJ CYCY |
 | 16 mai 2026 | v16 | **DJ Mikado San → DJ MIKADO SAN** (majuscules, 16 occurrences) · **Samedi 01h-02h Kizomba/Suave** : DJ MOJO → DJ DREAMS + DJ MIKADO SAN |
 | 16 mai 2026 | v17 | **Samedi 00h-01h Kizomba/Suave** : DJ MIKADO SAN seul → DJ DREAMS + DJ MIKADO SAN |
+| 16 mai 2026 | v19 | **Samedi 01h-02h Kizomba/Suave** : DJ DREAMS + DJ MIKADO SAN → DJ MIKADO SAN seul |
 
 ---
 
