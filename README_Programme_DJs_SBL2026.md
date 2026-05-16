@@ -2,7 +2,7 @@
 **Fichier :** `Programme_DJs_SBL2026.html`  
 **Événement :** Spring Break Latino — 13 au 17 mai 2026  
 **Lieu :** Camping Arinella Bianca, 20240 Ghisonnacia (Corse)  
-**Dernière mise à jour :** 16 mai 2026 (v19)
+**Dernière mise à jour :** 16 mai 2026 (v20)
 
 ---
 
@@ -284,6 +284,7 @@ sed 's|src="DJ_|src="../DJ_PHOTO/DJ_|g; s|src="SBL_|src="../DJ_PHOTO/SBL_|g' \
 | 16 mai 2026 | v16 | **DJ Mikado San → DJ MIKADO SAN** (majuscules, 16 occurrences) · **Samedi 01h-02h Kizomba/Suave** : DJ MOJO → DJ DREAMS + DJ MIKADO SAN |
 | 16 mai 2026 | v17 | **Samedi 00h-01h Kizomba/Suave** : DJ MIKADO SAN seul → DJ DREAMS + DJ MIKADO SAN |
 | 16 mai 2026 | v19 | **Samedi 01h-02h Kizomba/Suave** : DJ DREAMS + DJ MIKADO SAN → DJ MIKADO SAN seul |
+| 16 mai 2026 | v20 | **QR code** ajouté dans le header (haut gauche, 82×82 px) · URL fixe GitHub Pages · masqué sur mobile |
 
 ---
 

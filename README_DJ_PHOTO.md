@@ -183,6 +183,8 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 13 mai 2026 | v14 — **Photos Taxi Dancers harmonisées** : 20 portraits recadrés à 600×800 px (resize cover + crop centré haut, UnsharpMask léger) · Backup originaux conservé localement · Placeholder silhouette pour FERNANDO |
 | 16 mai 2026 | v15 — Corrections Programme DJs v15 (Vendredi DOME 21h-23h fermé · Samedi 01h-02h DOME : DREAMS→CYCY) |
 | 16 mai 2026 | v16 — **DJ Mikado San → DJ MIKADO SAN** partout (HTML + READMEs) · Samedi 01h-02h Kizomba : MOJO → DREAMS + MIKADO SAN |
+| 16 mai 2026 | v17 — **DJ Alex Salserito → DJ ALEX SALSERITO** (41 occurrences) · Corrections créneaux Samedi |
+| 16 mai 2026 | v18 — **QR code** ajouté sur Programme (header haut gauche) et Slideshow DJs (bas droit fixe) |
 
 ---
 

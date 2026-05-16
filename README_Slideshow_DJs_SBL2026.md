@@ -2,7 +2,7 @@
 **Fichier :** `Tombi_DJs_SBL2026_SLIDESHOW.html`  
 **Événement :** Spring Break Latino — 13 au 17 mai 2026  
 **Lieu :** Camping Arinella Bianca, 20240 Ghisonnacia (Corse)  
-**Dernière mise à jour :** 16 mai 2026 (v11)
+**Dernière mise à jour :** 16 mai 2026 (v12)
 
 ---
 
@@ -157,6 +157,7 @@ Chaque DJ dans le tableau `DJS` possède deux propriétés de couleur ambiante :
 | 10 mai 2026 | v9 — After Party restaurés dans le Programme (02h-04h Mer/Jeu/Ven · 02h-04h+ Sam) · Playa + Kizomba Park Place |
 | 13 mai 2026 | v10 — **DJ Jean-Emile renommé DJ MOJO** · **Salsarito → Salserito** (correction) · Styles Salserito : Zouk/Konpa/Konpa Gouyad/Bachata en tête · Logo SBL ajouté dans la top-bar |
 | 16 mai 2026 | v11 — Navigation étendue à 5 onglets (ajout 💃 Taxi Dancers + ▶ Slideshow Taxis) |
+| 16 mai 2026 | v12 — **QR code** ajouté (fixe bas-droite, 72×72 px) · URL fixe GitHub Pages · masqué sur mobile |
 
 ---
 
