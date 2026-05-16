@@ -70,7 +70,7 @@ Barre sticky 5 onglets :
 | # | DJ | Espaces | Dates |
 |---|-----|---------|-------|
 | 1 | DJ DREAMS | Pool Party · Beach Party · After Party · Toutes ambiances | 11 → 19 mai |
-| 2 | DJ Alex Salserito | Espace Caraïbes · After Party | 11 → 18 mai |
+| 2 | DJ ALEX SALSERITO | Espace Caraïbes · After Party | 11 → 18 mai |
 | 3 | DJ Jean-Mi | Espace Bachata · Espace Caraïbes | 11 → 18 mai |
 | 4 | DJ PHILIPPE | Espace Bachata · Espace Caraïbes | 12 → 18 mai |
 | 5 | DJ TREW | Espace Suave · Kizomba | 12 → 18 mai |

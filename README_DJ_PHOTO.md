@@ -17,7 +17,7 @@
 | `DJ_Mikado.png` | DJ MIKADO SAN | Carré 1024×1024 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_PHILIPPE.png` | DJ PHILIPPE | Carré 1254×1254 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_RO.jpg` | DJ ROH | Portrait 1024×1280 | `center top` | ✅ Utilisée dans le tombi |
-| `DJ_SALSERITO.jpeg` | DJ Alex Salserito | Paysage 1496×1199 | `center top` | ✅ Utilisée dans le tombi |
+| `DJ_SALSERITO.jpeg` | DJ ALEX SALSERITO | Paysage 1496×1199 | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_SYLVAIN.jpg` | DJ BLANQUILLO | Carré 3690×3690 | `center 8%` + `scale(1.3)` | ✅ Utilisée dans le tombi |
 | `DJ_THOMAS.jpg` | DJ TREW | Portrait | `center top` | ✅ Utilisée dans le tombi |
 | `DJ_CyCY1.png` | DJ CYCY | Portrait 1086×1448 | `center 15%` + `scale(1.15)` | ✅ Utilisée dans le tombi |
@@ -31,7 +31,7 @@
 | `DJ_Mikado_nobg.png` | DJ MIKADO SAN | Carré (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_PHILIPPE_nobg.png` | DJ PHILIPPE | Carré (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_RO_nobg.png` | DJ ROH | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
-| `DJ_SALSERITO_nobg.png` | DJ Alex Salserito | Paysage (fond supprimé) | `center top` | ✅ Version sans fond |
+| `DJ_SALSERITO_nobg.png` | DJ ALEX SALSERITO | Paysage (fond supprimé) | `center top` | ✅ Version sans fond |
 | `DJ_SYLVAIN_nobg.png` | DJ BLANQUILLO | Carré (fond supprimé) | `center 8%` + `scale(1.3)` | ✅ Version sans fond |
 | `DJ_THOMAS_nobg.png` | DJ TREW | Portrait (fond supprimé) | `center top` | ✅ Version sans fond |
 
@@ -178,7 +178,7 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 9 mai 2026 | v10 — DJ JEREMY : Bachata ajouté aux styles · Espace Bachata ajouté · DJ FABULOUS / DJ ROH / DJ PHILIPPE : Pool Party + Beach Party ajoutés |
 | 9 mai 2026 | v11 — Audit planning : 13 corrections de cohérence musicale · Créneaux Pratiques Sociales 17h30-19h ajoutés (Jeu/Ven/Sam) |
 | 10 mai 2026 | v12 — Programme refonte complète : créneaux **1 heure** (au lieu de 2h) · **3 colonnes** (DOME / Kizomba Suave / Bachata Kizomba) · After Party 02h-04h restaurés (Playa + Park Place Kizomba) pour Mer/Jeu/Ven ; Samedi 02h-04h+ |
-| 13 mai 2026 | v13 — **DJ Jean-Emile renommé DJ MOJO** (tous fichiers) · **Salsarito → Salserito** (correction orthographe) · Styles DJ Alex Salserito reordonnés (Zouk/Konpa/Konpa Gouyad/Bachata) · **Logo SBL** (`Logo_SBL.jpg`) ajouté : watermark header 3 pages + bas de chaque carte DJ Tombi · Multiples corrections planning (voir README_Programme v14) |
+| 13 mai 2026 | v13 — **DJ Jean-Emile renommé DJ MOJO** (tous fichiers) · **Salsarito → Salserito** (correction orthographe) · Styles DJ ALEX SALSERITO reordonnés (Zouk/Konpa/Konpa Gouyad/Bachata) · **Logo SBL** (`Logo_SBL.jpg`) ajouté : watermark header 3 pages + bas de chaque carte DJ Tombi · Multiples corrections planning (voir README_Programme v14) |
 | 13 mai 2026 | v13b — **Planning Taxi Dancers** (`Planning_TaxiDancers_SBL2026.html`) + **Slideshow Taxi Dancers** (`TaxiDancers_SBL2026_SLIDESHOW.html`) créés · 20 Taxi Dancers (10 Cubanos + 10 Mambos) · QR code · deploy.sh mis à jour |
 | 13 mai 2026 | v14 — **Photos Taxi Dancers harmonisées** : 20 portraits recadrés à 600×800 px (resize cover + crop centré haut, UnsharpMask léger) · Backup originaux conservé localement · Placeholder silhouette pour FERNANDO |
 | 16 mai 2026 | v15 — Corrections Programme DJs v15 (Vendredi DOME 21h-23h fermé · Samedi 01h-02h DOME : DREAMS→CYCY) |

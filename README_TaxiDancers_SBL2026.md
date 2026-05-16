@@ -93,7 +93,7 @@ Le **logo SBL** est référencé depuis `../DJ_PHOTO/Logo_SBL.jpg`.
 ### Jeudi 14 mai — 🏖️ PLAYA (21h→23h) puis 🏟️ DÔME (23h→02h)
 | Heure | Lieu | Animation | DJs | Taxis |
 |-------|------|-----------|-----|-------|
-| 21h–22h | Playa | 🔄 RUEDA Micro HF | DJ Alex Salserito | 🟣 MAMBOS 30' |
+| 21h–22h | Playa | 🔄 RUEDA Micro HF | DJ ALEX SALSERITO | 🟣 MAMBOS 30' |
 | 22h–23h | Playa | — | — | 🟡 CUBANOS 30' |
 | 23h–00h | Dôme | 🎵 BAN BIYO | DJ DREAMS · DJ CYCY | 🟣 MAMBOS 30' |
 | 00h–01h | Dôme | — | — | 🟡 CUBANOS 30' |
@@ -113,7 +113,7 @@ Le **logo SBL** est référencé depuis `../DJ_PHOTO/Logo_SBL.jpg`.
 |-------|-----------|-----|-------|
 | 21h–22h | 🎺 CONCERT PARISONGO | DJ CYCY | — |
 | 22h–23h | Transition | — | — |
-| 23h–00h | 💃 CHACHA + BAN BIYO (All Staff) | DJ Alex Salserito · DJ CYCY | 🟡 CUBANOS + 🟣 MAMBOS 30' |
+| 23h–00h | 💃 CHACHA + BAN BIYO (All Staff) | DJ ALEX SALSERITO · DJ CYCY | 🟡 CUBANOS + 🟣 MAMBOS 30' |
 | 00h–01h | — | — | — |
 | 01h–02h | — | DJ PHILIPPE · DJ DREAMS | — |
 

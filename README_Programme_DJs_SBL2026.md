@@ -92,14 +92,14 @@ Chaque section comprend :
 
 | Créneau | DOME | Kizomba / Suave | Bachata / Kizomba |
 |---------|------|-----------------|-------------------|
-| 21h-23h | *(DOME fermé — Showcase)* | **Bachata — Park Place** : **DJ FABULOUS** | **Caraïbes — Playa** : DJ Alex Salserito |
+| 21h-23h | *(DOME fermé — Showcase)* | **Bachata — Park Place** : **DJ FABULOUS** | **Caraïbes — Playa** : DJ ALEX SALSERITO |
 | 23h-00h | DJ DREAMS / DJ CYCY | DJ MIKADO SAN | DJ BLANQUILLO |
 | 00h-01h | DJ CYCY / DJ DREAMS | **DJ MOJO** | DJ BLANQUILLO |
 | 01h-02h | DJ PHILIPPE | DJ TREW | DJ FABULOUS |
 | **After Party 02h-04h** | — | **Playa** : DJ DREAMS + DJ FABULOUS | **Kizomba — Park Place** : DJ MIKADO SAN + DJ TREW |
 
 **Pendant le showcase Mika Mendes (21h-23h) — Sur les pistes :**
-- 🟠 **Caraïbes** : DJ Alex Salserito (Playa)
+- 🟠 **Caraïbes** : DJ ALEX SALSERITO (Playa)
 - 🩷 **Bachata** : DJ FABULOUS (Park Place)
 
 ---
@@ -112,18 +112,18 @@ Chaque section comprend :
 
 **Pratiques Sociales 17h30-19h :**
 - 🟢 **Kizomba** — Park Place : DJ MIKADO SAN
-- 🟠 **Salsa · Bachata** — Playa : DJ Alex Salserito
+- 🟠 **Salsa · Bachata** — Playa : DJ ALEX SALSERITO
 
 | Créneau | DOME | Kizomba / Suave | Bachata / Kizomba |
 |---------|------|-----------------|-------------------|
-| 21h-23h | *(DOME fermé — Concert Bachata)* | **Caraïbes — Playa** : DJ Alex Salserito | **Suave — Park Place** : DJ TREW |
+| 21h-23h | *(DOME fermé — Concert Bachata)* | **Caraïbes — Playa** : DJ ALEX SALSERITO | **Suave — Park Place** : DJ TREW |
 | 23h-00h | DJ Jean-Mi / DJ FABULOUS | **DJ MOJO** | DJ BLANQUILLO |
 | 00h-01h | DJ PHILIPPE / DJ Jean-Mi | DJ MIKADO SAN | DJ BLANQUILLO |
 | 01h-02h | DJ PHILIPPE | DJ TREW | DJ FABULOUS |
-| **After Party 02h-04h** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ ROH | **Kizomba — Park Place** : DJ TREW + DJ Alex Salserito |
+| **After Party 02h-04h** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ ROH | **Kizomba — Park Place** : DJ TREW + DJ ALEX SALSERITO |
 
 **Pendant le concert Grupo Olas / Bachata (21h-23h) — Sur les pistes :**
-- 🟠 **Caraïbes** : DJ Alex Salserito (Playa)
+- 🟠 **Caraïbes** : DJ ALEX SALSERITO (Playa)
 - 🟢 **Suave** : DJ TREW (Park Place)
 
 ---
@@ -143,10 +143,10 @@ Chaque section comprend :
 | Créneau | DOME | Kizomba / Suave | Bachata / Kizomba |
 |---------|------|-----------------|-------------------|
 | 21h30-22h30 | 🎺 *Fermé — Concert Salsa* | **Suave — Playa** : DJ TREW | **Bachata — Park Place** : **DJ MOJO** |
-| 22h30-00h | DJ CYCY / DJ Alex Salserito | DJ TREW | DJ BLANQUILLO |
-| 00h-01h | DJ Alex Salserito / DJ CYCY | DJ DREAMS + DJ MIKADO SAN | DJ FABULOUS |
+| 22h30-00h | DJ CYCY / DJ ALEX SALSERITO | DJ TREW | DJ BLANQUILLO |
+| 00h-01h | DJ ALEX SALSERITO / DJ CYCY | DJ DREAMS + DJ MIKADO SAN | DJ FABULOUS |
 | 01h-02h | DJ CYCY / DJ PHILIPPE | DJ DREAMS + DJ MIKADO SAN | DJ FABULOUS |
-| **After Party 02h-04h+** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ PHILIPPE | **Kizomba — Park Place** : DJ TREW + DJ MIKADO SAN + DJ Alex Salserito |
+| **After Party 02h-04h+** | — | **Playa** : DJ DREAMS + DJ FABULOUS + DJ PHILIPPE | **Kizomba — Park Place** : DJ TREW + DJ MIKADO SAN + DJ ALEX SALSERITO |
 
 **Pendant le concert Parisongo / Salsa (21h30-22h30) — Sur les pistes :**
 - 🟢 **Suave** : DJ TREW (Playa)
@@ -162,7 +162,7 @@ Chaque section comprend :
 
 | Créneau | DOME | Kizomba / Suave | Bachata / Kizomba |
 |---------|------|-----------------|-------------------|
-| 19h+ | DJ Alex Salserito + DJ CYCY | DJ Jean-Mi + DJ PHILIPPE | DJ TREW + DJ MIKADO SAN |
+| 19h+ | DJ ALEX SALSERITO + DJ CYCY | DJ Jean-Mi + DJ PHILIPPE | DJ TREW + DJ MIKADO SAN |
 | Nuit+ | DJ ROH + DJ JEREMY | DJ BLANQUILLO + DJ PHILIPPE | DJ FABULOUS + DJ TREW |
 
 > DJ DREAMS disponible en renfort si besoin.
@@ -176,7 +176,7 @@ Chaque DJ apparaît sous forme d'avatar circulaire (38px) + nom. Fichiers utilis
 | DJ (nom affiché) | Fichier photo |
 |------------------|---------------|
 | DJ DREAMS | `DJ_Dreams2_nobg.png` |
-| DJ Alex Salserito | `DJ_SALSERITO_nobg.png` |
+| DJ ALEX SALSERITO | `DJ_SALSERITO_nobg.png` |
 | DJ MOJO | `DJ_Jean_Emile_nobg.png` |
 | DJ PHILIPPE | `DJ_PHILIPPE_nobg.png` |
 | DJ Jean-Mi | `DJ_JEAN-MICHELJPG_nobg.png` |
