@@ -1,7 +1,7 @@
 # Photos DJs — Spring Break Latino Corsica 2026
 **Répertoire :** `/SBL 2026/DJ_PHOTO/`  
 **Utilisation :** Photos des DJs pour le tombi festivaliers (`PLANNING/Tombi_DJs_SBL2026.html`)  
-**Dernière mise à jour :** 13 mai 2026 (v12)
+**Dernière mise à jour :** 16 mai 2026 (v14)
 
 ---
 
@@ -59,7 +59,9 @@ Aucune photo manquante — tous les 12 DJs sont couverts.
 |------|-----|
 | **Trombinoscope** | https://jmfetienne-coder.github.io/sbl2026-djs/Tombi_DJs_SBL2026.html |
 | **Programme** | https://jmfetienne-coder.github.io/sbl2026-djs/Programme_DJs_SBL2026.html |
-| **Slideshow** | https://jmfetienne-coder.github.io/sbl2026-djs/Tombi_DJs_SBL2026_SLIDESHOW.html |
+| **Slideshow DJs** | https://jmfetienne-coder.github.io/sbl2026-djs/Tombi_DJs_SBL2026_SLIDESHOW.html |
+| **Taxi Dancers** | https://jmfetienne-coder.github.io/sbl2026-djs/Planning_TaxiDancers_SBL2026.html |
+| **Slideshow Taxis** | https://jmfetienne-coder.github.io/sbl2026-djs/TaxiDancers_SBL2026_SLIDESHOW.html |
 
 **Dépôt GitHub :** https://github.com/jmfetienne-coder/sbl2026-djs
 
@@ -177,6 +179,9 @@ Le QR code est masqué automatiquement sur mobile (`@media max-width: 750px`).
 | 9 mai 2026 | v11 — Audit planning : 13 corrections de cohérence musicale · Créneaux Pratiques Sociales 17h30-19h ajoutés (Jeu/Ven/Sam) |
 | 10 mai 2026 | v12 — Programme refonte complète : créneaux **1 heure** (au lieu de 2h) · **3 colonnes** (DOME / Kizomba Suave / Bachata Kizomba) · After Party 02h-04h restaurés (Playa + Park Place Kizomba) pour Mer/Jeu/Ven ; Samedi 02h-04h+ |
 | 13 mai 2026 | v13 — **DJ Jean-Emile renommé DJ MOJO** (tous fichiers) · **Salsarito → Salserito** (correction orthographe) · Styles DJ Alex Salserito reordonnés (Zouk/Konpa/Konpa Gouyad/Bachata) · **Logo SBL** (`Logo_SBL.jpg`) ajouté : watermark header 3 pages + bas de chaque carte DJ Tombi · Multiples corrections planning (voir README_Programme v14) |
+| 13 mai 2026 | v13b — **Planning Taxi Dancers** (`Planning_TaxiDancers_SBL2026.html`) + **Slideshow Taxi Dancers** (`TaxiDancers_SBL2026_SLIDESHOW.html`) créés · 20 Taxi Dancers (10 Cubanos + 10 Mambos) · QR code · deploy.sh mis à jour |
+| 13 mai 2026 | v14 — **Photos Taxi Dancers harmonisées** : 20 portraits recadrés à 600×800 px (resize cover + crop centré haut, UnsharpMask léger) · Backup originaux conservé localement · Placeholder silhouette pour FERNANDO |
+| 16 mai 2026 | v15 — Corrections Programme DJs v15 (Vendredi DOME 21h-23h fermé · Samedi 01h-02h DOME : DREAMS→CYCY) |
 
 ---
 

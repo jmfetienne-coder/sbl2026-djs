@@ -174,6 +174,8 @@ La page est liée aux autres pages SBL 2026 via la barre de navigation :
 | 13 mai 2026 | v1 | Création — 4 soirées × 5 créneaux, 10 Cubanos + 10 Mambos, bracelet fluo, DJs SBL 2026, navigation commune |
 | 13 mai 2026 | v2 | QR code (qrcode.js) pointant sur l'URL GitHub Pages · Logo SBL agrandi (110 px, opacité 85 %) · Intégration dans le dépôt `sbl2026-djs` · Mise en ligne GitHub Pages |
 | 13 mai 2026 | v3 | SCÈNE → DÔME (27 occurrences) · Liens nav activés (GitHub Pages absolus en local, relatifs en ligne) |
+| 13 mai 2026 | v4 | **Slideshow Taxi Dancers** (`TaxiDancers_SBL2026_SLIDESHOW.html`) créé — 20 slides (Cubanos jaune, Mambos violet), Ken Burns, animations, bracelet fluo, navigation 5 onglets |
+| 16 mai 2026 | v5 | **Photos harmonisées** — 20 portraits recadrés à 600×800 px (resize cover, crop centré haut 15%, UnsharpMask) · Backup originaux dans `TAXI CUBANOS_originaux/` et `TAXI MAMBOS_originaux/` · Placeholder silhouette pour FERNANDO (icône originale 95×78 px inutilisable) |
 
 ---
 
